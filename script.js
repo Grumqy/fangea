@@ -1,3 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#map-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.5s ease;
+}
+3. Plik JavaScript (script.js):
+
+javascript
+Copy code
 document.addEventListener('DOMContentLoaded', function () {
     const mapContainer = document.getElementById('map-container');
     const map = document.getElementById('map');
@@ -9,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     mapContainer.addEventListener('mousedown', (e) => {
         isDragging = true;
+        map.style.cursor = 'grabbing';
         startDrag = { x: e.clientX, y: e.clientY };
         startTransform = { x: currentTranslate.x, y: currentTranslate.y };
     });
@@ -26,7 +51,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.addEventListener('mouseup', () => {
-        isDragging = false;
+        if (isDragging) {
+            isDragging = false;
+            map.style.cursor = 'grab';
+        }
     });
 
     mapContainer.addEventListener('wheel', (e) => {
