@@ -3,45 +3,41 @@ document.addEventListener('DOMContentLoaded', function () {
     const map = document.getElementById('map');
 
     let isDragging = false;
-    let startDrag = { x: 0, y: 0 };
-    let startTransform = { x: 0, y: 0 };
+    let startPosition = { x: 0, y: 0 };
+    let currentTranslate = { x: 0, y: 0 };
     let scale = 1;
 
     mapContainer.addEventListener('mousedown', (e) => {
         isDragging = true;
-        map.style.cursor = 'grabbing';
-        startDrag = { x: e.clientX, y: e.clientY };
-        startTransform = { x: currentTranslate.x, y: currentTranslate.y };
+        startPosition = { x: e.clientX, y: e.clientY };
     });
 
-    document.addEventListener('mousemove', (e) => {
+    mapContainer.addEventListener('mousemove', (e) => {
         if (isDragging) {
-            const deltaX = e.clientX - startDrag.x;
-            const deltaY = e.clientY - startDrag.y;
+            const deltaX = e.clientX - startPosition.x;
+            const deltaY = e.clientY - startPosition.y;
 
-            currentTranslate.x = startTransform.x + deltaX / scale;
-            currentTranslate.y = startTransform.y + deltaY / scale;
+            currentTranslate.x += deltaX;
+            currentTranslate.y += deltaY;
 
             updateMapTransform();
+            
+            startPosition = { x: e.clientX, y: e.clientY };
         }
     });
 
-    document.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
-            map.style.cursor = 'grab';
-        }
+    mapContainer.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    mapContainer.addEventListener('mouseleave', () => {
+        isDragging = false;
     });
 
     mapContainer.addEventListener('wheel', (e) => {
-        const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1;
-        const offsetX = e.clientX - mapContainer.getBoundingClientRect().left;
-        const offsetY = e.clientY - mapContainer.getBoundingClientRect().top;
+        const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1; // Przybliżanie i oddalanie
 
         scale *= scaleFactor;
-
-        currentTranslate.x = offsetX - (offsetX - currentTranslate.x) * scaleFactor;
-        currentTranslate.y = offsetY - (offsetY - currentTranslate.y) * scaleFactor;
 
         updateMapTransform();
     });
@@ -49,22 +45,4 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateMapTransform() {
         map.style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px) scale(${scale})`;
     }
-
-    mapContainer.addEventListener('mousemove', (e) => {
-        if (!isDragging) {
-            const rect = map.getBoundingClientRect();
-            const offsetX = e.clientX - rect.left;
-            const offsetY = e.clientY - rect.top;
-
-            const scaleRatio = scale - 1; // Ustalamy stosunek przybliżenia
-
-            const scaledOffsetX = offsetX * scaleRatio;
-            const scaledOffsetY = offsetY * scaleRatio;
-
-            currentTranslate.x -= scaledOffsetX / scale;
-            currentTranslate.y -= scaledOffsetY / scale;
-
-            updateMapTransform();
-        }
-    });
 });
