@@ -1,7 +1,3 @@
-3. Plik JavaScript (script.js):
-
-javascript
-Copy code
 document.addEventListener('DOMContentLoaded', function () {
     const mapContainer = document.getElementById('map-container');
     const map = document.getElementById('map');
