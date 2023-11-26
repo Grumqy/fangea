@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twoja Mapa</title>
+    <title>Przeglądarka Grafiki Wektorowej</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="map-container">
-        <!-- Tutaj wstaw swoją własną mapę wektorową -->
-        <img id="map" src="fangea_mapa.svg" alt="Twoja Mapa">
+    <div id="canvas-container">
+        <svg id="vector-graphic" width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="fangea_mapa.svg"></use>
+        </svg>
     </div>
 
     <script src="script.js"></script>
