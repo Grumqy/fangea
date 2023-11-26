@@ -9,10 +9,13 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #map {
     width: 100%;
     height: 100%;
-    transition: transform 0.5s ease; /* Dodano efekt przejścia dla płynniejszej animacji */
+    transition: transform 0.5s ease;
 }
