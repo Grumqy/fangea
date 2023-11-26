@@ -1,17 +1,18 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Zapobiega pojawianiu się pasków przewijania */
+    overflow: hidden;
 }
 
 #map-container {
-    position: relative;
-    width: 100vw; /* 100% szerokości okna przeglądarki */
-    height: 100vh; /* 100% wysokości okna przeglądarki */
-    overflow: hidden; /* Zapobiega pojawianiu się pasków przewijania w #map-container */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 #map {
-    width: 100%; /* 100% szerokości #map-container */
-    height: 100%; /* 100% wysokości #map-container */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease; /* Dodano efekt przejścia dla płynniejszej animacji */
 }
