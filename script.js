@@ -49,4 +49,22 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateMapTransform() {
         map.style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px) scale(${scale})`;
     }
+
+    mapContainer.addEventListener('mousemove', (e) => {
+        if (!isDragging) {
+            const rect = map.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const offsetY = e.clientY - rect.top;
+
+            const scaleRatio = scale - 1; // Ustalamy stosunek przybliżenia
+
+            const scaledOffsetX = offsetX * scaleRatio;
+            const scaledOffsetY = offsetY * scaleRatio;
+
+            currentTranslate.x -= scaledOffsetX;
+            currentTranslate.y -= scaledOffsetY;
+
+            updateMapTransform();
+        }
+    });
 });
