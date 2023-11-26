@@ -1,42 +1,48 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Miarka punktowa
-    const marker = document.getElementById('marker');
-    
-    // Skala
-    const scaleValue = document.getElementById('scale-value');
-    
-    // Warstwy
-    const layer1 = document.getElementById('layer1');
-    const layer2 = document.getElementById('layer2');
-    // Dodaj więcej warstw według potrzeb
+    const mapContainer = document.getElementById('map-container');
+    const map = document.getElementById('map');
 
-    // Długość w pikselach, którą reprezentuje 1 km na mapie
-    const pixelsPerKm = 10;
+    let isDragging = false;
+    let startPosition = { x: 0, y: 0 };
+    let currentTranslate = { x: 0, y: 0 };
+    let scale = 1;
 
-    // Ustawienia początkowe miarki punktowej
-    let markerPosition = { x: 100, y: 100 }; // W pikselach
+    mapContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startPosition = { x: e.clientX, y: e.clientY };
+    });
 
-    // Ustawienia początkowe skali
-    let scale = 0;
+    mapContainer.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            const deltaX = e.clientX - startPosition.x;
+            const deltaY = e.clientY - startPosition.y;
 
-    // Funkcja do aktualizacji miarki punktowej i skali
-    function updateMap() {
-        marker.style.left = markerPosition.x + 'px';
-        marker.style.top = markerPosition.y + 'px';
-        scaleValue.textContent = scale.toFixed(2);
+            currentTranslate.x += deltaX;
+            currentTranslate.y += deltaY;
+
+            updateMapTransform();
+            
+            startPosition = { x: e.clientX, y: e.clientY };
+        }
+    });
+
+    mapContainer.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    mapContainer.addEventListener('mouseleave', () => {
+        isDragging = false;
+    });
+
+    mapContainer.addEventListener('wheel', (e) => {
+        const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1; // Przybliżanie i oddalanie
+
+        scale *= scaleFactor;
+
+        updateMapTransform();
+    });
+
+    function updateMapTransform() {
+        map.style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px) scale(${scale})`;
     }
-
-    // Funkcja do obsługi zmiany warstw
-    function updateLayers() {
-        // Dodaj kod do obsługi warstw
-    }
-
-    // Nasłuchuj zmian w warstwach
-    layer1.addEventListener('change', updateLayers);
-    layer2.addEventListener('change', updateLayers);
-    // Dodaj więcej nasłuchiwaczy warstw według potrzeb
-
-    // Wywołaj funkcję aktualizacji przy załadowaniu strony
-    updateMap();
-    updateLayers();
 });
