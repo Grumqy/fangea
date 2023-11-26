@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const deltaX = e.clientX - startDrag.x;
             const deltaY = e.clientY - startDrag.y;
 
-            currentTranslate.x = startTransform.x + deltaX;
-            currentTranslate.y = startTransform.y + deltaY;
+            currentTranslate.x = startTransform.x + deltaX / scale;
+            currentTranslate.y = startTransform.y + deltaY / scale;
 
             updateMapTransform();
         }
@@ -56,13 +56,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const offsetX = e.clientX - rect.left;
             const offsetY = e.clientY - rect.top;
 
-            const scaleRatio = scale - 10000; // Ustalamy stosunek przybliżenia
+            const scaleRatio = scale - 1; // Ustalamy stosunek przybliżenia
 
             const scaledOffsetX = offsetX * scaleRatio;
             const scaledOffsetY = offsetY * scaleRatio;
 
-            currentTranslate.x -= scaledOffsetX;
-            currentTranslate.y -= scaledOffsetY;
+            currentTranslate.x -= scaledOffsetX / scale;
+            currentTranslate.y -= scaledOffsetY / scale;
 
             updateMapTransform();
         }
