@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         startPosition = { x: e.clientX, y: e.clientY };
     });
 
-    mapContainer.addEventListener('mousemove', (e) => {
+    document.addEventListener('mousemove', (e) => {
         if (isDragging) {
             const deltaX = e.clientX - startPosition.x;
             const deltaY = e.clientY - startPosition.y;
@@ -21,21 +21,17 @@ document.addEventListener('DOMContentLoaded', function () {
             currentTranslate.y += deltaY;
 
             updateMapTransform();
-            
+
             startPosition = { x: e.clientX, y: e.clientY };
         }
     });
 
-    mapContainer.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-
-    mapContainer.addEventListener('mouseleave', () => {
+    document.addEventListener('mouseup', () => {
         isDragging = false;
     });
 
     mapContainer.addEventListener('wheel', (e) => {
-        const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1; // Przybliżanie i oddalanie
+        const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1;
 
         scale *= scaleFactor;
 
