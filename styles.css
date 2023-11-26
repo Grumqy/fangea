@@ -1,18 +1,13 @@
 body {
     margin: 0;
-    padding: 0;
     overflow: hidden;
 }
 
-#map-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+#canvas-container {
     overflow: hidden;
+    cursor: grab;
 }
 
-#map {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease; /* Dodano efekt przejścia dla płynniejszej animacji */
+#vector-graphic {
+    cursor: grab;
 }
