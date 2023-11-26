@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const offsetX = e.clientX - rect.left;
             const offsetY = e.clientY - rect.top;
 
-            const scaleRatio = scale - 1; // Ustalamy stosunek przybliżenia
+            const scaleRatio = scale - 100; // Ustalamy stosunek przybliżenia
 
             const scaledOffsetX = offsetX * scaleRatio;
             const scaledOffsetY = offsetY * scaleRatio;
