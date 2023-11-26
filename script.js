@@ -1,48 +1,40 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const mapContainer = document.getElementById('map-container');
-    const map = document.getElementById('map');
+    const canvasContainer = document.getElementById('canvas-container');
+    const vectorGraphic = document.getElementById('vector-graphic');
 
     let isDragging = false;
-    let startPosition = { x: 0, y: 0 };
-    let currentTranslate = { x: 0, y: 0 };
+    let startX, startY, translateX = 0, translateY = 0;
     let scale = 1;
 
-    mapContainer.addEventListener('mousedown', (e) => {
+    canvasContainer.addEventListener('mousedown', (e) => {
         isDragging = true;
-        startPosition = { x: e.clientX, y: e.clientY };
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+        canvasContainer.style.cursor = 'grabbing';
     });
 
-    mapContainer.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-            const deltaX = e.clientX - startPosition.x;
-            const deltaY = e.clientY - startPosition.y;
-
-            currentTranslate.x += deltaX;
-            currentTranslate.y += deltaY;
-
-            updateMapTransform();
-            
-            startPosition = { x: e.clientX, y: e.clientY };
-        }
-    });
-
-    mapContainer.addEventListener('mouseup', () => {
+    document.addEventListener('mouseup', () => {
         isDragging = false;
+        canvasContainer.style.cursor = 'grab';
     });
 
-    mapContainer.addEventListener('mouseleave', () => {
-        isDragging = false;
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        applyTransform();
     });
 
-    mapContainer.addEventListener('wheel', (e) => {
-        const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1; // Przybliżanie i oddalanie
+    canvasContainer.addEventListener('wheel', (e) => {
+        // Obsługa przybliżania i oddalania za pomocą kółka myszy
+        const wheelDelta = e.deltaY > 0 ? 1.1 : 0.9; // Domyślna wartość
 
-        scale *= scaleFactor;
-
-        updateMapTransform();
+        scale *= wheelDelta;
+        applyTransform();
     });
 
-    function updateMapTransform() {
-        map.style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px) scale(${scale})`;
+    function applyTransform() {
+        // Zastosowanie przekształceń CSS do grafiki wektorowej
+        vectorGraphic.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
     }
 });
