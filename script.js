@@ -3,26 +3,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const map = document.getElementById('map');
 
     let isDragging = false;
-    let startPosition = { x: 0, y: 0 };
-    let currentTranslate = { x: 0, y: 0 };
+    let startDrag = { x: 0, y: 0 };
+    let startTransform = { x: 0, y: 0 };
     let scale = 1;
 
     mapContainer.addEventListener('mousedown', (e) => {
         isDragging = true;
-        startPosition = { x: e.clientX, y: e.clientY };
+        startDrag = { x: e.clientX, y: e.clientY };
+        startTransform = { x: currentTranslate.x, y: currentTranslate.y };
     });
 
     document.addEventListener('mousemove', (e) => {
         if (isDragging) {
-            const deltaX = e.clientX - startPosition.x;
-            const deltaY = e.clientY - startPosition.y;
+            const deltaX = e.clientX - startDrag.x;
+            const deltaY = e.clientY - startDrag.y;
 
-            currentTranslate.x += deltaX;
-            currentTranslate.y += deltaY;
+            currentTranslate.x = startTransform.x + deltaX;
+            currentTranslate.y = startTransform.y + deltaY;
 
             updateMapTransform();
-
-            startPosition = { x: e.clientX, y: e.clientY };
         }
     });
 
@@ -32,8 +31,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     mapContainer.addEventListener('wheel', (e) => {
         const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1;
+        const offsetX = e.clientX - mapContainer.getBoundingClientRect().left;
+        const offsetY = e.clientY - mapContainer.getBoundingClientRect().top;
 
         scale *= scaleFactor;
+
+        currentTranslate.x = offsetX - (offsetX - currentTranslate.x) * scaleFactor;
+        currentTranslate.y = offsetY - (offsetY - currentTranslate.y) * scaleFactor;
 
         updateMapTransform();
     });
