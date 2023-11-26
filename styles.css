@@ -1,31 +1,17 @@
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Zapobiega pojawianiu się pasków przewijania */
 }
 
 #map-container {
     position: relative;
+    width: 100vw; /* 100% szerokości okna przeglądarki */
+    height: 100vh; /* 100% wysokości okna przeglądarki */
+    overflow: hidden; /* Zapobiega pojawianiu się pasków przewijania w #map-container */
 }
 
-#marker {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#scale {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: white;
-}
-
-#layer-controls {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: white;
+#map {
+    width: 100%; /* 100% szerokości #map-container */
+    height: 100%; /* 100% wysokości #map-container */
 }
