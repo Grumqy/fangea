@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Ogranicz przybliżenie i oddalenie
-        if (scale > 10) {
-            scale = 10;
+        if (scale > 1000) {
+            scale = 1000;
         } else if (scale < 0.2) {
             scale = 0.2;
         }
