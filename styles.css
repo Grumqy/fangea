@@ -1,13 +1,1 @@
-body {
-    margin: 0;
-    overflow: hidden;
-}
 
-#canvas-container {
-    overflow: hidden;
-    cursor: grab;
-}
-
-#vector-graphic {
-    cursor: grab;
-}
