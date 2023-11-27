@@ -1,40 +1,70 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const canvasContainer = document.getElementById('canvas-container');
-    const vectorGraphic = document.getElementById('vector-graphic');
+    const map = document.getElementById('map');
 
     let isDragging = false;
-    let startX, startY, translateX = 0, translateY = 0;
-    let scale = 1;
+    let startX, startY, translateX = 0, translateY = 0, prevX, prevY, scale = 1;
 
-    canvasContainer.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.clientX - translateX;
-        startY = e.clientY - translateY;
-        canvasContainer.style.cursor = 'grabbing';
+    function toggleDragging() {
+        isDragging = !isDragging;
+    }
+
+    document.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return; // Ignoruj inne przyciski niż lewy
+        if (!isDragging) {
+            toggleDragging();
+            startX = e.clientX - map.offsetLeft;
+            startY = e.clientY - map.offsetTop;
+            prevX = e.clientX;
+            prevY = e.clientY;
+        }
     });
 
     document.addEventListener('mouseup', () => {
-        isDragging = false;
-        canvasContainer.style.cursor = 'grab';
+        if (isDragging) {
+            toggleDragging();
+        }
     });
 
     document.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
-        translateX = e.clientX - startX;
-        translateY = e.clientY - startY;
-        applyTransform();
+
+        const offsetX = e.clientX - prevX;
+        const offsetY = e.clientY - prevY;
+
+        translateX += offsetX;
+        translateY += offsetY;
+
+        map.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+
+        prevX = e.clientX;
+        prevY = e.clientY;
     });
 
-    canvasContainer.addEventListener('wheel', (e) => {
-        // Obsługa przybliżania i oddalania za pomocą kółka myszy
-        const wheelDelta = e.deltaY > 0 ? 1.1 : 0.9; // Domyślna wartość
+    map.addEventListener('wheel', (e) => {
+        const scaleFactor = 1.1;
+        const deltaY = e.deltaY;
 
-        scale *= wheelDelta;
-        applyTransform();
+        if (deltaY < 0) {
+            scale *= scaleFactor;
+        } else {
+            scale /= scaleFactor;
+        }
+
+        // Ogranicz przybliżenie i oddalenie
+        if (scale > 10) {
+            scale = 10;
+        } else if (scale < 0.2) {
+            scale = 0.2;
+        }
+
+        map.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+
+        e.preventDefault(); // Zapobiega domyślnemu zachowaniu zooma przeglądarki
     });
 
-    function applyTransform() {
-        // Zastosowanie przekształceń CSS do grafiki wektorowej
-        vectorGraphic.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-    }
+    document.addEventListener('mouseleave', () => {
+        if (isDragging) {
+            toggleDragging();
+        }
+    });
 });
