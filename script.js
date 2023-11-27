@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
     const map = document.getElementById('map');
 
-    // Dodaj atrybut draggable do mapy
     map.draggable = false;
 
     let isDragging = false;
     let startX, startY, translateX = 0, translateY = 0, prevX, prevY, scale = 1;
+    const sensitivity = 2;
 
     document.addEventListener('mousedown', (e) => {
-        if (e.button !== 0 || e.target !== map) return; // Ignoruj inne przyciski niż lewy i elementy inne niż mapa
+        if (e.button !== 0 || e.target !== map) return;
 
         isDragging = true;
         startX = e.clientX - map.offsetLeft;
@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const offsetX = (e.clientX - prevX) / scale;
-        const offsetY = (e.clientY - prevY) / scale;
+        const offsetX = (e.clientX - prevX) / scale * sensitivity;
+        const offsetY = (e.clientY - prevY) / scale * sensitivity;
 
         translateX += offsetX;
         translateY += offsetY;
@@ -56,8 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
             scale /= scaleFactor;
         }
 
-        if (scale > 20) {
-            scale = 20;
+        // Zwiększ maksymalne przybliżenie trzykrotnie
+        if (scale > 120) {
+            scale = 120;
         } else if (scale < 0.2) {
             scale = 0.2;
         }
@@ -74,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Przechwytuj zdarzenie dragstart, aby zablokować przeciąganie obrazka do innej karty
     map.addEventListener('dragstart', (e) => {
         e.preventDefault();
     });
