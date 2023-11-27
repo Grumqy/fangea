@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let isDragging = false;
     let startX, startY, translateX = 0, translateY = 0, prevX, prevY, scale = 1;
-    const sensitivity = 2;
+    const sensitivity = 1.5; // Zmniejszona czułość
 
     document.addEventListener('mousedown', (e) => {
         if (e.button !== 0 || e.target !== map) return;
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             scale /= scaleFactor;
         }
 
-        // Zwiększ maksymalne przybliżenie trzykrotnie
+        // Ogranicz maksymalne i minimalne przybliżenie
         if (scale > 120) {
             scale = 120;
         } else if (scale < 0.2) {
