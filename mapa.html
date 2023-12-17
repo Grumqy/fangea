@@ -99,7 +99,17 @@
             <a href="#">.</a>
         </nav>
     </header>
+    <!-- Dodany skrypt JavaScript -->
+    <script>
+        // Sprawdź, czy aktualny URL kończy się na ".html"
+        if (window.location.pathname.endsWith('.html')) {
+            // Utwórz nowy URL bez rozszerzenia ".html"
+            var newURL = window.location.pathname.slice(0, -5);
 
+            // Użyj replaceState, aby zmienić URL bez przeładowywania strony
+            window.history.replaceState({}, document.title, newURL);
+        }
+    </script>
     <body style="background-color:rgb(152, 198, 218);">
         <img id="map" src="fangea_mapa.svg" alt="Mapa Fangei">
         <script src="script.js"></script>
