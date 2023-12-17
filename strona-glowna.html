@@ -122,10 +122,21 @@
             <a href="#"> </a>
             <a href="#">.</a>
         </nav>
-    </header>
+  </header>
 
-    <body>
-        <!-- Dodana sekcja z grafiką -->
+    <!-- Dodany skrypt JavaScript -->
+    <script>
+        // Sprawdź, czy aktualny URL kończy się na ".html"
+        if (window.location.pathname.endsWith('.html')) {
+            // Utwórz nowy URL bez rozszerzenia ".html"
+            var newURL = window.location.pathname.slice(0, -5);
+
+            // Użyj replaceState, aby zmienić URL bez przeładowywania strony
+            window.history.replaceState({}, document.title, newURL);
+        }
+    </script>
+
+    <!-- Dodana sekcja z grafiką -->
         <div id="centered-image">
             <img src="fangeaiinnekontynenty.png" alt="Centered Image">
         </div>
