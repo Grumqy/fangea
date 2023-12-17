@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <link rel="icon" href="fangeapage.png" type="image/png">
@@ -12,6 +12,11 @@
             margin: 0;
             overflow: hidden;
             font-family: 'Montserrat', sans-serif;
+            background-image: url('tlo.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
         }
 
         header {
@@ -81,6 +86,25 @@
             height: 100vh;
             cursor: grab;
         }
+
+        /* Nowy styl dla sekcji z grafiką */
+        #centered-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: fadeIn 2s; /* Dodana animacja fadeIn */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
@@ -88,20 +112,22 @@
     <header>
         <div style="display: flex; align-items: center;">
             <img src="your-logo.svg" alt="Logo" style="max-height: 40px; margin-right: 10px;">
-            <div id="pageholder-caption" style="font-size: 24px; font-weight: 600; white-space: nowrap;">FANGEA I INNE KONTYNENTY</div>
-        </div>      
+            <div id="pageholder-caption" style="font-size: 24px; font-weight: 600; white-space: nowrap;">Fangea i inne kontynenty</div>
+        </div>
         <nav>
-            <a href="index.html">Strona główna</a>
+            <a href="strona-glowna.html">Strona główna</a>
             <a href="mapa.html">Mapa</a>
             <a href="#">Wiki</a>
             <a href="#">Linki</a>
-            <a href="#"> </a>
             <a href="#">.</a>
         </nav>
     </header>
 
-    <body style="background-color:rgb(152, 198, 218);">
-        <!-- Pozostawione miejsce na treść strony głównej -->
+    <body>
+        <!-- Dodana sekcja z grafiką -->
+        <div id="centered-image">
+            <img src="fangeaiinnekontynenty.png" alt="Centered Image">
+        </div>
     </body>
 </body>
 
