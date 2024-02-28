@@ -27,22 +27,21 @@
     }
 
     #back-button {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background-color: white;
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      z-index: 2; /* Set a higher z-index for the button */
-    }
+  position: absolute;
+  bottom: -110px; /* Zmniejsz wartość bottom o 4 razy */
+  right: 10px;
+  background-color: transparent;
+  z-index: 2;
+}
   </style>
 </head>
 
 <body>
   <div id="map"></div>
   <div id="back-button">
-    <a href="strona-glowna.html" style="text-decoration: none; color: #333;">⤷ Powrót do strony głównej</a>
+    <a href="strona-glowna.html" style="text-decoration: none; color: #333;">
+      <img src="powrot.svg" alt="⤷ Powrót do strony głównej" style="width: 300px; height: 300px;"> <!-- Zmiana szerokości i wysokości -->
+    </a>
   </div>
 
   <script>
