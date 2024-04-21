@@ -33,6 +33,7 @@ function simulateSearchResults(query) {
   const articles = [
     { title: "Rzeczpospolita Pampersia", url: "https://grumqy.github.io/fangea/wiki/pampersia" },
     { title: "Cartland", url: "https://grumqy.github.io/fangea/wiki/cartland" },
+    { title: "Joanna „Disco Babushka” Świtek", url: "https://grumqy.github.io/fangea/wiki/disco_babushka" },
   ];
 
   const filteredArticles = articles.filter((article) =>
