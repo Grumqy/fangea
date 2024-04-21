@@ -1,7 +1,7 @@
 document.querySelector("header#pageheader").innerHTML = `
 <nav>
             <section id="pageheader-logo">
-                <img src="/grumqy/fangea/local/.svg" alt="Logo"/>
+                <img src="/fangea/local/.svg" alt="Logo"/>
                 <span>Fangea i inne kontynenty</span>
             </section>
             <section id="pageheader-search">
