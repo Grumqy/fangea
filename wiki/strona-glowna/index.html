@@ -13,20 +13,35 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/fangea/style.css" />
     <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
-    <style></style>
+    <style>
+        @keyframes logo-entrance {
+            from{
+            transform: translate(-50%, -50%) scale(2);
+            filter: blur(3px);
+            opacity: 0;
+            }
+            to{
+            transform: translate(-50%, -50%) scale(1);
+            filter: blur(0);
+            opacity: 1;      
+            }
+        }
+
+    </style>
 </head>
 
 <body>
     <header id="pageheader">
     </header>
-    <img src="https://cdn.discordapp.com/attachments/899392657653121034/899392760715563058/image0-14-1.gif?ex=662eb0c8&is=661c3bc8&hm=56e35ea5c9291c982f3046bc86945319600025c18cd744e989c7ce41e69b023e&" alt="olek" width="500" height="500">
-    <img src="https://cdn.discordapp.com/attachments/899392657653121034/899392760715563058/image0-14-1.gif?ex=662eb0c8&is=661c3bc8&hm=56e35ea5c9291c982f3046bc86945319600025c18cd744e989c7ce41e69b023e&" alt="olek" width="500" height="500">
-    <img src="https://cdn.discordapp.com/attachments/899392657653121034/899392760715563058/image0-14-1.gif?ex=662eb0c8&is=661c3bc8&hm=56e35ea5c9291c982f3046bc86945319600025c18cd744e989c7ce41e69b023e&" alt="olek" width="500" height="500">
-    <img src="https://cdn.discordapp.com/attachments/899392657653121034/899392760715563058/image0-14-1.gif?ex=662eb0c8&is=661c3bc8&hm=56e35ea5c9291c982f3046bc86945319600025c18cd744e989c7ce41e69b023e&" alt="olek" width="500" height="500">
-    <img src="https://cdn.discordapp.com/attachments/899392657653121034/899392760715563058/image0-14-1.gif?ex=662eb0c8&is=661c3bc8&hm=56e35ea5c9291c982f3046bc86945319600025c18cd744e989c7ce41e69b023e&" alt="olek" width="500" height="500">
-    <img src="https://cdn.discordapp.com/attachments/899392657653121034/899392760715563058/image0-14-1.gif?ex=662eb0c8&is=661c3bc8&hm=56e35ea5c9291c982f3046bc86945319600025c18cd744e989c7ce41e69b023e&" alt="olek" width="500" height="500">
+    <main style="height: calc(100vh - 80px); overflow: hidden; position: relative;">
+        <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; justify-content: center; align-items: center; flex-direction: column; animation: logo-entrance 0.5s ease-in-out alternate;">
+            <img width="100%" src="logo.svg">
+            <div style="font-size: 3rem; font-weight: 700; color: #ecf0f1; white-space: nowrap;">Fangea</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: #ecf0f1; white-space: nowrap;">& inne kontynenty</div>
+            </div>
+        <video autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="https://cdn.discordapp.com/attachments/793511524307042395/1232051836907814984/background.mp4?ex=66280d30&is=6626bbb0&hm=c84e56bbc20e7c1bdf0c4f0c5255340a7cb994c1832d32d6b990ad6b4076d963&">
+        </video>
+    </main>
     <script src="/fangea/pageheader.js"></script>
-    <script src="/fangea/article.js"></script>
 </body>
-
-</html>
