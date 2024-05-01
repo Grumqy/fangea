@@ -37,7 +37,6 @@ function simulateSearchResults(query) {
     { title: "Richteryzm", url: "https://grumqy.github.io/fangea/wiki/richteryzm" },
     { title: "Ajjbdalizm (religia)", url: "https://grumqy.github.io/fangea/wiki/ajjbdalizm_religia" },
   ];
-console.log(articles);
 
   const filteredArticles = articles.filter((article) =>
     article.title.toLowerCase().includes(query)
