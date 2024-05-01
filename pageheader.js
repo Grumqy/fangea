@@ -35,6 +35,7 @@ function simulateSearchResults(query) {
     { title: "Cartland", url: "https://grumqy.github.io/fangea/wiki/cartland" },
     { title: "Joanna „Disco Babushka” Świtek", url: "https://grumqy.github.io/fangea/wiki/disco_babushka" },
     { title: "Ajjbdalizm (religia)", url: "https://grumqy.github.io/fangea/wiki/ajjbdalizm_religia" },
+    { title: "Richteryzm", url: "https://grumqy.github.io/fangea/wiki/richteryzm" },
   ];
 
   const filteredArticles = articles.filter((article) =>
