@@ -34,8 +34,8 @@ function simulateSearchResults(query) {
     { title: "Rzeczpospolita Pampersia", url: "https://grumqy.github.io/fangea/wiki/pampersia" },
     { title: "Cartland", url: "https://grumqy.github.io/fangea/wiki/cartland" },
     { title: "Joanna „Disco Babushka” Świtek", url: "https://grumqy.github.io/fangea/wiki/disco_babushka" },
-    { title: "Ajjbdalizm (religia)", url: "https://grumqy.github.io/fangea/wiki/ajjbdalizm_religia" },
     { title: "Richteryzm", url: "https://grumqy.github.io/fangea/wiki/richteryzm" },
+    { title: "Ajjbdalizm (religia)", url: "https://grumqy.github.io/fangea/wiki/ajjbdalizm_religia" },
   ];
 
   const filteredArticles = articles.filter((article) =>
