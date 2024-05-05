@@ -33,6 +33,7 @@ function simulateSearchResults(query) {
   const articles = [
     { title: "Rzeczpospolita Pampersia", url: "https://grumqy.github.io/fangea/wiki/pampersia" },
     { title: "Konfederacja Montecydyjska", url: "https://grumqy.github.io/fangea/wiki/montecydja" },
+    { title: "Wielka Republika Nadmorska", url: "https://grumqy.github.io/fangea/wiki/nadmorze" },
     { title: "Cartland", url: "https://grumqy.github.io/fangea/wiki/cartland" },
     { title: "Joanna „Disco Babushka” Świtek", url: "https://grumqy.github.io/fangea/wiki/disco_babushka" },
     { title: "Richteryzm", url: "https://grumqy.github.io/fangea/wiki/richteryzm" },
