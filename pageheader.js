@@ -12,8 +12,8 @@ document.querySelector("header#pageheader").innerHTML = `
             </section>
             <section id="pageheader-menu">
                 <ul>
-                    <li><a href="https://grumqy.github.io/fangea/wiki/strona-glowna"><i class="fa-solid fa-house"></i><span>Strona Główna</span></a></li>
-                    <li><a href="https://grumqy.github.io/fangea/mapa"><i class="fa-solid fa-map"></i><span>Mapa</span></a></li>
+                <li><a href="https://grumqy.github.io/fangea/mapa/"><i class="fa-solid fa-map"></i><span>Mapa</span></a></li>
+                <li><a href="https://grumqy.github.io/fangea/radio/stacje_radiowe/"><i class="fa-solid fa-radio"></i><span>Radio</span></a></li>
                  </ul>
             </section>
         </nav>`;
