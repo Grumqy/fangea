@@ -1,9 +1,11 @@
 document.querySelector("header#pageheader").innerHTML = `
 <nav>
+            <a href="https://grumqy.github.io/fangea/strona-glowna">
             <section id="pageheader-logo">
-                <img src="/fangea/local/logo.svg" alt="Logo"/>
+                <img src="your-logo.svg" alt="Logo"/>
                 <span>Fangea i inne kontynenty</span>
-            </section>
+                </section>
+            </a>
             <section id="pageheader-search">
                 <div id="search-container">
                     <input type="text" id="search-input" placeholder="Wyszukaj..." />
@@ -12,8 +14,8 @@ document.querySelector("header#pageheader").innerHTML = `
             </section>
             <section id="pageheader-menu">
                 <ul>
-                    <li><a href="https://grumqy.github.io/fangea/wiki/strona-glowna"><i class="fa-solid fa-house"></i><span>Strona Główna</span></a></li>
-                    <li><a href="https://grumqy.github.io/fangea/mapa"><i class="fa-solid fa-map"></i><span>Mapa</span></a></li>
+                <li><a href="https://grumqy.github.io/fangea/mapa.html"><i class="fa-solid fa-map"></i><span>Mapa</span></a></li>
+                    <li><a href="radio.html"><i class="fa-solid fa-radio"></i><span>Radio</span></a></li>
                  </ul>
             </section>
         </nav>`;
@@ -31,13 +33,12 @@ searchInput.addEventListener("input", function () {
 
 function simulateSearchResults(query) {
   const articles = [
-    { title: "Rzeczpospolita Pampersia", url: "https://grumqy.github.io/fangea/wiki/pampersia" },
-    { title: "Konfederacja Montecydyjska", url: "https://grumqy.github.io/fangea/wiki/montecydja" },
-    { title: "Wielka Republika Nadmorska", url: "https://grumqy.github.io/fangea/wiki/nadmorze" },
-    { title: "Cartland", url: "https://grumqy.github.io/fangea/wiki/cartland" },
-    { title: "Joanna „Disco Babushka” Świtek", url: "https://grumqy.github.io/fangea/wiki/disco_babushka" },
-    { title: "Richteryzm", url: "https://grumqy.github.io/fangea/wiki/richteryzm" },
-    { title: "Ajjbdalizm (religia)", url: "https://grumqy.github.io/fangea/wiki/ajjbdalizm_religia" },
+    { title: "ZARZYGANIEC", url: "https://kogama.fandom.com/wiki/Boxin" },
+    { title: "OBSRANIEC", url: "https://www.kogama.com" },
+    { title: "IZNOTIA", url: "https://www.kogama.com/profile/10956441/" },
+    { title: "DOBALEK", url: "https://www.kogama.com/profile/18337002/" },
+    { title: "DOBALEK 3", url: "https://www.kogama.com/profile/668664311/" },
+    { title: "KAMIENCIZKA", url: "https://www.kogama.com/profile/7024709/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
