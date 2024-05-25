@@ -33,12 +33,13 @@ searchInput.addEventListener("input", function () {
 
 function simulateSearchResults(query) {
   const articles = [
-    { title: "ZARZYGANIEC", url: "https://kogama.fandom.com/wiki/Boxin" },
-    { title: "OBSRANIEC", url: "https://www.kogama.com" },
-    { title: "IZNOTIA", url: "https://www.kogama.com/profile/10956441/" },
-    { title: "DOBALEK", url: "https://www.kogama.com/profile/18337002/" },
-    { title: "DOBALEK 3", url: "https://www.kogama.com/profile/668664311/" },
-    { title: "KAMIENCIZKA", url: "https://www.kogama.com/profile/7024709/" },
+    { title: "Rzeczpospolita Pampersia", url: "https://grumqy.github.io/fangea/wiki/pampersia" },
+    { title: "Konfederacja Montecydyjska", url: "https://grumqy.github.io/fangea/wiki/montecydja" },
+    { title: "Wielka Republika Nadmorska", url: "https://grumqy.github.io/fangea/wiki/nadmorze" },
+    { title: "Cartland", url: "https://grumqy.github.io/fangea/wiki/cartland" },
+    { title: "Joanna „Disco Babushka” Świtek", url: "https://grumqy.github.io/fangea/wiki/disco_babushka" },
+    { title: "Richteryzm", url: "https://grumqy.github.io/fangea/wiki/richteryzm" },
+    { title: "Ajjbdalizm (religia)", url: "https://grumqy.github.io/fangea/wiki/ajjbdalizm_religia" },
   ];
 
   const filteredArticles = articles.filter((article) =>
