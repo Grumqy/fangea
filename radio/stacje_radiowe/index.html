@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stacje Radiowe - Fangea i inne kontynenty</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header id="pageheader">
+    </header>
+    <main class="radio">
+    <div id="radio-nav">
+    <div>Filtruj wg lokalizacji</div>
+    <ul>
+        <button onclick="radio_filter('all');"><li>wszystkie</li></button>
+        <button onclick="radio_filter('Pampersia');"><li><img class="icon small" src="https://i.ibb.co/VJnnkZD/image.png"> Pampersia</li></button>
+        <button onclick="radio_filter('WRN');"><li><img class="icon small" src="https://i.ibb.co/Gv9ttvP/image.png"> WRN</li></button>
+        <button onclick="radio_filter('USF');"><li><img class="icon small" src="https://i.ibb.co/9VkBtvM/image.png"> USF</li></button>
+    </ul>
+    </div>
+    <div id="radio-list">
+        <h1 id="radio-list-heading">Wszystkie stacje radiowe</h1>
+        <ul id="Pampersia">
+            <a href="https://grumqy.github.io/fangea/radio/sigma_radio/">
+                <li>
+                    <img src="https://i.ibb.co/pXXWq2z/sigma-radio.png">
+                    <span>Sigma Radio</span>
+                </li>  
+            </a>
+        </ul>
+        <ul id="WRN">
+        </ul>
+        <ul id="USF">
+        </ul>
+    </div>
+    </main>
+    <script>
+        function radio_filter(location){
+            let locations = document.querySelectorAll("#radio-list ul");
+            console.log(locations);
+            if(location != 'all'){
+            for(i=0; i<locations.length; i++){
+            locations[i].style.display = "none";
+            }
+            document.getElementById(location).style.display = "flex";
+            document.getElementById("radio-list-heading").innerHTML = `Stacje radiowe w ${location}`;
+            }
+            else{
+            for(i=0; i<locations.length; i++){
+            locations[i].style.display = "flex";
+            document.getElementById("radio-list-heading").innerHTML = "Wszystkie stacje radiowe";
+            }
+            }
+        }
+
+    </script>
+    <script src="pageheader.js"></script>
+</body>
+
+</html>
