@@ -1,11 +1,9 @@
 document.querySelector("header#pageheader").innerHTML = `
 <nav>
-            <a href="https://grumqy.github.io/fangea/strona-glowna">
             <section id="pageheader-logo">
-                <img src="your-logo.svg" alt="Logo"/>
+                <img src="/fangea/local/logo.svg" alt="Logo"/>
                 <span>Fangea i inne kontynenty</span>
-                </section>
-            </a>
+            </section>
             <section id="pageheader-search">
                 <div id="search-container">
                     <input type="text" id="search-input" placeholder="Wyszukaj..." />
@@ -14,8 +12,8 @@ document.querySelector("header#pageheader").innerHTML = `
             </section>
             <section id="pageheader-menu">
                 <ul>
-                <li><a href="https://grumqy.github.io/fangea/mapa.html"><i class="fa-solid fa-map"></i><span>Mapa</span></a></li>
-                    <li><a href="radio.html"><i class="fa-solid fa-radio"></i><span>Radio</span></a></li>
+                    <li><a href="https://grumqy.github.io/fangea/wiki/strona-glowna"><i class="fa-solid fa-house"></i><span>Strona Główna</span></a></li>
+                    <li><a href="https://grumqy.github.io/fangea/mapa"><i class="fa-solid fa-map"></i><span>Mapa</span></a></li>
                  </ul>
             </section>
         </nav>`;
