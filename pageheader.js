@@ -5,6 +5,7 @@ document.querySelector("header#pageheader").innerHTML = `
                 <img src="/fangea/local/logo.svg" alt="Logo"/>
                 <span>Fangea i inne kontynenty</span>
             </section>
+            </a>
             <section id="pageheader-search">
                 <div id="search-container">
                     <input type="text" id="search-input" placeholder="Wyszukaj..." />
