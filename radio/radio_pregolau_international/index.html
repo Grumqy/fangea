@@ -27,9 +27,11 @@
 
             <h1>Radio Pregolau International</h1>
             <ul>
-                <li>Sraczucha</li>
+                <li>Pop</li>
+                <li>Electro</li>
+                <li>Rock</li>
             </ul>
-            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
+            <span>- NENA - Irgendwie  Irgendwo Irgendwann<br>- Peter Schilling - Major Tom<br> - IFA Wartburg - The free German youth</span>
         </div>
         <div id="radio-player-settings">
             <button onclick="toggleAudio()" id="toggle-button" class="play">
@@ -60,7 +62,7 @@
     </main>
     <script>
         
-        var audio = new Audio("AUDIO");
+        var audio = new Audio("https://s3.us-west-2.amazonaws.com/store.screenapp.io-production/vid/665335696b0c5b4a780bbd83/bfb65530-1b61-11ef-99bb-09197796174e.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASBMTALOAOP6V2K42%2F20240526%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240526T131727Z&X-Amz-Expires=14400&X-Amz-Signature=4c36bb9cd0808d270a5fc86faf3729d0f0325f36950d6e6b6e5a829b2d4d07e8&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22file.mp3%22%3B%20filename%2A%3D%20UTF-8%27%27AUDYCJA%2520RPI.mp3%3B");
         var toggleButton = document.getElementById("toggle-button");
         var initialVolume = 0.5;
         var audioInitialized = false;
