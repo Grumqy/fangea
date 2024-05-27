@@ -1,6 +1,6 @@
 document.querySelector("header#pageheader").innerHTML = `
 <nav>
-            <a href="https://grumqy.github.io/fangea/wiki/strona-glowna">
+            <a href="https://grumqy.github.io/fangea/">
             <section id="pageheader-logo">
                 <img src="/fangea/local/logo.svg" alt="Logo"/>
                 <span>Fangea i inne kontynenty</span>
