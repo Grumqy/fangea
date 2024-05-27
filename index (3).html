@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strona Główna - Fangea i inne kontynenty</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/fangea/style.css" />
+    <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
+    <style>
+        @keyframes logo-entrance {
+            from{
+            transform: translate(-50%, -50%) scale(2);
+            filter: blur(3px);
+            opacity: 0;
+            }
+            to{
+            transform: translate(-50%, -50%) scale(1);
+            filter: blur(0);
+            opacity: 1;      
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header id="pageheader">
+    </header>
+    <main style="height: calc(100vh - 80px); overflow: hidden; position: relative;">
+        <div style="position: absolute; left: 50%; top: 50%; z-index: 100; transform: translate(-50%, -50%); display: flex; justify-content: center; align-items: center; flex-direction: column; animation: logo-entrance 0.5s ease-in-out alternate;">
+            <img width="100%" src="/fangea/local/logo.svg">
+            <div style="font-size: 3rem; font-weight: 700; color: #ecf0f1; white-space: nowrap;">Fangea</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: #ecf0f1; white-space: nowrap;">& inne kontynenty</div>
+            </div>
+        <div style="background: rgba(0,17,46,1); width: 100%; height: 100%; position: absolute; left: 0; top: 0; opacity: 0.5; z-index: 50; mix-blend-mode:darken;"></div>
+        <video autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="z-index: 40;width: 100%; height: 100%; object-fit: cover;">
+            <source src="https://cdn.discordapp.com/attachments/793511524307042395/1232051836907814984/background.mp4?ex=66280d30&is=6626bbb0&hm=c84e56bbc20e7c1bdf0c4f0c5255340a7cb994c1832d32d6b990ad6b4076d963&">
+        </video>
+    </main>
+    <script src="/fangea/pageheader.js"></script>
+</body>
+
+</html>
