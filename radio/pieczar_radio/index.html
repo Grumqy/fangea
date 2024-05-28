@@ -24,8 +24,9 @@
     <img id="radio-logo" src="https://i.ibb.co/mJqCmL1/pieczar-radio.png">
     <div id="radio-data">
         <div id="radio-data-text">
-
-            <h1>Pieczar Radio</h1>
+            <div id="radio-name-container">
+                <h1>Pieczar Radio</h1>
+            </div>
             <ul>
                 <li>Sraczucha</li>
                 <li>Język Polski</li>
@@ -60,6 +61,11 @@
       </a>
     </main>
     <script>
+
+        let radio_station_name = document.querySelector(".radio-player-container #radio-player #radio-data #radio-data-text h1").innerHTML;
+        radio_station_name = `${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name}`;
+        document.querySelector(".radio-player-container #radio-player #radio-data #radio-data-text h1").innerHTML = radio_station_name;
+        console.log(radio_station_name);
         
         var audio = new Audio("https://s3.us-west-2.amazonaws.com/store.screenapp.io-production/vid/66535fa0f52cfa20c7ef8b5c/fc021650-1b7a-11ef-88d9-6d962567431d.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASBMTALOAOP6V2K42%2F20240526%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240526T161622Z&X-Amz-Expires=604800&X-Amz-Signature=e752b235a809730cf90eba31ef148db05f188e9b0fcd27927cd20a7a8667a784&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22file.mp4%22%3B%20filename*%3D%20UTF-8%27%27ARTYLERIJA%20%E2%80%90%20Wykonano%20za%20pomoc%C4%85%20Clipchamp.mp3%3B");
         var toggleButton = document.getElementById("toggle-button");
