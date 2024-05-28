@@ -24,8 +24,9 @@
     <img id="radio-logo" src="https://i.ibb.co/fXg1RZP/image.png">
     <div id="radio-data">
         <div id="radio-data-text">
-
-            <h1>Willington Non-St..</h1>
+            <div id="radio-name-container">
+                <h1>Willington Non-Stop Rock</h1>
+            </div>
             <ul>
                 <li>Rock</li>
                 <li>Język Angielski</li>
@@ -60,6 +61,11 @@
       </a>
     </main>
     <script>
+
+        let radio_station_name = document.querySelector(".radio-player-container #radio-player #radio-data #radio-data-text h1").innerHTML;
+        radio_station_name = `${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name}`;
+        document.querySelector(".radio-player-container #radio-player #radio-data #radio-data-text h1").innerHTML = radio_station_name;
+        console.log(radio_station_name);
         
         var audio = new Audio("AUDIO");
         var toggleButton = document.getElementById("toggle-button");
