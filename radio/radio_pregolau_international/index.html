@@ -24,8 +24,9 @@
     <img id="radio-logo" src="https://i.ibb.co/5v1qTqW/radio-pregolau.png">
     <div id="radio-data">
         <div id="radio-data-text">
-
-            <h1>Radio Pregolau Int...</h1>
+            <div id="radio-name-container">
+                <h1>Radio Pregolau International</h1>
+            </div>
             <ul>
                 <li>Pop</li>
                 <li>Electro</li>
@@ -62,6 +63,11 @@
       </a>
     </main>
     <script>
+
+        let radio_station_name = document.querySelector(".radio-player-container #radio-player #radio-data #radio-data-text h1").innerHTML;
+        radio_station_name = `${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name}`;
+        document.querySelector(".radio-player-container #radio-player #radio-data #radio-data-text h1").innerHTML = radio_station_name;
+        console.log(radio_station_name);
         
         var audio = new Audio("https://www.googleapis.com/drive/v3/files/1dM4CJn274UqaATBcxxeZPeFiH0FXf7TJ?alt=media&key=AIzaSyCbfLsPxDax4v_XY5AnZ30Ivk7Pv3Z6dU0");
         var toggleButton = document.getElementById("toggle-button");
