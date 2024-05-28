@@ -985,3 +985,8 @@ font-size: 3rem;
   justify-content: center;
 }
 }
+main #radio-nav ul li img{
+  display: inline-block;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
