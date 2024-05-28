@@ -24,8 +24,9 @@
     <img id="radio-logo" src="https://i.ibb.co/Jrrk1Dr/pop24.png">
     <div id="radio-data">
         <div id="radio-data-text">
-
-            <h1>Pop 24</h1>
+            <div id="radio-name-container">
+                <h1>Pop 24</h1>
+            </div>
             <ul>
                 <li>Pop</li>
                 <li>Język Niemiecki</li>
@@ -60,7 +61,12 @@
       </a>
     </main>
     <script>
-        
+
+        let radio_station_name = document.querySelector(".radio-player-container #radio-player #radio-data #radio-data-text h1").innerHTML;
+        radio_station_name = `${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name} ${radio_station_name}`;
+        document.querySelector(".radio-player-container #radio-player #radio-data #radio-data-text h1").innerHTML = radio_station_name;
+        console.log(radio_station_name);
+
         var audio = new Audio("https://www.googleapis.com/drive/v3/files/1ErfA_Tst9e2n6skkl_ff77yap7j5g-Hu?alt=media&key=AIzaSyCbfLsPxDax4v_XY5AnZ30Ivk7Pv3Z6dU0");
         var toggleButton = document.getElementById("toggle-button");
         var initialVolume = 0.5;
