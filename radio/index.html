@@ -142,18 +142,18 @@
     </main>
     <script>
         function radio_filter(location){
-            let locations = document.querySelectorAll("#radio-list ul");
+            let locations = document.querySelectorAll("#radio-list ul div");
             console.log(locations);
             if(location != 'all'){
             for(i=0; i<locations.length; i++){
             locations[i].style.display = "none";
             }
-            document.getElementById(location).style.display = "flex";
+            document.getElementById(location).style.display = "contents";
             document.getElementById("radio-list-heading").innerHTML = `Stacje radiowe w ${location}`;
             }
             else{
             for(i=0; i<locations.length; i++){
-            locations[i].style.display = "flex";
+            locations[i].style.display = "contents";
             document.getElementById("radio-list-heading").innerHTML = "Wszystkie stacje radiowe";
             }
             }
