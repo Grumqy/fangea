@@ -48,10 +48,6 @@ PicturesElements.forEach((element,index) =>{
 element.addEventListener("click", () => selectGalleryItem(index));
 })
 
-console.log(PicturesElements);
-
-console.log(pictures);
-
 
 let modalContainer = document.createElement("div");
 modalContainer.id = "modal-container";
