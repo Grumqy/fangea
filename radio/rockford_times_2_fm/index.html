@@ -28,10 +28,12 @@
                 <h1>Rockford Times 2 FM⠀⠀⠀</h1>
             </div>
             <ul>
-                <li>Informacje</li>
+                <li>Rock</li>
+                <li>Pop</li>
+                <li>Disco</li>
                 <li>Język Angielski</li>
             </ul>
-            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
+            <span>- Bee Gees - Stayin' Alive<br>- Modern Talking - Brother Louie<br>- Ace of Base - Happy Nation</span>
         </div>
         <div id="radio-player-settings">
             <button onclick="toggleAudio()" id="toggle-button" class="play">
@@ -67,7 +69,7 @@
         document.querySelector(".radio-player-container #radio-player #radio-data #radio-data-text h1").innerHTML = radio_station_name;
         console.log(radio_station_name);
         
-        var audio = new Audio("AUDIO");
+        var audio = new Audio("https://www.googleapis.com/drive/v3/files/16XzAadjffw_zZtEdierbwILgX17pTMAY?alt=media&key=AIzaSyD76lmULeKKVQ3IcgTOTrozZzjnIaeRe00");
         var toggleButton = document.getElementById("toggle-button");
         var initialVolume = 0.5;
         var audioInitialized = false;
