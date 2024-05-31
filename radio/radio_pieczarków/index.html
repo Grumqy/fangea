@@ -5,7 +5,7 @@
     <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Willington Non-Stop Rock - Fangea i inne kontynenty</title>
+    <title>Radio Pieczarków - Fangea i inne kontynenty</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -21,17 +21,17 @@
     </header>
     <main class="radio-player-container">
     <div id="radio-player">
-    <img id="radio-logo" src="https://i.ibb.co/fXg1RZP/image.png">
+    <img id="radio-logo" src="https://i.ibb.co/FzsNd3f/radio-pieczarkow.png">
     <div id="radio-data">
         <div id="radio-data-text">
             <div id="radio-name-container">
-                <h1>Willington Non-Stop Rock⠀⠀⠀</h1>
+                <h1>Radio Pieczarków⠀⠀⠀</h1>
             </div>
             <ul>
-                <li>Rock</li>
-                <li>Język Angielski</li>
+                <li>Sraczucha</li>
+                <li>Język Polski</li>
             </ul>
-            <span>- Warren Zevon - Roland the Headless Thompson Gunner<br>- Jefferson Airplane - Somebody to Love<br>- Nirvana - Smells Like Teen Spirit</span>
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
         </div>
         <div id="radio-player-settings">
             <button onclick="toggleAudio()" id="toggle-button" class="play">
@@ -67,7 +67,7 @@
         document.querySelector(".radio-player-container #radio-player #radio-data #radio-data-text h1").innerHTML = radio_station_name;
         console.log(radio_station_name);
         
-        var audio = new Audio("https://www.googleapis.com/drive/v3/files/1mKvorGOBInZ8ybkDTy3XPARFAAHWEwmT?alt=media&key=AIzaSyD76lmULeKKVQ3IcgTOTrozZzjnIaeRe00");
+        var audio = new Audio("https://s3.us-west-2.amazonaws.com/store.screenapp.io-production/vid/66535fa0f52cfa20c7ef8b5c/fc021650-1b7a-11ef-88d9-6d962567431d.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASBMTALOAOP6V2K42%2F20240526%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240526T161622Z&X-Amz-Expires=604800&X-Amz-Signature=e752b235a809730cf90eba31ef148db05f188e9b0fcd27927cd20a7a8667a784&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22file.mp4%22%3B%20filename*%3D%20UTF-8%27%27ARTYLERIJA%20%E2%80%90%20Wykonano%20za%20pomoc%C4%85%20Clipchamp.mp3%3B");
         var toggleButton = document.getElementById("toggle-button");
         var initialVolume = 0.5;
         var audioInitialized = false;
