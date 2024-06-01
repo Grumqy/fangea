@@ -1130,6 +1130,7 @@ max-height: 100%;
 #modal-gallery-main ul#modal-gallery-list li.modal-gallery-item .modal-gallery-item-description{
 width: 100%;
 height: 2rem;
+color:#111111;
 font-weight: 600;
 display: flex;
 justify-content: center;
