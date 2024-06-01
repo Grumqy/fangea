@@ -342,6 +342,7 @@ article table.infobox th img,
 article table.infobox td img {
   max-width: 100%;
   padding: 0.5rem;
+  cursor: pointer;
   box-sizing: border-box;
 }
 article table.infobox table.ibox {
