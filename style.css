@@ -52,69 +52,121 @@ color: #ecf0f1;
     transform-origin: left;
   }
 }
-
+#pageheader #search-container i{
+ color: #bbbbbb !important; 
+}
 #pageheader #search-container {
   flex-grow: 1;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-} 
+}
+#pageheader #search-container > i{
+position: absolute;
+pointer-events: none;
+user-select: none;
+color: #333;
+left: 26px;
+top: 13px;
+z-index: 10;
+}
 #pageheader #search-input {
-  padding: 8px 16px;
-  border-radius: 20px;
+  padding: 10px 16px;
+  padding-left: 45px;
+  border-radius: 22px;
   border: none;
   outline: 0;
   font-size: 16px;
+  box-sizing: border-box;
   width: 100%;
-  max-width: 400px;
   border: 2px solid #263949;
-  transition: all 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out;
+  font-family: "Montserrat", "Montserrat Alternates", sans-serif;
+}
+#pageheader #search-container::before{
+position: absolute;
+content: "";
+pointer-events: none;
+user-select: none;
+bottom: 4px;
+z-index: 10;
+left: 24px;
+display: none;
+width: calc(100% - 64px);
+height: 1px;
+background-color: #cccccc;
+}
+#pageheader #search-container.active::before{
+display: block;
+}
+#pageheader .active #search-input{
+border-bottom-left-radius: 0;
+box-shadow: none !important;
+border-bottom-right-radius: 0;
 }
 #pageheader #search-input:focus-within {
   box-shadow: 0px 0px 6px 1px #9e9e9e;
 }
-
+.noresults{
+text-align: center;
+}
 #pageheader #search-results {
   position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 32px);
-  max-width: 400px;
+  top: 40px;
+  width: calc(100% - 16px);
   background-color: #fff;
   border: 1px solid #ccc;
   border-top: none;
   max-height: 200px;
-  overflow-y: auto;
+overflow-y: hidden;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
   box-sizing: border-box;
   display: none;
-  min-width: 200px;
-  box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
+  border-left: 2px solid #263949;
+  border-bottom: 2px solid #263949;
+  border-right: 2px solid #263949;
+  padding-bottom: 22px;
+  padding-top: 8px;
 }
-#pageheader #search-results::-webkit-scrollbar-track {
+@media screen and (max-width: 425px){
+  #pageheader #search-results{
+    width: calc(100% - 12px);
+  }
+  #pageheader #search-container.active{
+  min-width: 200%;
+  z-index: 1000;
+  }
+}
+#pageheader #search-results-list::-webkit-scrollbar-track {
   background: #fff;
 }
-#pageheader #search-results::-webkit-scrollbar-thumb {
+#pageheader #search-results-list::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 0;
 }
-#pageheader #search-results::-webkit-scrollbar-thumb:hover {
+#pageheader #search-results-list::-webkit-scrollbar-thumb:hover {
   background: #bbb;
 }
 #pageheader #search-results div.noresults {
   color: #111111;
   padding: 0.25rem 0;
 }
-
+#pageheader #search-results-list{
+max-height: 176px;
+width: 100%;
+overflow-y: auto;
+}
 #pageheader #search-results a {
   display: block;
   padding: 8px 16px;
   text-decoration: none;
   color: #333;
 }
-
+#pageheader #search-results a i{
+margin-right: 0.75rem;
+}
 #pageheader #search-results a:hover {
   background-color: #f0f0f0;
 }
@@ -141,58 +193,7 @@ color: #ecf0f1;
 #pageheader #pageheader-search {
   position: relative;
 }
-#pageheader #pageheader-search #search-container {
-  padding: 0 0.5rem;
-}
-@media screen and (max-width: 1400px) {
-  #pageheader #pageheader-logo span {
-    display: none;
-  }
-  #pageheader #pageheader-logo {
-    flex: 0.5;
-  }
-}
-#pageheader #pageheader-menu a i {
-  display: none;
-}
-@media screen and (max-width: 800px) {
-  #pageheader #pageheader-menu a span {
-    display: none;
-  }
-  #pageheader section#pageheader-menu {
-    flex: 0.5;
-  }
-  #pageheader #pageheader-menu a i {
-    display: var(--fa-display, inline-block);
-  }
-  #pageheader ul li {
-    margin: 0;
-    padding: 0 0.5rem;
-  }
-}
-@media screen and (max-width: 1200px) {
-  #pageheader section#pageheader-menu {
-    justify-content: left;
-  }
-}
-
-header#pageheader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 20px;
-  height: 80px;
-  background-color: #1b262f;
-  color: #ecf0f1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  z-index: 500;
-}
-
-header#pageheader h1 {
+#header#pageheader h1 {
   margin: 0;
   font-size: 24px;
   font-weight: 600;
