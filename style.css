@@ -193,6 +193,57 @@ margin-right: 0.75rem;
 #pageheader #pageheader-search {
   position: relative;
 }
+#pageheader #pageheader-search #search-container {
+  padding: 0 0.5rem;
+}
+@media screen and (max-width: 1400px) {
+  #pageheader #pageheader-logo span {
+    display: none;
+  }
+  #pageheader #pageheader-logo {
+    flex: 0.5;
+  }
+}
+#pageheader #pageheader-menu a i {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  #pageheader #pageheader-menu a span {
+    display: none;
+  }
+  #pageheader section#pageheader-menu {
+    flex: 0.5;
+  }
+  #pageheader #pageheader-menu a i {
+    display: var(--fa-display, inline-block);
+  }
+  #pageheader ul li {
+    margin: 0;
+    padding: 0 0.5rem;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #pageheader section#pageheader-menu {
+    justify-content: left;
+  }
+}
+
+header#pageheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+  height: 80px;
+  background-color: #1b262f;
+  color: #ecf0f1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 500;
+}
+
 #header#pageheader h1 {
   margin: 0;
   font-size: 24px;
