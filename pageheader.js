@@ -19,13 +19,16 @@ document.querySelector("header#pageheader").innerHTML = `
                  </ul>
             </section>
         </nav>`;
+const searchContainer = document.getElementById("search-container");
 const searchInput = document.getElementById("search-input");
 const searchResults = document.getElementById("search-results");
+const searchResultsList = document.getElementById("search-results-list");
 
 searchInput.addEventListener("input", function () {
   const query = this.value.trim().toLowerCase();
-  searchResults.innerHTML = "";
+  searchResultsList.innerHTML = "";
   searchResults.style.display = "none";
+  searchContainer.classList.remove("active");
   if (query.length > 0) {
     simulateSearchResults(query);
   }
@@ -53,16 +56,18 @@ function simulateSearchResults(query) {
       const articleElement = document.createElement("div");
       const linkElement = document.createElement("a");
       linkElement.href = article.url;
-      linkElement.textContent = article.title;
+      linkElement.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i>${article.title}`;
       articleElement.appendChild(linkElement);
-      searchResults.appendChild(articleElement);
+      searchResultsList.appendChild(articleElement);
       searchResults.style.display = "block";
+      searchContainer.classList.add("active");
     });
   } else {
     const noResultsElement = document.createElement("div");
     noResultsElement.textContent = "Brak wyników";
     noResultsElement.classList = "noresults";
-    searchResults.appendChild(noResultsElement);
+    searchResultsList.appendChild(noResultsElement);
     searchResults.style.display = "block";
+    searchContainer.classList.add("active");
   }
 }
