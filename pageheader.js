@@ -2,7 +2,7 @@ document.querySelector("header#pageheader").innerHTML = `
 <nav>
             <a href="strona-glowna.html">
             <section id="pageheader-logo">
-                <img src="your-logo.svg" alt="Logo"/>
+                <img src="/fangea/local/logo.svg" alt="Logo"/>
                 <span>Fangea i inne kontynenty</span>
                 </section>
             </a>
