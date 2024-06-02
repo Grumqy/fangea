@@ -40,6 +40,7 @@ function simulateSearchResults(query) {
     { title: "Joanna „Disco Babushka” Świtek", url: "https://grumqy.github.io/fangea/wiki/disco_babushka" },
     { title: "Richteryzm", url: "https://grumqy.github.io/fangea/wiki/richteryzm" },
     { title: "Ajjbdalizm (religia)", url: "https://grumqy.github.io/fangea/wiki/ajjbdalizm_religia" },
+    { title: "Mirosław Długoszyjny", url: "https://grumqy.github.io/fangea/wiki/mirosław_długoszyjny" },
   ];
 
   const filteredArticles = articles.filter((article) =>
