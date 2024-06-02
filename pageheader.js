@@ -41,6 +41,7 @@ function simulateSearchResults(query) {
     { title: "Richteryzm", url: "https://grumqy.github.io/fangea/wiki/richteryzm" },
     { title: "Ajjbdalizm (religia)", url: "https://grumqy.github.io/fangea/wiki/ajjbdalizm_religia" },
     { title: "Mirosław Długoszyjny", url: "https://grumqy.github.io/fangea/wiki/mirosław_długoszyjny" },
+    { title: "Port Złotice", url: "https://grumqy.github.io/fangea/wiki/port_złotice/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
