@@ -233,7 +233,7 @@ header#pageheader {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 20px;
   height: 80px;
   background-color: #1b262f;
   color: #ecf0f1;
@@ -244,7 +244,7 @@ header#pageheader {
   z-index: 500;
 }
 
-#header#pageheader h1 {
+header#pageheader h1 {
   margin: 0;
   font-size: 24px;
   font-weight: 600;
@@ -392,11 +392,9 @@ article table.infobox th {
 article table.infobox th img,
 article table.infobox td img {
   max-width: 100%;
+  padding: 0.5rem;
   cursor: pointer;
   box-sizing: border-box;
-}
-article table.infobox th img:not(.icon), article table.infobox td img:not(.icon){
-    padding: 0.5rem;
 }
 article table.infobox table.ibox {
   width: 100%;
@@ -551,7 +549,7 @@ position: relative;
 color:white;
 }
 main #radio-nav{
-background-color: #263949;
+background-color: #121b22;
 float:left;
 width: 100%;
 height: calc(35vh - 80px);
@@ -560,14 +558,13 @@ main #radio-list{
 float: left;
 width: 100%;
 height: calc(65vh);
-background-color: #44627a;
+background-color: #162128;
 overflow-y: scroll;
 }
 main #radio-nav ul button{
   display: contents;
   font-family: "montserrat";
-  font-weight: 600;
-  color: white;
+  color: rgba(255,255,255,0.85);
   font-size: 1rem;
   }
   main #radio-list ul div{
@@ -575,7 +572,7 @@ main #radio-nav ul button{
   }
 @media screen and (min-width: 600px) {
   main #radio-list ul li{
-  width: calc(12.5% - 0.4rem);
+  width: calc(12.5% - 0.8rem);
   }
   main #radio-nav{
     width: 250px;
@@ -593,34 +590,35 @@ box-sizing: border-box;
 }
 main #radio-nav div{
 width: 100%;
-padding: 1rem 0;
+padding: 1rem 0 0.25rem 0;
 font-weight: 600;
 font-size: 1.25rem;
+color: rgba(255,255,255, 0.85);
 text-align: center;
 }
 main #radio-nav ul{
 margin: 0;
-padding: 0.5rem;
+padding: 0.5rem 0;
 box-sizing: border-box;
 list-style-type: none;
 }
 main #radio-nav ul li:hover{
-background-color: #5c82a1;
+background-color: #23313b;
 }
 main #radio-nav ul li{
 width: 100%;
 height: 40px;
 display: flex;
 justify-content: left;
+cursor: pointer;
 align-items: center;
 box-sizing: border-box;
 padding: 0 1rem;
-margin-bottom: 8px;
-font-weight: 600;
+margin-bottom: 4px;
+font-weight: 500;
 cursor: pointer;
-border-radius: 5px;
 box-shadow: rgba(0, 0, 0, 0.5) 0 1px 1px 1px;
-background-color: #44627a;
+background-color: #1d2933;
 transition: all 0.15s ease-in-out;
 }
 @media screen and (max-width: 599px){
@@ -667,6 +665,7 @@ background-color: #263949;
 padding: 0.4rem;
 box-sizing: border-box;
 border-radius: 0.4rem;
+box-shadow: #596e81 0px 1px 2px 1px;
 margin: 0.2rem;
 cursor: pointer;
 transition: all 0.15s ease-in-out;
@@ -675,7 +674,7 @@ main #radio-list ul li span{
 width: 100%;
 text-align: left;
 font-weight: 600;
-padding: 0.4rem 0.4rem 0 0.4rem;
+padding-top: 0.4rem;
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
@@ -699,25 +698,32 @@ max-height: 332px;
 height: 40vw;
 display: flex;
 flex-direction: row;
+flex-wrap: nowrap;
 overflow: hidden;
 border-radius: 0.5rem;
 color: white;
-box-shadow: black 0 0 8px 0px;
+box-shadow: #596e81 0 0 8px 0px;
+background-color: #141e26;
 box-sizing: border-box;
-padding: 1rem;
+padding: 2rem;
 }
 #radio-player #radio-data{
-width: calc(100% - 300px);
+width: 65%;
 height: 100%;
 box-sizing: border-box;
 padding: 0.5rem 0 0.5rem 2rem;
-float: left;
 }
 #radio-logo{
+position: relative;
 height: 100%;
-max-width: 37.5%;
+width: 35%;
+margin: auto;
+overflow: hidden;
+}
+#radio-logo img{
 border-radius: 0.5rem;
-float: left;
+height: 100%;
+width: auto;
 }
 main.radio-player-container{
 display: flex;
@@ -752,9 +758,10 @@ padding: 0;
 display: flex;
 flex-wrap: nowrap;
 width: 100%;
+height: 1.6rem;
 flex-direction: row;
 list-style-type: none;
-margin-bottom: 0.4rem;
+margin-bottom: 0.5rem;
 }
 #radio-player #radio-data #radio-data-text #radio-name-container{
   width: 100%;
@@ -762,7 +769,7 @@ margin-bottom: 0.4rem;
   position: relative
 }
 #radio-player #radio-data #radio-data-text #radio-name-container::after{
- background-image: linear-gradient(to right, transparent 0%, #101920 100%);
+ background-image: linear-gradient(to right, transparent 0%, #141e26 100%);
 z-index: 100;
 height: 100%;
 content: "";
@@ -773,7 +780,7 @@ top: 0;
 display: block 
 }
 #radio-player #radio-data #radio-data-text #radio-name-container::before{
-background-image: linear-gradient(to right, #101920 0%, transparent 100%);
+background-image: linear-gradient(to right, #141e26 0%, transparent 100%);
 z-index: 100;
 height: 100%;
 content: "";
@@ -784,18 +791,18 @@ top: 0;
 display: block
 }
 #radio-player #radio-data #radio-data-text{
-height: 160px;
+height: 60%;
 overflow: hidden;
-border-bottom: 1px solid #597994;
+border-bottom: 1px solid #283744;
 margin-bottom: 10px;
 }
 #radio-player #radio-data #radio-data-text span{
-background-image: linear-gradient(to top, transparent 0%, white 90%);
+background-image: linear-gradient(to top, transparent 15%, white 75%);
 background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 display: block;
-max-height: 50%;
+height: calc(100% - 2.5rem - 2.5rem);
 }
 #radio-player #radio-data hr{
 border-color: rgba(255,255,255, 0.3);
@@ -803,9 +810,14 @@ border-color: rgba(255,255,255, 0.3);
 #radio-player #radio-data ul li{
 background-color: #263949;
 border-radius: 1rem;
-font-weight: 500;
-box-shadow: black 1px 1px 2px 0;
-padding: 0.25rem 1rem;
+font-weight: 600;
+height: 100%;
+display: flex;
+align-items: center;
+color: rgba(255,255,255, 0.85);
+box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 2px 0;
+padding-left: 1rem;
+padding-right: 1rem;
 margin-right: 0.5rem;
 }
 #radio-player #radio-data #toggle-button{
@@ -828,7 +840,7 @@ display: none;
   /* slider */
   --slider-width: 100%;
   --slider-height: 12px;
-  --slider-bg: #1a2833;
+  --slider-bg: #596e81;
   --slider-border-radius: 999px;
   /* level */
   --level-color: white;
@@ -893,21 +905,20 @@ display: none;
 #radio-player-settings{
 display: flex;
 width: 100%;
-height: 60px;
+height: calc(40% - 10px);
 align-items: center;
-padding-top: 15px;
 }
 .button {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #0f171f;
+  background-color: #141e26;
   border: none;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 0px 0px 4px rgba(12, 17, 27, 0.486);
+  box-shadow: 0px 0px 4px 1px #596e81;
   cursor: pointer;
   transition-duration: 0.3s;
   overflow: hidden;
@@ -927,7 +938,7 @@ padding-top: 15px;
   width: 140px;
   border-radius: 50px;
   transition-duration: 0.3s;
-  background-color: rgb(36, 55, 71);
+  background-color: #222e3a;
   align-items: center;
 }
 
@@ -956,54 +967,18 @@ padding-top: 15px;
 }
 
 @media screen and (max-width: 832px) {
-  #radio-player #radio-data{
-width: 62.5%;
-padding: 0.5rem 0 0.5rem 1.5rem; 
-}
-#radio-player #radio-data ul li{
-font-size: 0.75rem; 
-padding: 0.2rem 0.8rem;
-}
-#radio-player #radio-data #radio-data-text{
-height: 65%;
-}
-#radio-player-settings{
-  height: 35%;
-  padding: 0;
-  align-items: center;
-}
-#radio-player #radio-data #radio-data-text span{
-  font-size: 0.75rem;
-  height: 50%;
-  margin-bottom: 0.5rem;
-  overflow: hidden;
-}
-#radio-player #radio-data #radio-data-text #radio-name-container{
-height: 30%;
-}
-#radio-player #radio-data ul{
-  height: 20%;
-}
-#radio-player #radio-data ul li{
-max-height: 15px;
-}
+  #radio-player{
+  border-radius: 0;
+  }
 #radio-player #radio-data #toggle-button .fa-solid{
 font-size: 8vw;
-}
-#radio-player #radio-data h1{
-font-size: 5vw;
-margin-bottom: 0;
-}
-#radio-player #radio-data #radio-data-text #radio-name-container{
-display: flex;
-align-items: center;
-justify-content: left;
 }
 }
 @media screen and (max-width: 550px) {
 #radio-player{
 flex-direction: column;
-height: calc(100vw + 332px);
+padding: 1rem;
+height: fit-content;
 max-height: unset;
 }
 #radio-player #radio-data{
@@ -1012,15 +987,38 @@ width: 100%;
 }
 #radio-logo{
 width: 100%;
-max-width: 100%;
-height: 100vw;
+height: fit-content
+}
+#radio-logo img{
+width: 100%;
+height: auto;
+}
+#radio-player #radio-data #radio-data-text{
+height: fit-content;
+}
+#radio-player #radio-data #radio-data-text span{
+height: fit-content;
+margin-bottom: 2rem;
+margin-top: 1rem;
+background-image: linear-gradient(to top, transparent 0%, white 75%);
 }
 #radio-player #radio-data h1{
 font-size: 2rem;
-margin-bottom: 0.5rem;
+margin-top: 0.5rem;
+margin-bottom: 1rem;
+}
+#radio-player-settings{
+margin: 2rem 0;
+}
+#radio-player #radio-data ul{
+height: 2rem;
 }
 #radio-player #radio-data #toggle-button .fa-solid{
-font-size: 3rem;
+  font-size: 4rem;
+  }
+#radio-player #radio-data #toggle-button .fa-solid{
+display: block;
+height: 100%;
 }
 .slider {
   /* slider */
@@ -1036,9 +1034,6 @@ font-size: 3rem;
   --icon-color: var(--slider-bg);
   --icon-size: 35px;
   margin-left: 1rem;
-}
-#radio-player-settings{
-  justify-content: center;
 }
 }
 
@@ -1183,11 +1178,11 @@ max-height: 100%;
 #modal-gallery-main ul#modal-gallery-list li.modal-gallery-item .modal-gallery-item-description{
 width: 100%;
 height: 2rem;
-color:#111111;
 font-weight: 600;
 display: flex;
 justify-content: center;
 align-items: center;
+color: #111111;
 }
 @media screen and (max-width: 600px) {
   #modal-gallery-main ul#modal-gallery-list li.modal-gallery-item .modal-gallery-item-image{
@@ -1577,4 +1572,42 @@ border-bottom: rgba(255,255,255, 0.2) 1px solid;
 }
 .article-category li:not(:last-of-type):hover{
   border-bottom: rgba(255,255,255, 0.75) 1px solid;
+  }
+  main #radio-list{
+  background-color: #0c141a;
+  }
+  main #radio-list ul li{
+  overflow: hidden;
+  background-color: #121b22;
+  position: relative;
+  padding: 1rem;
+  margin: 0.4rem;
+  }
+  main #radio-list ul li::before{
+  content: "";
+  width: 75%;
+  user-select: none;
+  pointer-events: none;
+  height: 75%;
+  background-color: rgba(44, 55, 75, 0.6);
+  filter: blur(75px);
+  position: absolute;
+  transition: all 0.15s ease-in-out;
+  z-index: 1;
+  bottom: -25%;
+  right: -25%;
+  }
+  main #radio-list ul li img,
+  main #radio-list ul li span{
+    position: relative;
+    z-index: 10;
+  }
+  main #radio-list ul li span{
+  font-weight: 500;
+  color: rgba(255,255,255, 0.9);
+  }
+  main #radio-list ul li:hover{
+    background-color: #18222b;
+    transform: scale(1.15);
+    z-index: 100;
   }
