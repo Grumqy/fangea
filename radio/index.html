@@ -14,195 +14,421 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/fangea/style.css" />
     <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
+    <style id="radio_filters">
+        main #radio-list ul a.lang_pl{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_en{
+            display: contents;
+        }
+        main #radio-list ul a.lang_ge{
+            display: contents;
+        }
+        main #radio-list ul a.lang_jp{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_pop{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_citypop{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_electro{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_hiphop{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_breakbeat{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_randb{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_lofi{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_phonk{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_opera{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_country{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_swing{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_disco{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_rock{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_metal{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_info{
+           display: contents; 
+        }
+        main #radio-list ul a.loc_pampersia{
+            display: contents;
+        }
+        main #radio-list ul a.loc_nadmorze{
+           display: contents; 
+        }
+        main #radio-list ul a.loc_sudfangea{
+           display: contents; 
+        }
+        main #radio-list ul a.loc_montecydja{
+           display: contents; 
+        }
+        main #radio-list ul a.loc_iznotia{
+          display: contents;  
+        }
+        main #radio-list ul a.loc_pieczaria{
+          display: contents;  
+        }
+        main #radio-list ul a.loc_halandia{
+          display: contents;  
+        }
+    </style>
 </head>
 
 <body>
     <header id="pageheader">
     </header>
     <main class="radio">
-    <div id="radio-nav">
-    <div>Filtruj wg lokalizacji</div>
+    <div id="radio-nav" style="z-index: 10; position: relative;">
+    <div>Filtruj wg gatunku</div>
     <ul>
-        <button onclick="radio_filter('all');"><li>Wszystko</li></button>
-        <button onclick="radio_filter('Pampersii');"><li><img src="https://i.ibb.co/27WybfV/1160351671839379497.webp">Pampersia</li></button>
-        <button onclick="radio_filter('Nadmorzu');"><li><img src="https://i.ibb.co/BrzkQ4q/1187527487702450299.webp">Nadmorze</li></button>
-        <button onclick="radio_filter('Sudfangei');"><li><img src="https://i.ibb.co/pwhcqsT/1241709227207037021.webp">Sudfangea</li></button>
-        <button onclick="radio_filter('Montecydji');"><li><img src="https://i.ibb.co/jrY6hYR/1229166542655193190.webp">Montecydja</li></button>
-        <button onclick="radio_filter('Iznotii');"><li><img src="https://i.ibb.co/PNH57Dt/1160351653099212881.webp">Iznotia</li></button>
-        <button onclick="radio_filter('Pieczarii');"><li><img src="https://i.ibb.co/Q8HVycp/1186418659569180693.webp">Pieczaria</li></button>
-        <button onclick="radio_filter('Halandii');"><li><img src="https://i.ibb.co/d2c3LTm/1243213829115220068.webp">Halandia</li></button>
+        <form>
+        <input type="checkbox" id="genre_all" class="checkbox_select_all" data-categories="loc_pampersia;loc_nadmorze;loc_sudfangea;loc_montecydja;loc_iznotia;loc_pieczaria;loc_halandia" checked>
+        <input type="checkbox" id="loc_pampersia" checked>
+        <input type="checkbox" id="loc_nadmorze" checked>
+        <input type="checkbox" id="loc_sudfangea" checked>
+        <input type="checkbox" id="loc_montecydja" checked>
+        <input type="checkbox" id="loc_iznotia" checked>
+        <input type="checkbox" id="loc_pieczaria" checked>
+        <input type="checkbox" id="loc_halandia" checked>
+        </form>
+        <label for="genre_all" class="active">
+            <li>Wszystkie</li>
+        </label>
+        <label for="loc_pampersia" class="active">
+            <li><img src="https://i.ibb.co/27WybfV/1160351671839379497.webp">Pampersia</li>
+        </label>
+        <label for="loc_nadmorze" class="active">
+            <li><img src="https://i.ibb.co/BrzkQ4q/1187527487702450299.webp">Nadmorze</li>
+        </label>
+        <label for="loc_sudfangea" class="active">
+            <li><img src="https://i.ibb.co/pwhcqsT/1241709227207037021.webp">Sudfangea</li>
+        </label>
+        <label for="loc_montecydja" class="active">
+            <li><img src="https://i.ibb.co/jrY6hYR/1229166542655193190.webp">Montecydja</li>
+        </label>
+        <label for="loc_iznotia" class="active">
+            <li><img src="https://i.ibb.co/PNH57Dt/1160351653099212881.webp">Iznotia</li>
+        </label>
+        <label for="loc_pieczaria" class="active">
+            <li><img src="https://i.ibb.co/Q8HVycp/1186418659569180693.webp">Pieczaria</li>
+        </label>
+        <label for="loc_halandia" class="active">
+            <li><img src="https://i.ibb.co/d2c3LTm/1243213829115220068.webp">Halandia</li>
+        </label>
+    </ul>
+    <div>Filtruj wg języka</div>
+    <ul>
+        <form>
+        <input type="checkbox" id="lang_all" class="checkbox_select_all" data-categories="lang_pl;lang_en;lang_ge;lang_jp" checked>
+        <input type="checkbox" id="lang_pl" checked>
+        <input type="checkbox" id="lang_en" checked>
+        <input type="checkbox" id="lang_ge" checked>
+        <input type="checkbox" id="lang_jp" checked>
+        </form>
+        <label for="lang_all" class="active">
+            <li>Wszystkie</li>
+        </label>
+        <label for="lang_pl" class="active">
+            <li>J. polski</li>
+        </label>
+        <label for="lang_en" class="active">
+            <li>J. angielski</li>
+        </label>
+        <label for="lang_ge" class="active">
+            <li>J. niemiecki</li>
+        </label>
+        <label for="lang_jp" class="active">
+            <li>J. japonski</li>
+        </label>
+    </ul>
+    <div>Filtruj wg gatunku</div>
+    <ul>
+        <form>
+        <input type="checkbox" id="genre_all" class="checkbox_select_all" data-categories="genre_pop;genre_citypop;genre_electro;genre_hiphop;genre_breakbeat;genre_randb;genre_lofi;genre_phonk;genre_opera;genre_country;genre_swing;genre_disco;genre_rock;genre_metal;genre_info" checked>
+        <input type="checkbox" id="genre_pop" checked>
+        <input type="checkbox" id="genre_citypop" checked>
+        <input type="checkbox" id="genre_electro" checked>
+        <input type="checkbox" id="genre_hiphop" checked>
+        <input type="checkbox" id="genre_breakbeat" checked>
+        <input type="checkbox" id="genre_randb" checked>
+        <input type="checkbox" id="genre_lofi" checked>
+        <input type="checkbox" id="genre_phonk" checked>
+        <input type="checkbox" id="genre_opera" checked>
+        <input type="checkbox" id="genre_country" checked>
+        <input type="checkbox" id="genre_swing" checked>
+        <input type="checkbox" id="genre_disco" checked>
+        <input type="checkbox" id="genre_rock" checked>
+        <input type="checkbox" id="genre_metal" checked>
+        <input type="checkbox" id="genre_info" checked>
+        </form>
+        <label for="genre_all" class="active">
+            <li>Wszystkie</li>
+        </label>
+        <label for="genre_pop" class="active">
+            <li>Pop</li>
+        </label>
+        <label for="genre_citypop" class="active">
+            <li>City Pop</li>
+        </label>
+        <label for="genre_electro" class="active">
+            <li>Electro</li>
+        </label>
+        <label for="genre_hiphop" class="active">
+            <li>Hip-Hop</li>
+        </label>
+        <label for="genre_randb" class="active">
+            <li>R&B</li>
+        </label>
+        <label for="genre_citypop" class="active">
+            <li>Lo-fi</li>
+        </label>
+        <label for="genre_phonk" class="active">
+            <li>Phonk</li>
+        </label>   
+        <label for="genre_opera" class="active">
+            <li>Opera</li>
+        </label>
+        <label for="genre_country" class="active">
+            <li>Country</li>
+        </label>
+        <label for="genre_swing" class="active">
+            <li>Swing</li>
+        </label>
+        <label for="genre_disco" class="active">
+            <li>Disco</li>
+        </label>
+        <label for="genre_rock" class="active">
+            <li>Rock</li>
+        </label>
+        <label for="genre_metal" class="active">
+            <li>Metal</li>
+        </label>
+        <label for="genre_info" class="active">
+            <li>Informacyjne</li>
+        </label>
     </ul>
     </div>
     <div id="radio-list">
-        <h1 id="radio-list-heading">Wszystkie stacje radiowe</h1>
         <ul>
-            <div id="Pampersii">
-                <a href="https://grumqy.github.io/fangea/radio/radio_republika/">
+                <a href="https://grumqy.github.io/fangea/radio/radio_republika/" class="lang_pl genre_pop loc_pampersia">
                     <li>
                         <img src="https://i.ibb.co/KNT8xY0/tvradio.png">
                         <span>Radio Republika</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/sigma_radio/">
+                <a href="https://grumqy.github.io/fangea/radio/sigma_radio/"  class="lang_pl genre_electro loc_pampersia">
                     <li>
                         <img src="https://i.ibb.co/N2PRMdJ/sigma-radioo.png">
                         <span>Sigma Radio</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/music_pop/">
+                <a href="https://grumqy.github.io/fangea/radio/music_pop/" class="lang_pl genre_pop loc_pampersia">
                     <li>
                         <img src="https://i.ibb.co/tMdvKpQ/musiccpop.png">
                         <span>Music Pop</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/boomer_hits/">
+                <a href="https://grumqy.github.io/fangea/radio/boomer_hits/" class="lang_pl genre_pop loc_pampersia">
                     <li>
                         <img src="https://i.ibb.co/ncGF0Hb/boomer-hits.png">
                         <span>Boomer Hits</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/downtown_fm/">
+                <a href="https://grumqy.github.io/fangea/radio/downtown_fm/" class="lang_pl genre_hiphop genre_randb loc_pampersia">
                     <li>
                         <img src="https://i.ibb.co/ZzTCvXH/downntown.png">
                         <span>Downtown FM</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/metal_radio/">
+                <a href="https://grumqy.github.io/fangea/radio/metal_radio/" class="lang_pl genre_metal loc_pampersia">
                     <li>
                         <img src="https://i.ibb.co/Dw6yB0d/metal-radioo.png">
                         <span>Metal Radio</span>
                     </li>  
                 </a>
-            </div>
-            <div id="Nadmorzu">
-                <a href="https://grumqy.github.io/fangea/radio/rn_radio/">
+                <a href="https://grumqy.github.io/fangea/radio/rn_radio/" class="lang_pl genre_pop loc_nadmorze">
                     <li>
                         <img src="https://i.ibb.co/rbWQsBG/rnradio.png">
                         <span>RN Radio</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/ラジオ禅/">
+                <a href="https://grumqy.github.io/fangea/radio/ラジオ禅/" class="lang_jp genre_citypop loc_nadmorze">
                     <li>
                         <img src="https://i.ibb.co/GJrfGfs/radio-zen.png">
                         <span>ラジオ禅</span>
                      </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/みどり_fm/">
+                <a href="https://grumqy.github.io/fangea/radio/みどり_fm/" class="lang_jp genre_lofi loc_nadmorze">
                     <li>
                         <img src="https://i.ibb.co/db8fWq5/radio-makronezja.png">
                         <span>みどりFM</span>
                     </li>  
                 </a>
-            </div>
-            <div id="Sudfangei">
-                <a href="https://grumqy.github.io/fangea/radio/rockford_times_fm/">
+                <a href="https://grumqy.github.io/fangea/radio/rockford_times_fm/" class="lang_en genre_info loc_sudfangea">
                     <li>
                         <img src="https://i.ibb.co/gwPTQ65/rokford-czasy.webp">
                         <span>Rockford Times FM</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/rockford_times_2_fm/">
+                <a href="https://grumqy.github.io/fangea/radio/rockford_times_2_fm/" class="lang_en genre_rock genre_pop genre_disco loc_sudfangea">
                     <li>
                         <img src="https://i.ibb.co/smhWqMZ/rokford-czasy2.webp">
                         <span>Rockford Times 2 FM</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/port_wilhelm_city_radio">
+                <a href="https://grumqy.github.io/fangea/radio/port_wilhelm_city_radio" class="lang_en genre_hiphop genre_randb loc_sudfangea">
                     <li>
                         <img src="https://i.ibb.co/fnG9PTg/image.png">
                         <span>Port Wilhelm City Radio</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/wild_west_radio/">
+                <a href="https://grumqy.github.io/fangea/radio/wild_west_radio/" class="lang_en genre_randb genre_swing genre_country loc_sudfangea">
                     <li>
                         <img src="https://i.ibb.co/55Y2NLy/wildwestradio.png">
                         <span>Wild West Radio</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/willington_non_stop_rock/">
+                <a href="https://grumqy.github.io/fangea/radio/willington_non_stop_rock/" class="lang_en genre_rock loc_sudfangea">
                     <li>
                         <img src="https://i.ibb.co/fXg1RZP/image.png">
                         <span>Willington Non-Stop Rock</span>
                     </li>  
                 </a>
-            </div>
-            <div id="Montecydji">
-                <a href="https://grumqy.github.io/fangea/radio/radio_kolencydam/">
+                <a href="https://grumqy.github.io/fangea/radio/radio_kolencydam/" class="lang_ge genre_electro loc_montecydja">
                     <li>
                         <img src="https://i.ibb.co/rfvbSJS/1.png">
                         <span>Radio Kolencydam</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/plus_fm/">
+                <a href="https://grumqy.github.io/fangea/radio/plus_fm/" class="lang_pl genre_hiphop genre_breakbeat loc_montecydja">
                     <li>
                         <img src="https://i.ibb.co/JcdW21f/2.png">
                         <span>Plus FM</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/mega_music/">
+                <a href="https://grumqy.github.io/fangea/radio/mega_music/" class="lang_pl genre_phonk loc_montecydja">
                     <li>
                         <img src="https://i.ibb.co/d6rqvNT/mega-music.png">
                         <span>Mega Music</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/hejt_park/">
+                <a href="https://grumqy.github.io/fangea/radio/hejt_park/" class="lang_pl genre_rock loc_montecydja">
                     <li>
                         <img src="https://i.ibb.co/0r8mhgx/3.png">
                         <span>Hejt Park</span>
                     </li>  
                 </a>
-                <a href="https://grumqy.github.io/fangea/radio/pop_24/">
+                <a href="https://grumqy.github.io/fangea/radio/pop_24/" class="lang_ge genre_pop loc_montecydja">
                     <li>
                         <img src="https://i.ibb.co/Jrrk1Dr/pop24.png">
                         <span>Pop 24</span>
                     </li>  
                 </a>
-            </div>
-            <div id="Iznotii">
-                <a href="https://grumqy.github.io/fangea/radio/radio_pregolau_international/">
+                <a href="https://grumqy.github.io/fangea/radio/radio_pregolau_international/" class="lang_ge genre_pop genre_electro genre_rock loc_iznotia">
                     <li>
                         <img src="https://i.ibb.co/5v1qTqW/radio-pregolau.png">
                         <span>Radio Pregolau International</span>
                     </li>  
                 </a>
-            </div>
-            <div id="Pieczarii">
-                <a href="https://grumqy.github.io/fangea/radio/radio_pieczarków/">
+                <a href="https://grumqy.github.io/fangea/radio/radio_pieczarków/" class="lang_pl genre_opera loc_pieczaria">
                     <li>
                         <img src="https://i.ibb.co/FzsNd3f/radio-pieczarkow.png">
                         <span>Radio Pieczarków</span>
                     </li>  
                 </a>
-            </div>
-            <div id="Halandii">
-                <a href="https://grumqy.github.io/fangea/radio/radio_ludogród/">
+                <a href="https://grumqy.github.io/fangea/radio/radio_ludogród/" class="lang_pl genre_pop loc_halandia">
                     <li>
                         <img src="https://i.ibb.co/1RWQMG1/radio-ludogrod.png">
                         <span>Radio Ludogród</span>
                     </li>  
                 </a>
-            </div>
         </ul>
     </div>
     </main>
     <script>
-        function radio_filter(location){
-            let locations = document.querySelectorAll("#radio-list ul div");
-            console.log(locations);
-            if(location != 'all'){
-            for(i=0; i<locations.length; i++){
-            locations[i].style.display = "none";
+        let checkboxes = Array.from(document.querySelectorAll("input[type='checkbox']"));
+        checkboxes.forEach(checkbox =>{
+        checkbox.addEventListener("change", function(){
+            if(checkbox.checked == true){
+                document.querySelector(`label[for='${checkbox.id}']`).classList.add("active");
+            } else{
+                document.querySelector(`label[for='${checkbox.id}']`).classList.remove("active");
             }
-            document.getElementById(location).style.display = "contents";
-            document.getElementById("radio-list-heading").innerHTML = `Stacje radiowe w ${location}`;
+            if(!checkbox.classList.contains('checkbox_select_all')){
+                checkForAllSelection(checkbox.parentElement);
+                filterRadioStations();
             }
-            else{
-            for(i=0; i<locations.length; i++){
-            locations[i].style.display = "contents";
-            document.getElementById("radio-list-heading").innerHTML = "Wszystkie stacje radiowe";
+        })
+        });
+        let selectAllCheckboxes = Array.from(document.querySelectorAll("input[type='checkbox'].checkbox_select_all"));
+        selectAllCheckboxes.forEach(checkbox =>{
+        var categories = checkbox.dataset.categories.split(';');
+        checkbox.addEventListener('change', function(){
+            categories.forEach(category=>{
+            if(checkbox.checked == true){
+                document.getElementById(category).checked = true;
+                document.querySelector(`label[for='${category}']`).classList.add("active");
+            } else{
+                document.getElementById(category).checked = false;
+                document.querySelector(`label[for='${category}']`).classList.remove("active");
             }
-            }
+            })
+            filterRadioStations();
+        })
+        })
+        function checkForAllSelection(form) {
+    var checkboxes = Array.from(form.querySelectorAll('input[type="checkbox"]'));
+    var allAreSelected = true;
+    
+    for (let i = 1; i < checkboxes.length; i++) {
+        if (!checkboxes[i].checked) {
+            allAreSelected = false;
+            break;
         }
+    }
+    
+    if (allAreSelected) {
+        checkboxes[0].checked = true;
+        document.querySelector(`label[for="${checkboxes[0].id}"]`).classList.add("active");
+    } else {
+        checkboxes[0].checked = false;
+        document.querySelector(`label[for="${checkboxes[0].id}"]`).classList.remove("active");
+    }
+}
+function filterRadioStations(){
+    var filters = [];
+    var checkboxes = Array.from(document.querySelectorAll("input[type='checkbox']:not(.checkbox_select_all)"));
+    checkboxes.forEach(checkbox=>{
+        if(checkbox.checked == true){
+        var filter = `main #radio-list ul a.${checkbox.id} {display:contents;}`;
+        }
+        filters.push(filter);
+    })
+    filters = filters.join(' ');
+    document.getElementById('radio_filters').innerHTML = filters;
+    }
 
     </script>
     <script src="/fangea/pageheader.js"></script>
