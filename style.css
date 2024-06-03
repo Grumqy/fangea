@@ -609,6 +609,7 @@ main #radio-nav ul li{
 width: 100%;
 height: 40px;
 display: flex;
+user-select: none;
 justify-content: left;
 cursor: pointer;
 align-items: center;
@@ -680,10 +681,6 @@ white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
 box-sizing: border-box;
-}
-main #radio-list ul a{
-display: contents;
-color: unset;
 }
 main #radio-list ul li img{
 width: 100%;
@@ -1612,3 +1609,43 @@ border-bottom: rgba(255,255,255, 0.2) 1px solid;
     transform: translateY(-0.3rem);
     z-index: 100;
   }
+  main #radio-nav ul label.active li{
+  background-color: #30414c;
+  }
+  main #radio-nav ul form{
+    display: none;
+  }
+  main #radio-list ul a{
+    display: none;
+    color: unset;
+    }
+main.radio{
+max-height: calc(100vh - 80px);
+overflow: hidden;
+}
+main #radio-nav{
+max-height: 100%;
+overflow: auto;
+}
+main #radio-list ul li{
+max-width: 215px;
+min-width: 100px;
+}
+@media screen and (max-width: 600px) {
+  main #radio-list ul li{
+  max-width: unset;
+  min-width: unset;
+  width: calc(33% - 0.8rem);
+  }
+  main #radio-list ul{
+  }
+}
+@media screen and (max-width: 599px){
+  main #radio-nav ul li{
+  flex: 1;
+  }
+  main #radio-nav ul label{
+  display: contents;
+  }
+
+}
