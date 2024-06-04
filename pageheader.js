@@ -48,6 +48,7 @@ function simulateSearchResults(query) {
     { title: "Ajjbdalizm (religia)", url: "https://grumqy.github.io/fangea/wiki/ajjbdalizm_religia" },
     { title: "Mirosław Długoszyjny", url: "https://grumqy.github.io/fangea/wiki/mirosław_długoszyjny" },
     { title: "Port Złotice", url: "https://grumqy.github.io/fangea/wiki/port_złotice/" },
+    { title: "Łukasz Lukasox", url: "https://grumqy.github.io/fangea/wiki/łukasz_lukasox/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
