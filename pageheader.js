@@ -18,7 +18,7 @@ document.querySelector("header#pageheader").innerHTML = `
             <section id="pageheader-menu">
                 <ul>
                 <li><a href="https://grumqy.github.io/fangea/mapa/"><i class="fa-solid fa-map"></i><span>Mapa</span></a></li>
-                    <li><a href="https://grumqy.github.io/fangea/radio/"><i class="fa-solid fa-radio"></i><span>Radio</span></a></li>
+                    <li><a href="https://fangearadio.github.io/fangea/"><i class="fa-solid fa-radio"></i><span>Radio</span></a></li>
                  </ul>
             </section>
         </nav>`;
