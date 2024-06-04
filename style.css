@@ -392,9 +392,11 @@ article table.infobox th {
 article table.infobox th img,
 article table.infobox td img {
   max-width: 100%;
-  padding: 0.5rem;
   cursor: pointer;
   box-sizing: border-box;
+}
+article table.infobox th img:not(.icon), article table.infobox td img:not(.icon){
+    padding: 0.5rem;
 }
 article table.infobox table.ibox {
   width: 100%;
