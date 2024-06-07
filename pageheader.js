@@ -15,11 +15,13 @@ document.querySelector("header#pageheader").innerHTML = `
                     </div>
                 </div>
             </section>
-            <section id="pageheader-menu">
+<section id="pageheader-menu">
                 <ul>
-                <li><a href="https://grumqy.github.io/fangea/mapa/"><i class="fa-solid fa-map"></i><span>Mapa</span></a></li>
-                    <li><a href="https://fangearadio.github.io/fangea/"><i class="fa-solid fa-radio"></i><span>Radio</span></a></li>
-                 </ul>
+                  <li><a href="https://grumqy.github.io/fangea/wiki/"><i class="fa-solid fa-book"></i><span>Wiki</span></a></li>
+                  <li><a href="https://fangearadio.github.io/fangea/"><i class="fa-solid fa-radio"></i><span>Radio</span></a></li>
+                  <li><a href="https://grumqy.github.io/fangea/mapa/"><i class="fa-solid fa-map"></i><span>Mapa</span></a></li>
+                  <li><a href="https://grumqy.github.io/fangea/waluty/"><i class="fa-solid fa-coins"></i></i><span>Waluty</span></a></li>
+                </ul>
             </section>
         </nav>`;
 const searchContainer = document.getElementById("search-container");
