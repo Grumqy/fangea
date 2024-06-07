@@ -1,0 +1,338 @@
+!<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waluty - Fangea i inne kontynenty</title>
+    <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/fangea/style.css" />
+    <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header id="pageheader">
+    </header>
+    <main class="medium-width">
+        <div id="currency-calc-container">
+            <h1>Kalkulator Walut</h1>
+            <h2>Wybierz waluty i sprawdź kurs.</h2>
+            <div class="currency-calc-row" id="currency-input" data-selected-currency="KPA">
+                <div class="select-label">
+                    <div class="currency-item">
+                        <div class="currency-logo-container">
+                            <div class="currency-logo" style="background-image: url('https://i.ibb.co/LCwD1nK/image-6.png');"></div>
+                        </div>
+                        <div class="currency-data">
+                            <div class="currency-name">KPA</div>
+                        </div>
+                    </div>
+                    <div class="currency-select">
+                        <div class="currency-list">
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/LCwD1nK/image-6.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">KPA</div>
+                                    <div class="currency-description">Korona Pamperska</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/XbWXD6k/image-5.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">DFA</div>
+                                    <div class="currency-description">Dolar Fangejski</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/BPS82n0/image-4.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">REG</div>
+                                    <div class="currency-description">Regis Nowotuhalfski</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/K0yMhQ5/image-3.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">MAI</div>
+                                    <div class="currency-description">Marka Iznotiańskia</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/McPdD8y/image-2.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">REB</div>
+                                    <div class="currency-description">Rubel Ebengradzki</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/VW5yqzz/image.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">ZLP</div>
+                                    <div class="currency-description">Złoty Pieczarski</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/xDVFRD2/image-1.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">KOA</div>
+                                    <div class="currency-description">Korona Atidalska</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://media.istockphoto.com/id/841938102/vector/united-states-flag-vector-square-flat-icon.jpg?s=170667a&w=0&k=20&c=ECGhvipfMVlpLH9XLamjYtz38VfQZgvTnPIGV-6f4hI=');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">USD</div>
+                                    <div class="currency-description">Dolar Amerykański</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/250px-Flag_of_Poland_%28normative%29.svg.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">PLN</div>
+                                    <div class="currency-description">Polski Złoty</div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <input id="currency-value-input" type="number"placeholder="0,00" step="0.01" oninput="exchangeCurrency();">
+                <label for="currency-value-input">Wartość w KPA</label>
+            </div>
+            <div id="switch-currencies-button"><i class="fa-solid fa-repeat"></i></div>
+            <div class="currency-calc-row" id="currency-output" data-selected-currency="PLN">
+                <div class="select-label">
+                    <div class="currency-item">
+                        <div class="currency-logo-container">
+                            <div class="currency-logo" style="background-image: url('https://i.ibb.co/LCwD1nK/image-6.png');"></div>
+                        </div>
+                        <div class="currency-data">
+                            <div class="currency-name">KPA</div>
+                        </div>
+                    </div>
+                    <div class="currency-select">
+                        <div class="currency-list">
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/LCwD1nK/image-6.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">KPA</div>
+                                    <div class="currency-description">Korona Pamperska</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/XbWXD6k/image-5.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">DFA</div>
+                                    <div class="currency-description">Dolar Fangejski</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/BPS82n0/image-4.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">REG</div>
+                                    <div class="currency-description">Regis Nowotuhalfski</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/K0yMhQ5/image-3.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">MAI</div>
+                                    <div class="currency-description">Marka Iznotiańskia</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/McPdD8y/image-2.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">REB</div>
+                                    <div class="currency-description">Rubel Ebengradzki</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/VW5yqzz/image.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">ZLP</div>
+                                    <div class="currency-description">Złoty Pieczarski</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/xDVFRD2/image-1.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">KOA</div>
+                                    <div class="currency-description">Korona Atidalska</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://media.istockphoto.com/id/841938102/vector/united-states-flag-vector-square-flat-icon.jpg?s=170667a&w=0&k=20&c=ECGhvipfMVlpLH9XLamjYtz38VfQZgvTnPIGV-6f4hI=');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">USD</div>
+                                    <div class="currency-description">Dolar Amerykański</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/250px-Flag_of_Poland_%28normative%29.svg.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">PLN</div>
+                                    <div class="currency-description">Polski Złoty</div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <input id="currency-value-output" type="number" readonly>
+                <label for="currency-value-output">Wartość w KPA</label>
+            </div>
+        </div>
+    </main>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const currencyRows = document.querySelectorAll('.currency-calc-row');
+
+    let currentlyOpenDropdown = null;
+
+    currencyRows.forEach(row => {
+        const selectLabel = row.querySelector('.select-label');
+        const currencySelect = selectLabel.querySelector('.currency-select');
+        const currencyItems = currencySelect.querySelectorAll('.currency-item');
+        const currencyDisplayItem = selectLabel.querySelector('.currency-item');
+        const currencyInputLabel = selectLabel.querySelector('label');
+
+        selectLabel.addEventListener('click', function(event) {
+            event.stopPropagation();  // Prevent click from propagating to the document
+
+            // Close the currently open dropdown if it's not this one
+            if (currentlyOpenDropdown && currentlyOpenDropdown !== currencySelect) {
+                currentlyOpenDropdown.classList.remove('show');
+            }
+
+            // Toggle the current dropdown
+            currencySelect.classList.toggle('show');
+
+            // Update the currently open dropdown
+            currentlyOpenDropdown = currencySelect.classList.contains('show') ? currencySelect : null;
+        });
+
+        currencyItems.forEach(item => {
+            item.addEventListener('click', function(event) {
+                event.stopPropagation();  // Prevent click from propagating to the document
+                
+                // Update the displayed currency
+                const newCurrencyLogo = item.querySelector('.currency-logo').style.backgroundImage;
+                const newCurrencyName = item.querySelector('.currency-name').textContent;
+                const newCurrencyInputLabel = `Wartość w ${item.querySelector('.currency-name').textContent}`;
+
+                currencyDisplayItem.querySelector('.currency-logo').style.backgroundImage = newCurrencyLogo;
+                currencyDisplayItem.querySelector('.currency-name').textContent = newCurrencyName;
+                row.querySelector('label').innerHTML = newCurrencyInputLabel;
+                row.setAttribute('data-selected-currency', item.querySelector('.currency-name').textContent);
+                exchangeCurrency();
+
+                // Close the dropdown
+                currencySelect.classList.remove('show');
+                currentlyOpenDropdown = null;
+            });
+        });
+    });
+
+    // Close the dropdown if clicked outside
+    document.addEventListener('click', function(event) {
+        if (currentlyOpenDropdown && !event.target.closest('.select-label')) {
+            currentlyOpenDropdown.classList.remove('show');
+            currentlyOpenDropdown = null;
+        }
+    });
+});
+    const exchangeRates = {
+        KPA: 1.0,
+        DFA: 1.0,
+        REG: 1.4,
+        MAI: 1.2,
+        REB: 10.0,
+        ZLP: 20.0,
+        KOA: 2.5,
+        USD: 0.25,
+        PLN: 1.0,
+    }
+    function exchangeCurrency(){
+    const currencyInputElement = document.getElementById("currency-input");
+    const currencyOutputElement = document.getElementById("currency-output");
+    const fromCurrency = currencyInputElement.getAttribute('data-selected-currency');
+    const toCurrency = currencyOutputElement.getAttribute('data-selected-currency');
+    const amount = document.getElementById("currency-value-input").value;
+    document.getElementById("currency-value-output").value = ((amount / exchangeRates[fromCurrency]) * exchangeRates[toCurrency]).toFixed(2);
+    }
+    document.getElementById("currency-value-input").addEventListener('blur', function(){
+        document.getElementById("currency-value-input").value = parseFloat(document.getElementById("currency-value-input").value).toFixed(2);
+    })
+    document.getElementById("switch-currencies-button").addEventListener('click', function(){
+
+        const input = document.getElementById('currency-input');
+        const output = document.getElementById('currency-output');
+        
+        const inputLogo = input.querySelector('.currency-logo').style.backgroundImage;
+        const outputLogo = output.querySelector('.currency-logo').style.backgroundImage;
+        const inputName = input.querySelector('.currency-name').textContent;
+        const outputName = output.querySelector('.currency-name').textContent;
+        const inputLabel = input.querySelector('label').textContent;
+        const outputLabel = output.querySelector('label').textContent;
+        const outputInputValue = output.querySelector('input').value;
+
+        input.setAttribute('data-selected-currency', outputName);
+        output.setAttribute('data-selected-currency', inputName);
+        input.querySelector('.currency-name').textContent = outputName;
+        output.querySelector('.currency-name').textContent = inputName;
+        output.querySelector('.currency-logo').style.backgroundImage = inputLogo;
+        input.querySelector('.currency-logo').style.backgroundImage = outputLogo;
+        output.querySelector('label').textContent = inputLabel;
+        input.querySelector('label').textContent = outputLabel;
+        input.querySelector('input').value = outputInputValue;
+
+        exchangeCurrency();
+    });
+    </script>
+    <script src="/fangea/pageheader.js"></script>
+</body>
+
+</html>
