@@ -1651,3 +1651,201 @@ min-width: 100px;
   }
 
 }
+main.medium-width{
+width: 100%;
+max-width: 1400px;
+margin: auto;
+margin-top: 80px;
+}
+#currency-calc-container{
+width: 100%;
+max-width: 600px;
+padding: 2rem;
+box-shadow: 0px 1px 3px 1px #596e81;
+border-radius: 1rem;
+background-color: #141e26;
+box-sizing: border-box;
+}
+.currency-calc-row{
+width: 100%;
+position: relative;
+border-collapse: collapse;
+display: flex;
+height: 3.75rem;
+flex-direction: row;
+margin: 1rem 0 ;
+}
+.currency-calc-row .select-label{
+width: 30%;
+background-color: #1b262f;
+border-top-left-radius: 1rem;
+border-bottom-left-radius: 1rem;
+box-shadow: 0px 1px 3px 1px #596e81;
+border-right: 0;
+box-sizing: border-box;
+position: relative;
+height: 100%;
+}
+.currency-calc-row label{
+position: absolute;
+top: 0.5rem;
+right: 0.75rem;
+z-index: 200;
+font-size: 0.8rem;
+font-weight: 600;
+color: rgba(255,255,255, 0.5)
+}
+.currency-calc-row input{
+width: 70%;
+box-shadow: 0px 1px 3px 1px #596e81;
+border: none;
+outline: 0;
+border-top-right-radius: 1rem;
+border-bottom-right-radius: 1rem;
+background-color: #1b262f;
+padding: 1.5rem 0.75rem 0.5rem 0.75rem;
+text-align: right;
+color: rgba(255,255,255, 0.85);
+font-size: 1.25rem;
+box-sizing: border-box;
+font-weight: 500;
+font-family: 'Montserrat', 'Montserrat Alternates', sans-serif;
+}
+.currency-calc-row input::-webkit-outer-spin-button,
+.currency-calc-row input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.currency-calc-row input[type=number] {
+  -moz-appearance: textfield;
+}
+.currency-logo{
+max-width: 2.5rem;
+height: 100%;
+width: 100%;
+max-height: 2.5rem;
+border-radius: 1.25rem;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+.currency-logo-container{
+width: 4.25rem;
+height: 100%;
+display: flex;
+align-items: center;
+box-sizing: border-box;
+padding: 0.25rem;
+justify-content: right;
+}
+.select-label > .currency-item{
+ width: 100%;
+height: 100%; 
+}
+.currency-item{
+width: calc(100% - 4px);
+height: 4.25rem;
+display: flex;
+box-sizing: border-box;
+margin-right: 4px;
+user-select: none;
+transition: all 0.15s ease-in-out;
+flex-direction: row;
+cursor: pointer;
+}
+.currency-item:hover:not(.select-label > .currency-item){
+  background-color: #24323d;
+}
+.currency-name{
+font-size: 1.25rem;
+font-weight: 600;
+color: rgba(255,255,255, 0.9);
+}
+.currency-calc-row .select-label > .currency-item .currency-data .currency-description{
+display: none;
+}
+.currency-data{
+width: calc(100% - 4.25rem);
+box-sizing: border-box;
+padding: 0.25rem;
+height: 100%;
+align-items: left;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.currency-description{
+font-size: 0.75rem;
+color: rgba(255,255,255, 0.6);
+}
+.currency-select {
+  display: none;
+  position: absolute;
+  width: 150%;
+  min-height: 300px;
+  max-height: 300px;
+  left: 0;
+  top: calc(100% + 0.5rem);
+  z-index: 200;
+  box-shadow: 0px 1px 3px 1px #596e81;
+  background-color: #1b262f;
+  border-radius: 1rem;
+  flex-direction: column;
+  overflow: hidden;
+  padding-right: 4px;
+}
+.currency-select.show {
+  display: flex;
+}
+.currency-list{
+width: 100%;
+max-height: 100%;
+overflow-y: scroll;
+}
+#currency-calc-container input[type="button"]{
+width: 100%;
+border: 0;
+font-family: 'Montserrat', 'Montserrat Alternates', sans-serif;
+font-weight: 600;
+font-size: 1rem;
+transition: all 0.15s ease-in-out;
+padding: 1rem;
+border-radius: 1rem;
+color: rgba(255,255,255, 0.65);
+cursor: pointer;
+box-shadow: 0px 1px 3px 1px #596e81;
+background-color: #121b22;
+background-image: linear-gradient(to top, rgba(44, 55, 75, 0.35) 0%, transparent 75%);
+margin-top: 1rem;
+}
+#currency-calc-container input[type="button"]:hover, #currency-calc-container #switch-currencies-button:hover{
+  background-color: #141e25;
+  color: rgba(255,255,255, 0.75);
+}
+#currency-calc-container #switch-currencies-button{
+  background-color: #121b22;
+  background-image: linear-gradient(to top, rgba(44, 55, 75, 0.35) 0%, transparent 75%);
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 1px 3px 1px #596e81;
+  color: rgba(255,255,255, 0.65);
+  width: 3rem;
+  cursor: pointer;
+  user-select: none;
+  height: 3rem;
+}
+#currency-calc-container #switch-currencies-button i{
+transform: rotate(90deg);
+}
+#currency-calc-container h1{
+margin: 0;
+}
+#currency-calc-container h2{
+color: rgba(255,255,255, 0.75);
+font-size: 1.15rem;
+padding-bottom: 1.5rem;
+font-weight: 500;
+margin: 0;
+}
