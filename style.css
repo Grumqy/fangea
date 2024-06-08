@@ -625,6 +625,9 @@ box-shadow: #596e81 0px 1px 2px 0px;
 background-color: #1d2933;
 transition: all 0.15s ease-in-out;
 }
+main #radio-nav ul li:active{
+transform: scale(0.95);
+}
 @media screen and (max-width: 599px){
   main #radio-nav div{
 padding: 0;
@@ -1661,6 +1664,7 @@ margin-top: 80px;
 width: 100%;
 max-width: 600px;
 padding: 2rem;
+height: fit-content;
 box-shadow: 0px 1px 3px 1px #596e81;
 border-radius: 1rem;
 background-color: #141e26;
@@ -1677,6 +1681,7 @@ margin: 1rem 0 ;
 }
 .currency-calc-row .select-label{
 width: 30%;
+min-width: 8rem;
 background-color: #1b262f;
 border-top-left-radius: 1rem;
 border-bottom-left-radius: 1rem;
@@ -1697,6 +1702,7 @@ color: rgba(255,255,255, 0.5)
 }
 .currency-calc-row input{
 width: 70%;
+max-width: calc(100% - 8rem);
 box-shadow: 0px 1px 3px 1px #596e81;
 border: none;
 outline: 0;
@@ -1848,4 +1854,26 @@ font-size: 1.15rem;
 padding-bottom: 1.5rem;
 font-weight: 500;
 margin: 0;
+}
+main.flex.center{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+@media screen and (max-width: 525px) {
+  .currency-select{
+  width: calc(100% + 8rem);
+  max-width: 80vw;
+  }
+}
+@media screen and (max-height: 750px) {
+  .currency-select{
+ max-height: 30vh;
+ min-height: unset;
+  }
+}
+@media screen and (max-width: 600px) {
+  #currency-calc-container{
+border-radius: 0;
+  }
 }
