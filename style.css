@@ -487,9 +487,9 @@ flex-wrap: wrap;
 article .article-image-gallery figure{
 float: unset;
 flex: 1;
-min-width: calc(25% - 0.5rem);
+min-width: calc(20% - 0.5rem);
 margin: 0.25rem;
-max-width: calc(25% - 0.5rem);
+max-width: calc(20% - 0.5rem);
 }
 @media screen and (max-width: 500px){
   article .article-image-gallery figure{
