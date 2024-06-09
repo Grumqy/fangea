@@ -1,3 +1,50 @@
+const article = document.querySelector("article");
+if (article.classList.contains("awarded")){
+var articleBadge = document.createElement("div");
+articleBadge.classList.add("article-badge", "awarded");
+articleBadge.innerHTML = 
+`<div class="content">
+<div class="icon">
+    <img src="https://i.ibb.co/6y7BBC6/order.png">
+</div>
+<div class="text">
+    <h2>Artykuł na medal</h2>
+    <p>Ten artykuł został wyróżniony statusem „Artykuł na Medal”. Wyczerpuje opisywany temat i jest bogaty w treść.</p>
+</div>
+</div>`;
+article.insertBefore(articleBadge, article.querySelector("header").nextSibling);
+};
+if (article.classList.contains("outdated")){
+  var articleBadge = document.createElement("div");
+  articleBadge.classList.add("article-badge", "outdated");
+  articleBadge.innerHTML = 
+  `<div class="content">
+  <div class="icon">
+  <img src="https://i.ibb.co/5hqmRX0/znakzapytania.png">
+  </div>
+  <div class="text">
+      <h2>Ten artykuł wymaga zweryfikowania podanych informacji.</h2>
+      <p>Część lub nawet wszystkie informacje w artykule mogą być nieprawdziwe lub nieaktualne. Artykuł wymaga zweryfikowania i zaktualizowania treści.</p>
+  </div>
+  </div>`;
+  article.insertBefore(articleBadge, article.querySelector("header").nextSibling);
+};
+if (article.classList.contains("improvable")){
+  var articleBadge = document.createElement("div");
+  articleBadge.classList.add("article-badge", "improvable");
+  articleBadge.innerHTML = 
+  `<div class="content">
+  <div class="icon">
+  <img src="https://i.ibb.co/DRJpQRS/flaga.png">
+  </div>
+  <div class="text">
+      <h2>Ten artykuł jest napisany niepoprawnie.</h2>
+      <p>Treść tego artykułu nie spełnia norm języka polskiego. Artykuł jest niepoprawny i wymaga całkowitego lub częściowego napisania od nowa.</p>
+  </div>
+  </div>`;
+  article.insertBefore(articleBadge, article.querySelector("header").nextSibling);
+};
+
 let headings = document.querySelectorAll("main article h1");
 let navigation = document.querySelector("main nav ul");
 
@@ -47,7 +94,6 @@ let PicturesElements = Array.from(document.querySelectorAll("main article table.
 PicturesElements.forEach((element,index) =>{
 element.addEventListener("click", () => selectGalleryItem(index));
 })
-
 
 let modalContainer = document.createElement("div");
 modalContainer.id = "modal-container";
