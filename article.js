@@ -77,7 +77,7 @@ sections.forEach((section) => {
   });
 });
 
-let pictures = Array.from(document.querySelectorAll("main article table.infobox img:not(.icon)")).map(img => ({
+let pictures = Array.from(document.querySelectorAll("main article table.infobox img:not(.icon, .plainlink img)")).map(img => ({
   src: img.src,
   description: img.dataset.description
 })).concat(Array.from(document.querySelectorAll("main article figure")).map(figure => {
