@@ -107,6 +107,18 @@
                     <th>Tablice rejestracyjne</th>
                     <td>PZ</td>
                 </tr>
+                <tr>
+                    <td colspan="2">
+                        <table class="ibox">
+                            <tbody>
+                                <tr class="plainlink">
+                                    <td><img class="icon large" src="https://i.ibb.co/XJQSsqS/slownik.png"></td>
+                                    <td><span class="modal-opener" id="dictionary-opener">Hasło w słowniku</span></td> 
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
             </tbody>
         </table>
             <p>
@@ -173,6 +185,69 @@
     </main>
     <script src="/fangea/pageheader.js"></script>
     <script src="/fangea/article.js"></script>
+    <script>
+        const dictionaryhtml = `
+            <h2>wymowa:</h2>
+            <p>
+                IPA: [pɔrt zwɔˈt͡ɕit͡sɛ], AS: [port zwot'itse], zjawiska fonetyczne: zmiękcz. t
+            </p>
+            <h2>znaczenia:</h2>
+            <p>
+                (1.1) geogr. adm. miasto w Pieczarii
+            </p>
+            <h2>odmiana:</h2>
+            <table>
+                <tr>
+                    <th>przypadek</th>
+                    <th>liczba pojedyncza</th>
+                </tr>
+                <tr>
+                    <td>mianownik</td>
+                    <td>Port Złotice</td>
+                </tr>
+                <tr>
+                    <td>dopełniacz</td>
+                    <td>Portu Złotice</td>
+                </tr>
+                <tr>
+                    <td>celownik</td>
+                    <td>Portowi Złotice</td>
+                </tr>
+                <tr>
+                    <td>biernik</td>
+                    <td>Port Złotice</td>
+                </tr>
+                <tr>
+                    <td>narzędnik</td>
+                    <td>Portem Złotice</td>
+                </tr>
+                <tr>
+                    <td>miejscownik</td>
+                    <td>Porcie Złotice</td>
+                </tr>
+                <tr>
+                    <td>wołacz</td>
+                    <td>Porcie Złotice</td>
+                </tr>
+            </table>
+            <h2>wyrazy pokrewne:</h2>
+            <ul>
+            <li>rzecz. złoticanin (mos), złoticanka (ż)
+            <li>przym. złoticki
+            </ul>
+            <h2>tłumaczenie:</h2>
+            <ul>
+            <li>niemiecki: (1.1) Hafengoldberg</li>
+            <li>katucki: (1.1) Gielberentt</li>
+            <li>łaciński: (1.1) Portaurum</li>
+            <li>hebrajski: (1.1) זהב נמל</li>
+            <li>rosyjski: (1.1) Гавань Злотице</li>
+            </ul>
+        `;
+            createModalWindow('dictionary', dictionaryhtml);
+            setModalOpener('dictionary', 'dictionary-opener');
+
+    </script>
 </body>
 
 </html>
