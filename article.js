@@ -95,13 +95,27 @@ PicturesElements.forEach((element,index) =>{
 element.addEventListener("click", () => selectGalleryItem(index));
 })
 
-let modalContainer = document.createElement("div");
-modalContainer.id = "modal-container";
-document.body.appendChild(modalContainer);
+function createModalContainer(){
+  var modalContainer = document.createElement("div");
+  modalContainer.id = "modal-container";
+  modalContainer.innerHTML = '<div id="modal-overlay"></div>';
+  document.body.appendChild(modalContainer);
+}
+createModalContainer();
 
-modalContainer.innerHTML = `
-<div class="modal">
-<i class="fa-solid fa-xmark"></i>
+function createModalWindow(id, innerhtml){
+  var modal = document.createElement("div");
+  modal.classList.add("modal");
+  modal.id = id;
+  modal.innerHTML = '<i class="fa-solid fa-xmark modal-close"></i>' + innerhtml;
+  document.getElementById("modal-container").appendChild(modal);
+
+  // Fix: pass the hideModal function as a reference, not invoke it immediately
+  document.getElementById(id).querySelector('.modal-close').addEventListener("click", () => hideModal(id));
+  document.getElementById("modal-overlay").addEventListener("click", () => hideModal('any'));
+}
+
+const articlePhotosGalleryInnerhtml = `
 <div id="modal-gallery-main">
     <ul id="modal-gallery-list">
     </ul>
@@ -110,12 +124,9 @@ modalContainer.innerHTML = `
     <ul id="modal-gallery-nav-list">
     </ul>
     </div>
-  </div>
-<div id="modal-overlay"></div>
-`;  
+`;
 
-document.querySelector(".modal i.fa-solid").addEventListener("click", hideModal);
-document.getElementById("modal-overlay").addEventListener("click", hideModal);
+createModalWindow('article-photos-gallery', articlePhotosGalleryInnerhtml);
 
 pictures.forEach((picture, index) => {
 let galleryItem = document.createElement("li");
@@ -147,17 +158,29 @@ function selectGalleryItem(index){
   element.classList.remove("active");
   galleryNavItems[index].classList.add("active");
   })
-  showModal();
+  showModal('article-photos-gallery');
   }
 
-function showModal(){
+function showModal(id){
 document.getElementById("modal-container").classList.add("active");
+document.getElementById(id).classList.add("active");
 }
-function hideModal(){
+function hideModal(id) {
+  console.log("Closing modal");
+  document.getElementById("modal-container").classList.add("hidden");
+  setTimeout(function() {
+      document.getElementById("modal-container").classList.remove("active");
+      document.getElementById("modal-container").classList.remove("hidden");
+      if (id !== 'any') {
+          document.getElementById(id).classList.remove("active");
+      } else {
+          Array.from(document.getElementById("modal-container").querySelectorAll(".modal")).forEach(modal => {
+              modal.classList.remove("active");
+          });
+      }
+  }, 250);
+}
 
-document.getElementById("modal-container").classList.add("hidden");
-setTimeout(function(){
-  document.getElementById("modal-container").classList.remove("active");
-  document.getElementById("modal-container").classList.remove("hidden");
-}, 250)
+function setModalOpener(modalId, openerId){
+document.getElementById(openerId).addEventListener("click", () => showModal(modalId));
 }
