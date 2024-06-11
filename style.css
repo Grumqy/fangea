@@ -1,4 +1,4 @@
-  body {
+body {
   margin: 0;
   color: white;
   background-color: #101920;
@@ -337,6 +337,10 @@
   display: table;
   cursor: pointer;
   }
+  .modal h1:nth-child(2){
+  margin-top: 0;
+  padding-top: 0;
+  }
   article figure.right {
   float: right;
   clear: right;
@@ -383,7 +387,7 @@
   background-color: #eee;
   }
   article table.infobox th img,
-  article table.infobox td img {
+  article table.infobox td img:not(.plainlink img){
   max-width: 100%;
   cursor: pointer;
   box-sizing: border-box;
@@ -1093,7 +1097,9 @@
   border-radius: 1rem;
   z-index: 700;
   position: relative;
-  overflow-y: auto;
+  }
+  #modal-container .modal:not(#article-photos-gallery){
+    overflow-y: auto;
   }
   .modal#article-photos-gallery{
   max-width: 1400px;
@@ -1300,10 +1306,12 @@
   z-index: 600;
   }
   .modal i.fa-solid{
-  position: absolute;
+  position: sticky;
   font-size: 1.5rem;
-  right: 0.25rem;
-  top: 0.25rem;
+  margin-bottom: -1.5rem;
+  left: 100%;
+  top: 0;
+  transform: translate(1.5rem, -1.5rem);
   color: #111;
   background-color: #f8f9fa;
   width: 2rem;
@@ -1935,6 +1943,9 @@
   article .article-badge.outdated{
   border-left-color: #FFA500;
   }
+  article .article-badge.uncomplete{
+  border-left-color: #FFA500;
+  }
   article .article-badge .content{
   border: 1px solid #a2a9b1;
   border-left: 0;
@@ -1979,6 +1990,9 @@
   article .article-badge.improvable .content .icon img{
   width: 30px;
   }
+  article .article-badge.uncomplete .content .icon img{
+  width: 40px;
+  }
   article table.infobox tr.plainlink td:first-of-type{
   width: 40px;
   }
@@ -1996,4 +2010,12 @@
   article table.infobox tr.plainlink td{
   vertical-align: middle;
   padding: 0;
+  }
+  article .article-badge.uncomplete{
+  clear: left;
+  pointer-events: none;
+  width: unset;
+  }
+  article .article-badge.uncomplete .content{
+  width: unset;
   }
