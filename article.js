@@ -44,6 +44,21 @@ if (article.classList.contains("improvable")){
   </div>`;
   article.insertBefore(articleBadge, article.querySelector("header").nextSibling);
 };
+const uncompleteSectionsBadges = article.querySelectorAll(".uncomplete");
+if(uncompleteSectionsBadges){
+Array.from(uncompleteSectionsBadges).forEach(badge=>{
+badge.classList.add("article-badge");
+badge.innerHTML =   `<div class="content">
+<div class="icon">
+<img src="https://i.ibb.co/0FvTnhx/puzell.png">
+</div>
+<div class="text">
+    <h2>Ta sekcja jest pusta, niewystarczająco szczegółowa lub niekompletna.</h2>
+    <p>Treść wymaga uzupełnienia i poszerzenia, aby dokładniej przedstawić opisywany temat. </p>
+</div>
+</div>`;
+})
+}
 
 let headings = document.querySelectorAll("main article h1");
 let navigation = document.querySelector("main nav ul");
@@ -89,7 +104,7 @@ let pictures = Array.from(document.querySelectorAll("main article table.infobox 
   };
 }));
 
-let PicturesElements = Array.from(document.querySelectorAll("main article table.infobox img:not(.icon)")).concat(Array.from(document.querySelectorAll("main article figure")));
+let PicturesElements = Array.from(document.querySelectorAll("main article table.infobox img:not(.icon, .plainlink img)")).concat(Array.from(document.querySelectorAll("main article figure")));
 
 PicturesElements.forEach((element,index) =>{
 element.addEventListener("click", () => selectGalleryItem(index));
