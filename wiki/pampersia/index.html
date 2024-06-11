@@ -161,6 +161,18 @@
                     <tr class="center">
                         <td colspan="2">Wzór tablicy rejestracyjnej</td>
                     </tr>
+                    <tr>
+                        <td colspan="2" style="border-top: 1px solid #a2a9b1;">
+                            <table class="ibox">
+                                <tbody>
+                                    <tr class="plainlink">
+                                        <td><img src="https://i.ibb.co/XJQSsqS/slownik.png"></td>
+                                        <td><span class="modal-opener" id="dictionary-opener">Hasło w słowniku</span></td> 
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <p>
@@ -335,6 +347,66 @@
     </main>
     <script src="/fangea/pageheader.js"></script>
     <script src="/fangea/article.js"></script>
+    <script>
+        const dictionaryhtml = `
+            <h1>Pampersia</h1>
+            <h2>wymowa:</h2>
+            <p>
+                IPA: [pamˈpɛrɕa], AS: [pam'persia], zjawiska fonetyczne: zmiękcz. si
+            </p>
+            <h2>znaczenia:</h2>
+            <p>
+                (1.1) geogr. polit. państwo na Fangei ze stolicą w Pampersiu
+            </p>
+            <h2>odmiana:</h2>
+            <table>
+                <tr>
+                    <th>przypadek</th>
+                    <th>liczba pojedyncza</th>
+                </tr>
+                <tr>
+                    <th>mianownik</th>
+                    <td>Pampersia</td>
+                </tr>
+                <tr>
+                    <th>dopełniacz</th>
+                    <td>Pampersii</td>
+                </tr>
+                <tr>
+                    <th>celownik</th>
+                    <td>Pampersii</td>
+                </tr>
+                <tr>
+                    <th>biernik</th>
+                    <td>Pampersię</td>
+                </tr>
+                <tr>
+                    <th>narzędnik</th>
+                    <td>Pampersią</td>
+                </tr>
+                <tr>
+                    <th>miejscownik</th>
+                    <td>Pampersii</td>
+                </tr>
+                <tr>
+                    <th>wołacz</th>
+                    <td>Pamersio</td>
+                </tr>
+            </table>
+            <h2>wyrazy pokrewne:</h2>
+            <ul>
+            <li>rzecz. pampers (m), pamperka (ż)
+            <li>przym. pamperski
+            </ul>
+            <h2>etymologia:</h2>
+            <p>
+                Źródłosłów wyrazu „Pampersia” najprawdopodobniej wywodzi się od nazwy zachodniego plemienia Pamerów złączonego z Lurianami i Łożanami. z kolei źródłosłów wyrazu „Pamerzy” prawdopodobnie pochodzi od połączenia dwóch wyrazów wywodzących się z języka pomorskiego „po” i „morze” co oznacza w wolnym tłumaczeniu „ziemie sięgającą po morze”. Słowo z biegiem czasu zostało przekształcone w „Pamerów”. „Pampersia” zaczęto używać w odniesieniu do całego państwa w XII wieku po uzyskaniu chrztu.
+            </p>
+        `;
+            createModalWindow('dictionary', dictionaryhtml);
+            setModalOpener('dictionary', 'dictionary-opener');
+
+    </script>
 </body>
 
 </html>
