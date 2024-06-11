@@ -482,7 +482,7 @@ body {
   article img.icon.medium, .modal img.icon.medium {
   display: inline;
   height: 1.5rem;
-  padding: 0.1rem 0.25rem;
+  padding: 0 0.25rem 0.1rem 0.25rem;
   vertical-align: middle;
   }
   article img.icon.large, .modal img.icon.large {
