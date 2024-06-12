@@ -157,6 +157,18 @@
                     <tr class="center">
                         <td colspan="2">Wzór tablicy rejestracyjnej</td>
                     </tr>
+                    <tr>
+                        <td colspan="2" style="border-top: 1px solid #a2a9b1;">
+                            <table class="ibox">
+                                <tbody>
+                                    <tr class="plainlink">
+                                        <td><img src="https://i.ibb.co/XJQSsqS/slownik.png"></td>
+                                        <td><span class="modal-opener" id="dictionary-opener">Hasło w słowniku</span></td> 
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <p>
@@ -170,7 +182,7 @@
             </p>
             <h1>Etymologia</h1>
             <p>
-                Źródłosłów wyrazu Montecydja (w języku montecydyjskim: Montezerisch) wywodzi się z wczesnego średniowiecza; pierwszy raz w źródłach pojawiła się w IX wieku. Jest pochodzenia zatemilskiego, prawdopodobnie pochodzi od dwóch słów języka staromontecydyjskiego monte („państwo”) i verde („górzyste”), opisujących początkowo ziemie wokół Lodemerii. W XI wieku pojawia się w najstarszych kronikach montecydyjskich Wirten Emugendenbes, gdzie określana jest jako Konfederacja Montecydyjska.
+                Źródłosłów wyrazu Montecydia (w języku montecydyjskim: Montezerisch) wywodzi się z wczesnego średniowiecza; pierwszy raz w źródłach pojawiła się w IX wieku. Jest pochodzenia zatemilskiego, prawdopodobnie pochodzi od dwóch słów języka staromontecydyjskiego monte („góra”) i verde („zielona”), opisujących początkowo ziemie wokół Lodemerii. W XI wieku pojawia się w najstarszych kronikach montecydyjskich Wirten Emugendenbes, gdzie określana jest jako Konfederacja Montecydyjska.
             </p>
             <h1>Geografia</h1>
             <p>
@@ -446,6 +458,70 @@
     </main>
     <script src="/fangea/pageheader.js"></script>
     <script src="/fangea/article.js"></script>
+    <script>
+        const dictionaryhtml = `
+            <h1>Montecydia</h1>
+            <h2>wymowa:</h2>
+            <p>
+                IPA: [mɔntɛˈt͡sɨdʲa], AS: [montetsydia], zjawiska fonetyczne: zmiękcz. d
+            </p>
+            <h2>znaczenia:</h2>
+            <p>
+                (1.1) geogr. polit. państwo w Maurazji ze stolicą w Kolencydamie
+            </p>
+            <h2>odmiana:</h2>
+            <table>
+                <tr>
+                    <th>przypadek</th>
+                    <th>liczba pojedyncza</th>
+                </tr>
+                <tr>
+                    <th>mianownik</th>
+                    <td>Montecydia</td>
+                </tr>
+                <tr>
+                    <th>dopełniacz</th>
+                    <td>Montecydii</td>
+                </tr>
+                <tr>
+                    <th>celownik</th>
+                    <td>Montecydii</td>
+                </tr>
+                <tr>
+                    <th>biernik</th>
+                    <td>Montecydię</td>
+                </tr>
+                <tr>
+                    <th>narzędnik</th>
+                    <td>Montecydią</td>
+                </tr>
+                <tr>
+                    <th>miejscownik</th>
+                    <td>Montecydii</td>
+                </tr>
+                <tr>
+                    <th>wołacz</th>
+                    <td>Montecydio</td>
+                </tr>
+            </table>
+            <h2>wyrazy pokrewne:</h2>
+            <ul>
+            <li>rzecz. montecydyjczyk (m), montecydyjka (ż)
+            <li>przym. montecydyjski
+            </ul>
+            <h2>etymologia:</h2>
+            <p>
+                Źródłosłów wyrazu Montecydia (w języku montecydyjskim: Montezerisch) wywodzi się z wczesnego średniowiecza; pierwszy raz w źródłach pojawiła się w IX wieku. Jest pochodzenia zatemilskiego, prawdopodobnie pochodzi od dwóch słów języka staromontecydyjskiego monte („góra”) i verde („zielona”), opisujących początkowo ziemie wokół Lodemerii. W XI wieku pojawia się w najstarszych kronikach montecydyjskich Wirten Emugendenbes, gdzie określana jest jako Konfederacja Montecydyjska.
+            </p>
+            <h2>tłumaczenie:</h2>
+            <p>
+                niemiecki: (1.1) Montezerisch
+            </p>
+        `;
+            createModalWindow('dictionary', dictionaryhtml);
+            setModalOpener('dictionary', 'dictionary-opener');
+
+    </script>
 </body>
 
 </html>
