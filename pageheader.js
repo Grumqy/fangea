@@ -51,6 +51,7 @@ function simulateSearchResults(query) {
     { title: "Port Złotice", url: "https://grumqy.github.io/fangea/wiki/port_złotice/" },
     { title: "Łukasz Lukasox", url: "https://grumqy.github.io/fangea/wiki/łukasz_lukasox/" },
     { title: "Andannajwa Lidi", url: "https://grumqy.github.io/fangea/wiki/andannajwa_lidi/" },
+    { title: "Izydor Nwm Ktoś", url: "https://grumqy.github.io/fangea/wiki/izydor_nwm_ktoś/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
