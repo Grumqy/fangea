@@ -52,6 +52,7 @@ function simulateSearchResults(query) {
     { title: "Łukasz Lukasox", url: "https://grumqy.github.io/fangea/wiki/łukasz_lukasox/" },
     { title: "Andannajwa Lidi", url: "https://grumqy.github.io/fangea/wiki/andannajwa_lidi/" },
     { title: "Izydor Nwm Ktoś", url: "https://grumqy.github.io/fangea/wiki/izydor_nwm_ktoś/" },
+    { title: "Wojna domowa w Wizgardzie", url: "https://grumqy.github.io/fangea/wiki/wojna_domowa_w_wizgardzie/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
