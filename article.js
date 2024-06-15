@@ -92,6 +92,32 @@ sections.forEach((section) => {
   });
 });
 
+const header = document.querySelector("main article header");
+const sourceCodeElement = document.getElementById("source-code");
+
+if (!document.getElementById("article-content") && sourceCodeElement){
+  // Select the header and the last div
+  var lastDiv = document.getElementById('source-code');
+  
+  // Create a new div with the id 'content'
+  var contentDiv = document.createElement('div');
+  contentDiv.id = 'article-content';
+  
+  // Get all elements between header and lastDiv
+  var currentElement = header.nextElementSibling;
+  
+  while (currentElement && currentElement !== lastDiv) {
+      var nextElement = currentElement.nextElementSibling;
+      contentDiv.appendChild(currentElement);
+      currentElement = nextElement;
+  }
+  
+  // Insert the new contentDiv into the DOM before the lastDiv
+  lastDiv.parentNode.insertBefore(contentDiv, lastDiv);
+}
+
+const articleContent = document.getElementById("article-content");
+
 let pictures = Array.from(document.querySelectorAll("main article table.infobox img:not(.icon, .plainlink img)")).map(img => ({
   src: img.src,
   description: img.dataset.description
@@ -175,10 +201,9 @@ function selectGalleryItem(index){
   })
   showModal('article-photos-gallery');
   }
-
 function showModal(id){
 document.getElementById("modal-container").classList.add("active");
-document.getElementById(id).classList.add("active");
+document.getElementById(id).classList.add("active"); 
 }
 function hideModal(id) {
   console.log("Closing modal");
@@ -199,3 +224,129 @@ function hideModal(id) {
 function setModalOpener(modalId, openerId){
 document.getElementById(openerId).addEventListener("click", () => showModal(modalId));
 }
+;
+
+const imageGroupElements = document.querySelectorAll("article .image-group");
+
+Array.from(imageGroupElements).forEach(element=>{
+
+let imageGroupNavigation = document.createElement("nav");
+element.insertBefore(imageGroupNavigation, element.firstChild);
+var imageElements = Array.from(element.querySelectorAll("figure"));
+imageElements[0].classList.add("active");
+let currentIndex = 1;
+
+function setImageGroupNavigation(){
+  if(currentIndex == 1){
+    imageGroupNavigation.innerHTML = `<span>${currentIndex}/${imageElements.length}</span><i class="fa-solid fa-caret-right"></i>`;
+    imageGroupNavigation.querySelector("i.fa-caret-right").addEventListener("click", () => switchImage('right'));
+  } else if(currentIndex == imageElements.length){
+    imageGroupNavigation.innerHTML = `<i class="fa-solid fa-caret-left"></i><span>${currentIndex}/${imageElements.length}</span>`;
+    imageGroupNavigation.querySelector("i.fa-caret-left").addEventListener("click", () => switchImage('left'));
+  } else{
+    imageGroupNavigation.innerHTML = `<i class="fa-solid fa-caret-left"></i><span>${currentIndex}/${imageElements.length}</span></span><i class="fa-solid fa-caret-right"></i>`;
+    imageGroupNavigation.querySelector("i.fa-caret-left").addEventListener("click", () => switchImage('left'));
+    imageGroupNavigation.querySelector("i.fa-caret-right").addEventListener("click", () => switchImage('right'));
+  }
+};
+
+setImageGroupNavigation();
+
+function switchImage(direction){
+
+  imageElements.forEach(element=>{
+  element.classList.remove('active');
+  })
+  
+if(direction == 'left'){
+currentIndex--;
+imageElements[currentIndex-1].classList.add("active");
+
+} else{
+currentIndex++;
+imageElements[currentIndex-1].classList.add("active");
+}
+setImageGroupNavigation();
+}
+});
+
+let articleOptionsBar = document.createElement("div");
+header.appendChild(articleOptionsBar);
+
+if(sourceCodeElement){
+
+document.getElementById('source-code').innerHTML = document.getElementById('source-code').innerHTML.split('\n').map(line => line.trimStart()).join('\n');
+
+const sourceCode = document.getElementById("source-code").innerHTML;
+
+const readButton = document.createElement("b");
+const sourceCodeButton = document.createElement("b");
+
+readButton.innerHTML = 'Czytaj';
+sourceCodeButton.innerHTML = 'Kod źródłowy';
+
+readButton.classList.add('active');
+
+readButton.addEventListener('click', switchToRead);
+sourceCodeButton.addEventListener('click', switchToSourceCode);
+
+articleOptionsBar.appendChild(readButton);
+articleOptionsBar.appendChild(sourceCodeButton);
+
+
+document.getElementById('source-code').innerHTML = `<pre>${sourceCode}</pre>`;
+sourceCodeElement.innerHTML += '<div id="save-container"><div id="save-article"><i class="fa-solid fa-clipboard" aria-hidden="true"></i> Skopiuj do schowka</div></div>';
+
+function switchToRead(){
+  readButton.classList.add("active");
+  sourceCodeButton.classList.remove("active");
+  articleContent.style.display = 'contents';
+  sourceCodeElement.style.display = 'none';
+  }
+  
+  function switchToSourceCode(){
+    sourceCodeButton.classList.add("active");
+    readButton.classList.remove("active");
+    articleContent.style.display = 'none';
+    sourceCodeElement.style.display = 'block';
+  }
+  document.getElementById('save-article').addEventListener('click', copySourceCodeToClipboard);
+
+  function copySourceCodeToClipboard() {
+      const el = document.createElement('textarea');
+      
+      el.value = document.querySelector("#source-code pre").innerHTML;
+      
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+  
+      document.body.appendChild(el);
+      
+      const selected =
+          document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false;
+      
+      el.select();
+      
+      document.execCommand('copy');
+      
+      document.body.removeChild(el);
+      
+      if (selected) {
+          document.getSelection().removeAllRanges();
+          document.getSelection().addRange(selected);
+      }
+      document.getElementById('save-article').innerHTML = `<i class="fa-solid fa-check" aria-hidden="true"></i> Skopiowano kod źródłowy`;
+      setTimeout(function(){
+          document.getElementById('save-article').innerHTML = `<i class="fa-solid fa-clipboard" aria-hidden="true"></i> Skopiuj do schowka`;
+      }, 1500)
+  }
+  
+
+}
+
+const editorButton = document.createElement("a");
+editorButton.innerHTML = 'Edytor';
+editorButton.target = '_blank';
+editorButton.href = 'https://grumqy.github.io/fangea/wiki/edytor/';
+
+articleOptionsBar.appendChild(editorButton);
