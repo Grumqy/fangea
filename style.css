@@ -1,4 +1,4 @@
-body {
+  body {
   margin: 0;
   color: white;
   background-color: #101920;
@@ -292,16 +292,16 @@ body {
     max-width: 100%;
   }
   }
-  article a, article span.modal-opener{
+  article a, article span.modal-opener, .editor-tab.help table a{
   text-decoration: none;
   cursor: pointer;
   color: #36c;
   transition: all 0.15s ease-in-out;
   }
-  article a:hover, article span.modal-opener:hover {
+  article a:hover, article span.modal-opener:hover, .editor-tab.help table a:hover{
   text-decoration: underline;
   }
-  article a:active, article span.modal-opener:active{
+  article a:active, article span.modal-opener:active, .editor-tab.help table a:active{
   color: #faa700;
   }
   article h1, .modal h1 {
@@ -325,7 +325,7 @@ body {
   width: 100%;
   }
   article figure, .modal figure{
-  max-width: calc(25% + 4rem);
+  max-width: calc(15% + 4rem);
   box-sizing: border-box;
   padding: 0.6rem;
   border: 1px solid #a2a9b1;
@@ -354,7 +354,7 @@ body {
   padding-bottom: 0.5em;
   margin: 0.5em 0 0 0;
   }
-  article table.infobox {
+  article table.infobox, .editor-tab.help table.infobox{
   float: right;
   clear: right;
   max-width: 30%;
@@ -364,7 +364,7 @@ body {
   border-collapse: collapse;
   margin: 0 0 0.8rem 0.8rem;
   }
-  article table.infobox caption {
+  article table.infobox caption, .editor-tab.help table.infobox caption{
   border: 1px solid #a2a9b1;
   border-bottom: 0;
   background-color: #eaecf0;
@@ -372,39 +372,49 @@ body {
   padding: 0.2rem;
   font-weight: bold;
   }
-  article table.infobox tbody {
+  article table.infobox tbody, .editor-tab.help table.infobox tbody{
   font-size: 0.9rem;
   }
   article table.infobox th,
-  article table.infobox td {
+  article table.infobox td,
+  .editor-tab.help table.infobox th,
+  .editor-tab.help table.infobox td{
   font-weight: 500;
   box-sizing: border-box;
   padding: 0.25rem;
   vertical-align: top;
   word-wrap: break-word;
   }
-  article table th, .modal table th {
+  article table th, .modal table th, .editor-tab.help table:not(.help) th,
+  .editor-tab.help table tr th{
   background-color: #eee;
   }
   article table.infobox th img,
-  article table.infobox td img:not(.plainlink img){
+  article table.infobox td img:not(.plainlink img),
+  .editor-tab.help table.infobox th img,
+  .editor-tab.help table.infobox td img{
   max-width: 100%;
   cursor: pointer;
   box-sizing: border-box;
   }
-  article table.infobox th img:not(.icon), article table.infobox td img:not(.icon){
+  article table.infobox th img:not(.icon),
+  article table.infobox td img:not(.icon),
+  .editor-tab.help table.infobox th img:not(.icon),
+  .editor-tab.help table.infobox td img:not(.icon){
     padding: 0.5rem;
   }
-  article table.infobox table.ibox {
+  article table.infobox table.ibox,
+  .editor-tab.help table.infobox table.ibox{
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
   }
-  article table.infobox table.ibox tr {
+  article table.infobox table.ibox tr,
+  .editor-tab.help table.infobox table.ibox tr{
   border: 0;
   }
-  article tr.center {
-  text-align: center;
+  article tr.center, .editor-tab.help table tr.center{
+  text-align: center !;
   }
   @media screen and (max-width: 320px) {
   article figure {
@@ -412,7 +422,7 @@ body {
     width: 60% !important;
   }
   }
-  article table:not(.infobox, .ibox), .modal table {
+  article table:not(.infobox, .ibox), .modal table, .editor-tab.help table:not(.help){
   text-align: left;
   font-size: 85%;
   border: 1px solid #a2a9b1;
@@ -427,7 +437,9 @@ body {
   article table:not(.infobox, .ibox) th,
   article table:not(.infobox, .ibox) td,
   .modal table th,
-  .modal table td{
+  .modal table td,
+  .editor-tab.help table:not(.help) th,
+  .editor-tab.help table:not(.help) td{
   font-weight: 500;
   box-sizing: border-box;
   padding: min(0.25vw, 0.25rem) min(0.5vw, 0.5rem);
@@ -445,7 +457,7 @@ body {
     } 
   }
   article table:not(.infobox, .ibox) th,
-  .modal table th{
+  .modal table th, .editor-tab.help table:not(.help) th{
   font-weight: bold;
   }
   article header {
@@ -473,19 +485,19 @@ body {
   article ul{
   display: block;
   }
-  article img.icon, .modal img.icon {
+  article img.icon, .modal img.icon, .editor-tab.help img.icon {
   display: inline;
   height: 0.75rem;
   padding: 0 0.25rem;
   vertical-align: middle;
   }
-  article img.icon.medium, .modal img.icon.medium {
+  article img.icon.medium, .modal img.icon.medium, .editor-tab.help img.icon.medium {
   display: inline;
   height: 1.5rem;
   padding: 0 0.25rem 0.1rem 0.25rem;
   vertical-align: middle;
   }
-  article img.icon.large, .modal img.icon.large {
+  article img.icon.large, .modal img.icon.large, .editor-tab.help img.icon.large {
   display: inline;
   height: 2rem;
   padding: 0.25rem;
@@ -528,7 +540,7 @@ body {
   ::-webkit-scrollbar-thumb:hover {
   background: #355066;
   }
-  main nav {
+  main>nav {
   display: none;
   height: calc(100vh - 80px);
   left: calc((100% - 1200px) / 2 - 200px);
@@ -539,11 +551,11 @@ body {
   position: fixed;
   }
   @media screen and (min-width: 1600px) {
-  main nav {
+  main>nav {
     display: block;
   }
   }
-  main nav ul {
+  main>nav ul {
   white-space: nowrap;
   width: 100%;
   padding-left: 0;
@@ -551,7 +563,7 @@ body {
   box-sizing: border-box;
   display: block;
   }
-  main nav ul li {
+  main>nav ul li {
   cursor: pointer;
   font-weight: 500;
   color: #36c;
@@ -561,14 +573,14 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
   }
-  main nav ul li.active {
+  main>nav ul li.active {
   color: #111;
   font-weight: 700;
   }
-  main nav ul li:hover {
+  main>nav ul li:hover {
   text-decoration: underline;
   }
-  main nav h1 {
+  main>nav h1 {
   margin: 0.3rem 0 0.6rem 0;
   padding-top: 0.5em;
   padding-bottom: 0.17em;
@@ -2024,3 +2036,405 @@ body {
   article .article-badge.uncomplete .content{
   width: unset;
   }
+  article div.image-group nav{
+width: 100%;
+height: 2.5rem;
+box-sizing: border-box;
+line-height: 1rem;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #111111;
+  }
+  article div.image-group nav i{
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  color: #36c;
+}
+article div.image-group nav span{
+  line-height: 1rem;
+  font-weight: 700;
+  pointer-events: none;
+  user-select: none;
+  margin: 0 0.25rem;
+  }
+  article div.image-group{
+    max-width: calc(15% + 4rem);
+    background-color: #f8f9fa;
+    float: left;
+    clear: left;
+    width: fit-content;
+    position: relative;
+    box-sizing: border-box;
+    display: table;
+    margin: 0 0.8rem 0.8rem 0;
+    height: fit-content;
+    border: 1px solid #a2a9b1;
+    user-select: none;
+  }
+  article div.image-group figure{
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding-top: 0;
+  border: 0;
+  display: none;
+  }
+  article div.image-group figure img{
+  user-select: none;
+  }
+  article div.image-group figure.active{
+  display: table;
+  }
+  article div.image-group.right{
+  margin: 0 0 0.8rem 0.8rem;
+  float: right;
+  clear: right;
+  }
+  main.article-editor{
+  margin-top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+    flex-direction: row;
+}
+#editor-container{
+width: calc(100% - 1200px);
+box-sizing: border-box;
+background-color: #f8f9fa;
+padding: 2rem 0.5rem;
+color: #111;
+}
+.toolbar{
+width: 100%;
+height: calc(2.5rem + 2px);
+background-color: #f8f9fa;
+display: flex;
+position: relative;
+flex-direction: row;
+border:1px solid #c8ccd1;
+box-sizing: border-box;
+align-items: center;
+}
+.toolbar-button{
+height: 100%;
+cursor: pointer;
+width: 2.5rem;
+display: block;
+padding: 0.6rem;
+box-sizing: border-box;
+transition: background-color 0.15s ease-in-out;
+}
+.toolbar-button span{
+display: block;
+user-select: none;
+text-align: center;
+background-position: center;
+background-size: contain;
+background-repeat: no-repeat;
+height: 100%;
+width: 100%;
+}
+.tool-icon.bold{
+background-image: url("https://i.ibb.co/Pgvvq3F/bold.png");
+}
+.tool-icon.italic{
+background-image: url("https://i.ibb.co/6vnCBzG/italic.png");
+}
+.tool-icon.image{
+background-image: url("https://i.ibb.co/Hr0kCx9/zdjecie.png");
+}
+.tool-icon.link{
+background-image: url("https://i.ibb.co/N3KtDQM/hiperlacze.png");
+}
+.tool-icon.ul{
+background-image: url("https://i.ibb.co/TK9Hr4w/lista-punktowana.png");
+}
+.tool-icon.ol{
+background-image: url("https://i.ibb.co/540vdc7/lista-numerowana.png");
+}
+.tool-icon.ui{
+background-image: url("https://i.ibb.co/TYmjNCd/indeks-gorny.png");
+}
+.tool-icon.li{
+background-image: url("https://i.ibb.co/zncD6k4/indeks-dolny.png");
+}
+.tool-icon.rd{
+background-image: url("https://i.ibb.co/18vR8Jf/przekierowanie.png");
+}
+.tool-icon.table{
+background-image: url("https://i.ibb.co/XSMSQ66/tabela.png");
+}
+.toolbar-button:hover{
+  background-color: #e7e7e7;
+}
+.toolbar-button:active, .toolbar-button.active{
+  border: 1px solid #a0a1a3 !important;
+  background-color: #e7e7e7;
+}
+#editor-container #editor::-webkit-scrollbar-track,
+.editor-tab.help::-webkit-scrollbar-track {
+  background: #fff;
+  }
+  #editor-container #editor::-webkit-scrollbar-thumb, 
+  .editor-tab.help::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 0;
+  }
+  #editor-container #editor::-webkit-scrollbar-thumb:hover,
+ .editor-tab.help::-webkit-scrollbar--thumb:hover {
+  background: #bbb;
+  }
+#editor-container #editor{
+width: 100%;
+outline: 0;
+border: 0;
+resize: none;
+border:1px solid #c8ccd1;
+border-top: 0;
+overflow-y: scroll;
+height: 500px;
+box-sizing: border-box;
+padding: 0.25rem;
+margin-bottom: 0;
+font-family: monospace;
+}
+  #preview-container{
+  width: 1200px;
+  position: relative;
+  }
+  #preview-container article{
+  height: 100vh;
+  overflow-y: scroll;
+  }
+.toolbar-tab-button{
+padding-left: 1.4rem;
+position: relative;
+color: #36c;
+font-weight: 500;
+cursor: pointer;
+font-size: 0.9rem;
+user-select: none;
+}
+.toolbar-tab-button:hover{
+text-decoration: underline;
+}
+.toolbar-tab-button.active{
+color: #111;
+text-decoration: none;
+}
+.toolbar-tab-button.active::before{
+transform: rotate(90deg);
+}
+.editor-tab{
+width: 100%;
+border:1px solid #c8ccd1;
+border-top: 0;
+min-height: calc(2.5rem + 2px);
+box-sizing: border-box;
+display: none;
+}
+.editor-tab.special-characters .toolbar-button{
+border-right: 1px solid #c8ccd1;
+border-left: 1px solid transparent;
+}
+.editor-tab.advanced, .editor-tab.special-characters{
+height: calc(2.5rem + 2px);
+flex-direction: row;
+}
+.editor-tab.help{
+max-height: 250px;
+overflow-y: scroll;
+}
+.editor-tab.help table{
+width: 100%;
+box-sizing: border-box;
+padding: 0.25rem;
+}
+.editor-tab.help tr{
+border-bottom: 1px solid #c8ccd1;
+}
+.editor-tab.help th, .editor-tab.help td{
+  text-align: left;
+  border-bottom: 1px solid #dadde0;
+  padding: 0.5rem 0.1rem;
+  vertical-align: top;
+  }
+  .editor-tab.help table.infobox tr{
+  border-bottom: 0;
+  }
+  .editor-tab.help .infobox tr.center th, .editor-tab.help .infobox tr.center td{
+    text-align: center;
+  }
+  .editor-tab.help table.infobox th, .editor-tab.help table.infobox td{
+  padding: 0.25rem;
+  border-bottom: 0;
+  }
+  .editor-tab.help table.infobox .ibox td,
+  .editor-tab.help table.infobox .ibox{
+    border: 0;
+  }
+  .editor-tab.help table.help tr td:first-of-type{
+  font-size: 0.85rem;
+  max-width: 100px;
+  }
+  .editor-tab.help table.help tr td:first-of-type i{
+  font-size: 0.6rem;
+  }
+  .editor-tab.help table:not(.help-table, .ibox) tr td:nth-of-type(2){
+  font-family: monospace;
+  word-wrap: break-word;
+  max-width: 225px;
+  }
+  table.help-table{
+  margin: 0 !important;
+  }
+  .help-table tr td,
+  .help-table tr th{
+  font-family: 'montserrat' !important;
+  font-size: 0.8rem !important;
+  }
+  .editor-tab.help table.help tr td:nth-of-type(3) table{
+  font-size: 0.8rem;
+  }
+.editor-tab.help h1{
+  margin: 0;
+  padding-top: 0;
+  margin-top: 0;
+  padding-bottom: 0.17em;
+  border-bottom: 1px solid #a2a9b1;
+  font-weight: 600;
+  font-size: 1.75rem;
+  }
+  .editor-tab.help ol,
+  .editor-tab.help ul{
+  margin: 0;
+  }
+.editor-tab.help h2{
+  margin: 0;
+  padding-top: 0;
+  padding-top: 0;
+  padding-bottom: 0.1em;
+  font-weight: 700;
+  font-size: 1.25rem;
+  }
+.editor-tab.active{
+display: flex;
+}
+.toolbar-tab-button::before{
+content: '';
+transition: all 0.15s ease-in-out;
+transform: rotate(0deg);
+top: 0.3rem;
+left: 0.65rem;
+height: 0.5rem;
+width: 0.5rem;
+background-image: url("https://i.ibb.co/d6ywPhS/strzalka.png");
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+}
+.editor-tab.help figure{
+  max-width: 200px;
+  box-sizing: border-box;
+  padding: 0.6rem;
+  border: 1px solid #a2a9b1;
+  float: left;
+  clear: left;
+  background-color: #f8f9fa;
+  margin: 0;
+  position: relative;
+  display: table;
+  cursor: pointer;
+  }
+  .editor-tab.help figure figcaption {
+    padding-bottom: 0.25rem;
+    font-size: 0.8rem;
+    }
+    .editor-tab.help figure img {
+    width: 100%;
+  }
+main article .ibox tr:first-of-type td:first-of-type{
+width: 60%;
+}
+#title-input-container, #save-container{
+width: 100%;
+height: 2.5rem;
+border:1px solid #c8ccd1;
+box-sizing: border-box;
+position: relative;
+margin: 0;
+font-weight: 600;
+margin-bottom: 0.25rem;
+padding: 0 1rem;
+}
+#save-container{
+display: flex;
+flex-direction: row;
+padding: 0;
+justify-content: end;
+}
+
+#save-article:hover{
+background-color: rgb(54, 54, 54);
+}
+#save-article:active{
+color: white;
+}
+#save-article{
+background-color: rgb(82, 82, 82);
+transition: all 0.15s ease-in-out;
+color: rgba(255,255,255, 0.9);
+height: 100%;
+width: 240px;
+user-select: none;
+display: flex;
+justify-content: center;
+cursor: pointer;
+align-items: center;
+box-sizing: border-box;
+padding: 0 1rem;
+}
+#save-article i{
+margin-right: 0.5rem;
+font-size: 1.25rem;
+}
+#title-input-container input{
+height: 100%;
+width: fit-content;
+min-width: 150px;
+border: 0;
+outline: 0;
+box-sizing: border-box;
+border-left: 1px solid #c8ccd1;
+border-right: 1px solid #c8ccd1;
+margin: 0 1rem;
+font-family: 'montserrat';
+padding: 0.25rem 0.5rem;
+font-size: 100%;
+}
+@keyframes article-preview-loading {
+from{
+width: 0;
+}
+to{
+width: 100%;
+}
+}
+#preview-loading-container{
+height: 0.5rem;
+width: 100%;
+position: absolute;
+left: 0;
+top: 0;
+}
+#preview-loading-container div{
+height: 100%;
+animation: article-preview-loading 0.75s cubic-bezier(.18,.42,.92,.51) forwards;
+background-color: #268dc9;
+}
+#article-date{
+user-select: none;
+pointer-events: none;
+}
