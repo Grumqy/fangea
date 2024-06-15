@@ -266,6 +266,9 @@
   display: table;
   clear: both;
   }
+  #article-content{
+  display: contents;
+  }
   article,
   footer {
   width: 100%;
@@ -284,7 +287,7 @@
   overflow-y: hidden;
   }
   article {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh);
   }
   @media screen and(max-width: 1200px) {
   article,
@@ -414,7 +417,7 @@
   border: 0;
   }
   article tr.center, .editor-tab.help table tr.center{
-  text-align: center !important;
+  text-align: center !;
   }
   @media screen and (max-width: 320px) {
   article figure {
@@ -462,28 +465,71 @@
   }
   article header {
   min-height: 120px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  article header div {
+  article header div:first-child {
   font-size: 2.25rem;
   font-weight: 700;
   margin: 0.25em 0 0.25em 0;
   padding-top: 0.5em;
   padding-bottom: 0.17em;
+  width: 100%;
   border-bottom: 1px solid #a2a9b1;
+  float: left;
+  }
+  article header div:last-child{
+  width: 50%;
+  height: 2rem;
+  border-bottom: 1px solid #a2a9b1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: end;
+  float: left;
   }
   article header span::before {
   content: "Ostatnio Edytowane: ";
   font-size: 0.8rem;
+  margin-right: 0.25rem;
   }
   article header span {
   font-size: 0.8rem;
-  display: block;
-  width: 100%;
-  padding-bottom: 0.25rem;
+  height: 2rem;
+  box-sizing: border-box;
+  width: 50%;
   border-bottom: 1px solid #a2a9b1;
+  display: flex;
+  align-items: end;
+  justify-content: left;
+  padding-bottom: 0.25rem;
+  float: left;
   }
   article ul{
   display: block;
+  }
+  article header div:last-child b, article header div:last-child a{
+  font-weight: 500;
+  margin: 0 0.5rem;
+  padding: 0 0.25rem;
+  color: #36c;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.25rem;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+  }
+  article header div:last-child a{
+  text-decoration: none;
+  }
+  article header div:last-child b.active{
+  color: #111;
+  border-bottom-color: #111;
+  }
+  article header div:last-child b:not(.active):hover, article header div:last-child a:hover{
+  border-bottom-color: #36c;
   }
   article img.icon, .modal img.icon, .editor-tab.help img.icon {
   display: inline;
@@ -2355,7 +2401,7 @@ position: absolute;
     .editor-tab.help figure img {
     width: 100%;
   }
-main article .ibox tr:first-of-type:not(.plainlink) td:first-of-type{
+main article .ibox tr:first-of-type td:first-of-type{
 width: 60%;
 }
 #title-input-container, #save-container{
@@ -2437,4 +2483,44 @@ background-color: #268dc9;
 #article-date{
 user-select: none;
 pointer-events: none;
+}
+#source-code{
+width: 100%;
+}
+#source-code{
+}
+#source-code pre{
+overflow: scroll;
+background-color: #f8f9fa;
+  width: calc(100% - 3rem);
+  margin: auto;
+  margin-top: 1.5rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  max-height: 500px;
+  border: 1px solid #a2a9b1;
+}
+
+#source-code pre::-webkit-scrollbar{
+  height: 8px;
+  }
+#source-code pre::-webkit-scrollbar-track{
+  background: #f8f9fa;
+  }
+#source-code pre::-webkit-scrollbar-thumb{
+  background: #ccc;
+  border-radius: 0px;
+  }
+#source-code pre::-webkit-scrollbar-thumb:hover{
+  background: #bbb;
+  }
+#source-code #save-container #save-article{
+width: 18rem;
+}
+#source-code #save-container{
+width: calc(100% - 3rem);
+margin: auto;
+border: 1px solid #a2a9b1;
+border-top: 0;
+justify-content: left;
 }
