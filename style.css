@@ -2355,7 +2355,7 @@ position: absolute;
     .editor-tab.help figure img {
     width: 100%;
   }
-main article .ibox tr:first-of-type td:first-of-type{
+main article .ibox tr:first-of-type:not(.plainlink) td:first-of-type{
 width: 60%;
 }
 #title-input-container, #save-container{
