@@ -414,7 +414,7 @@
   border: 0;
   }
   article tr.center, .editor-tab.help table tr.center{
-  text-align: center !;
+  text-align: center !important;
   }
   @media screen and (max-width: 320px) {
   article figure {
