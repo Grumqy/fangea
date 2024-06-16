@@ -417,7 +417,7 @@
   border: 0;
   }
   article tr.center, .editor-tab.help table tr.center{
-  text-align: center !;
+  text-align: center !important;
   }
   @media screen and (max-width: 320px) {
   article figure {
@@ -480,12 +480,13 @@
   float: left;
   }
   article header div:last-child{
-  width: 50%;
+  width: calc(100% - 14rem);
   height: 2rem;
   border-bottom: 1px solid #a2a9b1;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  margin-bottom: 0.5rem;
   justify-content: end;
   align-items: end;
   float: left;
@@ -498,8 +499,9 @@
   article header span {
   font-size: 0.8rem;
   height: 2rem;
+  margin-bottom: 0.5rem;
   box-sizing: border-box;
-  width: 50%;
+  width: 14rem;
   border-bottom: 1px solid #a2a9b1;
   display: flex;
   align-items: end;
@@ -530,6 +532,25 @@
   }
   article header div:last-child b:not(.active):hover, article header div:last-child a:hover{
   border-bottom-color: #36c;
+  }
+  @media screen and (max-width: 600px){
+    article header div:last-child b, article header div:last-child a{
+    font-size: 0.8rem;
+    padding: 0 0 0.25rem 0;
+    }
+  }
+  @media screen and (max-width: 475px){
+    article header div:last-child{
+      width: 100%;
+      justify-content: left;
+      height: 2.25rem;
+    }
+    article header span{
+    width: 100%;
+    }
+    article header div:last-child b, article header div:last-child a{
+    margin: 0 1rem 0 0;
+    }
   }
   article img.icon, .modal img.icon, .editor-tab.help img.icon {
   display: inline;
@@ -2146,11 +2167,32 @@ article div.image-group nav span{
     flex-direction: row;
 }
 #editor-container{
-width: calc(100% - 1200px);
+min-width: 686px;
 box-sizing: border-box;
 background-color: #f8f9fa;
-padding: 2rem 0.5rem;
+padding: 1rem;
 color: #111;
+overflow-y: auto;
+}
+@media screen and (min-width: 1870px){
+  #editor-container{
+  width: calc(100% - 1200px);
+  }
+}
+#editor-container.full{
+width: 100%;
+}
+#exit-editor{
+margin-right: auto;
+margin-left: 0.5rem;
+height: 100%;
+display: flex;
+height: 1.5rem;
+margin-bottom: 0.5rem;
+width: fit-content;
+align-items: center;
+text-decoration: none;
+color: rgba(0, 0, 0, 0.4);
 }
 .toolbar{
 width: 100%;
@@ -2247,9 +2289,16 @@ margin-bottom: 0;
 font-family: monospace;
 }
   #preview-container{
-  width: 1200px;
+  max-width: 1200px;
+  width: calc(100% - 686px);
   position: relative;
   }
+  #preview-container.hidden{
+  display: none;
+  }
+  #preview-container article header span{
+    width: 100%;
+    }
   #preview-container article{
   height: 100vh;
   overflow-y: scroll;
@@ -2272,6 +2321,47 @@ text-decoration: none;
 }
 .toolbar-tab-button.active::before{
 transform: rotate(90deg);
+}
+#switch-preview{
+justify-self: end;
+font-size: 0.75rem;
+font-weight: 600;
+color: rgba(0, 0, 0, 0.4);
+margin-left: auto;
+user-select: none;
+cursor: pointer;
+margin-right: 1rem;
+}
+#switch-preview i{
+margin-right: 0.25rem;
+}
+#mobile-device-message{
+display: none;
+margin: auto;
+width: 100%;
+max-width: 300px;
+text-align: center;
+font-size: 1.5rem;
+font-weight: 600;
+}
+@media screen and (max-width: 1200px) {
+#switch-preview{
+display: none;
+}
+#preview-container{
+display: none;
+}
+#editor-container{
+width: 100%;
+}
+}
+@media screen and (max-width: 686px){
+#editor-container{
+display: none;
+}
+#mobile-device-message{
+display: block;
+}
 }
 .editor-tab{
 width: 100%;
@@ -2401,7 +2491,7 @@ position: absolute;
     .editor-tab.help figure img {
     width: 100%;
   }
-main article .ibox tr:first-of-type td:first-of-type{
+main article .ibox tr:first-of-type:not(.plainlink) td:first-of-type{
 width: 60%;
 }
 #title-input-container, #save-container{
@@ -2487,8 +2577,6 @@ pointer-events: none;
 #source-code{
 width: 100%;
 }
-#source-code{
-}
 #source-code pre{
 overflow: scroll;
 background-color: #f8f9fa;
@@ -2501,17 +2589,17 @@ background-color: #f8f9fa;
   border: 1px solid #a2a9b1;
 }
 
-#source-code pre::-webkit-scrollbar{
+#source-code pre::-webkit-scrollbar, #editor-container::-webkit-scrollbar{
   height: 8px;
   }
-#source-code pre::-webkit-scrollbar-track{
+#source-code pre::-webkit-scrollbar-track, #editor-container::-webkit-scrollbar-track{
   background: #f8f9fa;
   }
-#source-code pre::-webkit-scrollbar-thumb{
+#source-code pre::-webkit-scrollbar-thumb, #editor-container::-webkit-scrollbar-thumb{
   background: #ccc;
   border-radius: 0px;
   }
-#source-code pre::-webkit-scrollbar-thumb:hover{
+#source-code pre::-webkit-scrollbar-thumb:hover, #editor-container::-webkit-scrollbar-thumb:hover{
   background: #bbb;
   }
 #source-code #save-container #save-article{
