@@ -1995,7 +1995,7 @@
   border-left-width: 10px;
   border-left-style: solid;
   position: relative;
-  margin-bottom: 0.75rem;
+  margin: 0.75rem 0;
   }
   article .article-badge.awarded{
   border-left-color: #662483;
