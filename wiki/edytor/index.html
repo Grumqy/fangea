@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
-    <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edytor - Fangea i inne kontynenty</title>
+    <title>Document</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -15,7 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/fangea/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
     <style>
         @keyframes logo-entrance {
@@ -36,7 +35,9 @@
 
 <body>
     <main class="article-editor">
+        <div id="mobile-device-message">Edytor nie wspiera urządzeń mobilnych</div>
         <div id="editor-container">
+            <a id="exit-editor" title="Strona Główna" href="https://grumqy.github.io/fangea/"><i class="fa-solid fa-house"></i></a>
             <div class="toolbar">
                 <div class="toolbar-button" title="Wytłuszczenie">
                     <span class="bold tool-icon"></span>
@@ -53,6 +54,7 @@
                 <div class="toolbar-tab-button" data-tab="advanced">Zaawansowane</div>
                 <div class="toolbar-tab-button" data-tab="special-characters">Znaki Specjalne</div>
                 <div class="toolbar-tab-button" data-tab="help">Pomoc</div>
+                <div id="switch-preview"><i class="fa-solid fa-eye-slash"></i>Ukryj podgląd</div>
             </div>
             <div class="editor-tab advanced">
                 <div class="toolbar-button" title="Wstaw listę numerowaną">
@@ -120,7 +122,7 @@
                     </tr>
                     <tr>
                         <td>Hiperłącze</td>
-                        <td>[https://grumqy.github.io/fangea/wiki/cartland/](Cartland)</td>
+                        <td>(https://grumqy.github.io/fangea/wiki/cartland/)[Cartland]</td>
                         <td><a href="https://grumqy.github.io/fangea/wiki/cartland/">Cartland</a></td>
                     </tr>
                     <tr>
@@ -373,7 +375,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 == Śródtytuł ==
 
-Lorem ipsum dolor sit amet, [link-do-artykułu](inny artykuł) consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, (link-do-artykulu)[inny artykuł] consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 * Element listy
 * Element listy
@@ -549,7 +551,7 @@ function convertToHTML(text) {
     text = text.replace(/\[\[icon:(.+?)\|medium\]\]/g, '<img src="$1" class="icon medium"/>');
     text = text.replace(/\[\[icon:(.+?)\|large\]\]/g, '<img src="$1" class="icon large"/>');
 
-    text = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$1">$2</a>');
+    text = text.replace(/\((.*?)\)\[(.*?)\]/g, '<a href="$1">$2</a>');
 
     text = text.replace(/\[\[img:(.+?)\|(.+?)\|(.+?)\]\]/g, (match, p1, p2, p3) => {
         const alignment = p2 === 'left' || p2 === 'right' ? p2 : '';
@@ -691,10 +693,81 @@ window.addEventListener('beforeunload', function (e) {
 document.getElementById('save-article').addEventListener('click', copyArticleToClipboard);
 
 function copyArticleToClipboard() {
-    console.log("sraka");
+
+    const articleTitle = document.getElementById("article-title").value;
+    const articleParagraphs = Array.from(document.querySelectorAll('#preview-container article p'));
+let articleDescription = '';
+let i = 0;
+
+while (i < articleParagraphs.length && (articleDescription.length < 350 || articleDescription.length > 400)) {
+    if (articleDescription) {
+        articleDescription += ' ';
+    }
+    articleDescription += articleParagraphs[i].textContent.trim();
+    i++;
+}
+
+if (articleDescription.length > 400) {
+    articleDescription = articleDescription.substring(0, 400);
+}
+
+function setMetaImageProperties(image) {
+return `<meta property="og:image" content="${image.src}">
+<meta name="twitter:image" content="${image.src}">
+<meta property="og:image:width" content="${image.naturalWidth}">
+<meta property="og:image:height" content="${image.naturalHeight}">`;
+}
+
+let articleMetaImageProperties = '';
+
+if (document.querySelector('article table.infobox img:not(.icon)')) {
+    articleMetaImageProperties = setMetaImageProperties(document.querySelector('article table.infobox img:not(.icon)'));
+} else if (document.querySelector('article img:not(.icon)')) {
+    articleMetaImageProperties = setMetaImageProperties(document.querySelector('article img:not(.icon)'));
+}
+
     const el = document.createElement('textarea');
-    
-    el.value = `<article>\n${document.querySelector("#preview-container article").innerHTML}\n <div id="source-code" style="display:none;">${textarea.value}</div>\n</article>`
+    const pageheaderScript = '<script src="/fangea/pageheader.js"></' + 'script>';
+    const articleScript = '<script src="/fangea/article.js"></' + 'script>';
+    const fontAwesomeScript = '<script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></' + 'script>';
+
+
+el.value = `<html lang="pl">
+<head>
+<link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>${articleTitle} - Fangea i inne kontynenty</title>
+<meta property="og:title" content="${articleTitle}">
+<meta name="twitter:title" content="${articleTitle}">
+<meta name="description" content="${articleDescription}">
+<meta property="og:description" content="${articleDescription}">
+<meta name="twitter:description" content="${articleDescription}">
+${articleMetaImageProperties}
+<link
+href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+<link rel="stylesheet" href="/fangea/style.css" />
+${fontAwesomeScript}
+</head>
+
+<body>
+<header id="pageheader">
+</header>
+<main>
+<nav>
+<h1>Spis Treści</h1>
+<ul></ul>
+</nav>
+<article>\n${document.querySelector("#preview-container article").innerHTML}\n <div id="source-code" style="display:none;">${textarea.value}</div>\n</article>
+</main>
+${pageheaderScript}
+${articleScript}
+</body>
+</html>`;
     
     el.style.position = 'absolute';
     el.style.left = '-9999px';
@@ -720,6 +793,22 @@ function copyArticleToClipboard() {
     }, 1500)
 }
 
+    var isPreviewHidden = false;
+    document.getElementById("switch-preview").addEventListener("click", switchPreview);
+
+    function switchPreview(){
+    if(isPreviewHidden == false){
+    document.getElementById("editor-container").classList.add('full');
+    document.getElementById("preview-container").classList.add('hidden');
+    document.getElementById("switch-preview").innerHTML = '<i class="fa-solid fa-eye" aria-hidden="true"></i>Pokaż podgląd';
+    isPreviewHidden = true;
+    } else {
+    document.getElementById("editor-container").classList.remove('full');
+    document.getElementById("preview-container").classList.remove('hidden');
+    document.getElementById("switch-preview").innerHTML = '<i class="fa-solid fa-eye-slash" aria-hidden="true"></i>Ukryj podgląd';
+    isPreviewHidden = false;
+    }
+    }
     </script>
 </body>
 
