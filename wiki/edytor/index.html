@@ -76,16 +76,40 @@
                 <div class="toolbar-button" title="Wstaw przekierowanie">
                     <span class="rd tool-icon"></span>
                 </div>
+                <div class="toolbar-button-select-container">
+                    Nagłówek
+                    <div class="toolbar-button-select">
+                        <div class="toolbar-button" title="Wstaw rozdział"><h1>Nagłówek 1</h1></div>
+                        <div class="toolbar-button" title="Wstaw śródtytuł"><h2>Nagłówek 2</h2></div>
+                    </div>
+                </div>
+                <div class="toolbar-button-select-container">
+                    Ikona
+                    <div class="toolbar-button-select">
+                        <div class="toolbar-button" title="Wstaw ikonę małą"><img src="https://i.ibb.co/Bz0Y2p1/bruktodyn-herb.png" class="icon small"> mała</div>
+                        <div class="toolbar-button" title="Wstaw ikonę średnią"><img src="https://i.ibb.co/Bz0Y2p1/bruktodyn-herb.png" class="icon medium"> średnia</div>
+                        <div class="toolbar-button" title="Wstaw ikonę dużą"><img src="https://i.ibb.co/Bz0Y2p1/bruktodyn-herb.png" class="icon large"> duża</div>
+                    </div>
+                </div>
             </div>
             <div class="editor-tab special-characters">
                 <div class="toolbar-button" title="Wstaw półpauzę">
                     <span>–</span>
+                </div>
+                <div class="toolbar-button" title="Wstaw punktor">
+                    <span>•</span>
                 </div>
                 <div class="toolbar-button" title="Wstaw cudzysłów otwierający">
                     <span>„</span>
                 </div>
                 <div class="toolbar-button" title="Wstaw cudzysłów zamykający">
                     <span>”</span>
+                </div>
+                <div class="toolbar-button" title="Wstaw francuski cudzysłów otwierający">
+                    <span>«</span>
+                </div>
+                <div class="toolbar-button" title="Wstaw francuski cudzysłów zamykający">
+                    <span>»</span>
                 </div>
             </div>
             <div class="editor-tab help">
@@ -288,7 +312,7 @@
                 </table>
             </div>
             <textarea id="editor" spellcheck="false"></textarea>
-            <div id="title-input-container">Tytuł: <input id="article-title" value="Tytuł Artykułu" type="text"> Data: <input id="article-date" value="DD.MM.YYYY" readonly type="text"></div>
+            <div id="title-input-container"><span>Tytuł: </span><input id="article-title" value="Tytuł Artykułu" type="text"><span>Data: </span><input id="article-date" value="DD.MM.YYYY" readonly type="text"><span id="update-preview-button"><i class="fa-solid fa-arrow-rotate-right"></i></span></div>
             <div id="save-container">
                 <div style="display: flex; align-items: center; margin-right: auto; margin-left: 1rem;">
                     <label for="include-dictionary" style="padding-right: 0.5rem; user-select: none; cursor: pointer;">Słownik</label>
@@ -436,30 +460,53 @@
             });
             const toolbarButtons = document.querySelectorAll('.toolbar-button');
 
-            const linkTemplate = '(https://grumqy.github.io/fangea/wiki/cartland/)[Cartland]';
+            const linkTemplate = '(https://grumqy.github.io/fangea/wiki/edytor/)[Cartland]';
             const imageTemplate = '[[img:http://via.placeholder.com/640x360|left|Opis zdjęcia]]';
+            const iconSmallTemplate = '[[icon:https://i.ibb.co/Bz0Y2p1/bruktodyn-herb.png|small]]';
+            const iconMediumTemplate = '[[icon:https://i.ibb.co/Bz0Y2p1/bruktodyn-herb.png|medium]]';
+            const iconLargeTemplate = '[[icon:https://i.ibb.co/Bz0Y2p1/bruktodyn-herb.png|large]]';
+            const headingTemplate = `= Rozdział =`;
+            const subheadingTemplate = `== Śródtytuł ==`;
             const bulletedListTemplate = `\n* List Item \n* List item \n* List item\n`;
             const numberedListTemplate = `\n# List Item \n# List item \n# List item\n`;
             const tableTemplate = `\n{|\n! Nagłówek !! Nagłówek !! Nagłówek !\n| komórka || komórka || komórka |\n| komórka || komórka || komórka |\n| komórka || komórka || komórka |\n|}\n`;
             const redirectionTemplate = `\n[[icon:https://i.ibb.co/vh0tWkb/informacja.png|medium]] ''Osobne Artykuły: [Link-pierwszego-artykułu](Pierwszy artykuł) i [Link-drugiego-artykułu](Drugi artykuł)''\n`;
 
+
+
+            function closeParentSelect(element){
+                element.parentElement.style.display = 'none';
+                setTimeout(function(){
+                    element.parentElement.style.display = '';
+                }, 50)
+            }
+
+
         toolbarButtons.forEach(function(button) {
     button.addEventListener('click', function() {
         const title = button.getAttribute('title');
         switch (title) {
-            case 'Wytłuszczenie': bold(); break;
-            case 'Kursywa': italic(); break;
-            case 'Wstaw link': insertTemplate(linkTemplate); break;
-            case 'Wstaw zdjęcie': insertTemplate(imageTemplate); break;
-            case 'Wstaw listę numerowaną': insertTemplate(numberedListTemplate); break;
-            case 'Wstaw listę punktowaną': insertTemplate(bulletedListTemplate); break;
+            case 'Wytłuszczenie': formatText("'''");; break;
+            case 'Kursywa': formatText("''"); break;
+            case 'Wstaw link': insertTemplate(linkTemplate, true); break;
+            case 'Wstaw zdjęcie': insertTemplate(imageTemplate, true); break;
+            case 'Wstaw rozdział': insertTemplate(headingTemplate, true); closeParentSelect(button); break;
+            case 'Wstaw śródtytuł': insertTemplate(subheadingTemplate, true); closeParentSelect(button); break;
+            case 'Wstaw listę numerowaną': insertTemplate(numberedListTemplate, true); break;
+            case 'Wstaw listę punktowaną': insertTemplate(bulletedListTemplate, true); break;
             case 'Wstaw tabelę': insertTemplate(tableTemplate); break;
             case 'indeks górny': superscript(); break;
             case 'indeks dolny': subscript(); break;
+            case 'Wstaw ikonę małą': insertTemplate(iconSmallTemplate, true); closeParentSelect(button); break;
+            case 'Wstaw ikonę średnią': insertTemplate(iconMediumTemplate, true); closeParentSelect(button); break;
+            case 'Wstaw ikonę dużą': insertTemplate(iconLargeTemplate, true); closeParentSelect(button); break;
             case 'Wstaw przekierowanie': insertTemplate(redirectionTemplate); break;
             case 'Wstaw półpauzę': insertTemplate('–'); break;
-            case 'Wstaw cudzysłów otwierający': insertTemplate('„'); break;
-            case 'Wstaw cudzysłów zamykający': insertTemplate('”'); break;
+            case 'Wstaw punktor': insertTemplate('•'); break;
+            case 'Wstaw cudzysłów otwierający': insertTemplate('„', true); break;
+            case 'Wstaw cudzysłów zamykający': insertTemplate('”', true); break;
+            case 'Wstaw francuski cudzysłów otwierający': insertTemplate('«', true); break;
+            case 'Wstaw francuski cudzysłów zamykający': insertTemplate('»', true); break;
             default: break;
         }
     });
@@ -519,42 +566,101 @@ updatePreview();
 
 const article = document.querySelector('#preview-container article');
 
-function bold(){
-    var start = textarea.selectionStart;
-    var end = textarea.selectionEnd;
-    
-    if (start !== end) {
-        var selectedText = textarea.value.substring(start, end);
-        var beforeText = textarea.value.substring(0, start);
-        var afterText = textarea.value.substring(end);
-        
-        textarea.value = beforeText + "'''" + selectedText + "'''" + afterText;
+function formatText(format) {
+    if (textarea.selectionStart !== textarea.selectionEnd) {
+        textarea.value = textarea.value.substring(0, textarea.selectionStart) + format + textarea.value.substring(textarea.selectionStart, textarea.selectionEnd) + format + textarea.value.substring(textarea.selectionEnd);
+        updatePreview();
     }
 }
 
-function italic(){
-    var start = textarea.selectionStart;
-    var end = textarea.selectionEnd;
-    
-    if (start !== end) {
-        var selectedText = textarea.value.substring(start, end);
-        var beforeText = textarea.value.substring(0, start);
-        var afterText = textarea.value.substring(end);
-        
-        textarea.value = beforeText + "''" + selectedText + "''" + afterText;
-    }
-}
+function insertTemplate(insertionTemplate, dynamicInsertion) {
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
 
-function insertTemplate(insertionTemplate){
-
-    if (textarea.selectionStart) {
-        textarea.value = textarea.value.substring(0, textarea.selectionStart) + insertionTemplate + textarea.value.substring(textarea.selectionEnd, textarea.value.length);
+    if (start === end) {
+        // No text is selected
+        if (start != textarea.value.length) {
+            // Insert template at the specific place
+            textarea.value = textarea.value.substring(0, start) + insertionTemplate + textarea.value.substring(end, textarea.value.length);
+            console.log('sraka');
+        } else {
+            // Append template to the end
+            textarea.value += insertionTemplate;
+            textarea.focus();
+            textarea.scrollTop = textarea.scrollHeight;
+            console.log('sraczka');
+        }
     } else {
-        textarea.value += insertionTemplate;
+        // Text is selected
+        if (dynamicInsertion) {
+            // Wrap selected text inside the template
+            const initialScrollPosition = textarea.scrollTop;
+            const selectedText = textarea.value.substring(start, end);
+            const dynamicTemplate = getDynamicTemplate(insertionTemplate, selectedText);  // You need to define getDynamicTemplate function
+            textarea.value = textarea.value.substring(0, start) + dynamicTemplate + textarea.value.substring(end, textarea.value.length);
+            textarea.focus();
+            textarea.selectionStart = start;
+            textarea.selectionEnd = start + dynamicTemplate.length;
+            textarea.scrollTop = initialScrollPosition;
+            console.log('sraka');
+        } else {
+            // Replace selected text with the template
+            textarea.value = textarea.value.substring(0, start) + insertionTemplate + textarea.value.substring(end, textarea.value.length);
+        }
     }
 
     updatePreview();
-};
+}
+
+function getDynamicTemplate(template, selectedText) {
+
+    function dynamicList(listType){
+    if(listType == 'bulleted'){
+    var listSymbol = '*';
+    }
+    else if(listType == 'numbered'){
+    var listSymbol = '#';
+    }
+    var result = [];
+    var lines = selectedText.trim().split('\n');
+    lines.forEach(line=>{
+    result.push(`${listSymbol} ${line}`);
+    })
+    return result.join('\n');
+    }
+    // Define specific template functions for different template kinds
+    // For example, if the template kind is bold, italic, etc.
+    // This function should return the template with the selectedText inserted appropriately
+
+    switch(template) {
+        case linkTemplate:
+            return `(https://grumqy.github.io/fangea/wiki/edytor/)[${selectedText}]`;
+        case imageTemplate:
+            return `[[img:${selectedText}|left|Opis zdjęcia]]`;
+        case bulletedListTemplate:
+            return dynamicList('bulleted');
+        case numberedListTemplate:
+            return dynamicList('numbered');
+        case headingTemplate:
+            return `= ${selectedText} =`;
+        case subheadingTemplate:
+            return `== ${selectedText} ==`;
+        case iconSmallTemplate:
+            return `[[icon:${selectedText}|small]]`;
+        case iconMediumTemplate:
+            return `[[icon:${selectedText}|medium]]`;
+        case iconLargeTemplate:
+            return `[[icon:${selectedText}|large]]`;
+        case '„':
+        case '”':
+            return `„${selectedText}”`;
+        case '«':
+        case '»':
+            return `«${selectedText}»`;
+        default:
+            return template.replace('{}', selectedText);  // Assuming {} is a placeholder for dynamic insertion
+    }
+}
 
 let subscriptMode = false;
 let superscriptMode = false;
@@ -640,8 +746,8 @@ textarea.addEventListener('input', debounce(updatePreview, 2000));
 
 function convertToHTML(text) {
     text = text
-        .replace(/^= (.+?) =$/gm, '<h1>$1</h1>')
-        .replace(/^== (.+?) ==$/gm, '<h2>$1</h2>')
+        .replace(/^= (.+?) =\s*$/gm, '<h1>$1</h1>')
+        .replace(/^== (.+?) ==\s*$/gm, '<h2>$1</h2>')
         .replace(/'''(.+?)'''/g, '<b>$1</b>')
         .replace(/''(.+?)''/g, '<i>$1</i>');
 
@@ -767,11 +873,11 @@ function convertToHTML(text) {
             return tableHTML;
         }
     });
-
-    text = text.replace(/<(td|th)>tcc=(\d+)/g, '<$1 style="text-align: center;" colspan="$2">');
-    text = text.replace(/<(td|th)>c=(\d+)/g, '<$1 colspan="$2">');
-
-    text = text.replace(/<(td|th)>tc/g, '<$1 style="text-align: center;">');
+    
+    text = text.replace(/>tc/g, ' style="text-align: center;" >');
+    text = text.replace(/>r=(\d+)/g, ' rowspan="$1" >');
+    text = text.replace(/>c=(\d+)/g, ' colspan="$1" >');
+    text = text.replace(/>b=(\w+)/g, ' class="cell-background-color-$1">');
 
     
     text = text.split('\n').map(line => {
@@ -784,12 +890,10 @@ function convertToHTML(text) {
     text = text.replace(/<p>\s*<\/p>/g, '');
         
         text = text.trim();
+        
+        text = text.replace(/<ul>\s*<ol>/gi, '<ul>');
+        text = text.replace(/<\/ol>\s*<\/ul>/gi, '</ul>');
 
-        text = text.replace('<ul><ol>', '<ul>');
-        text = text.replace('</ol></ul>', '</ul>');
-
-
-        console.log(text);
     return text;
 }
 function updatePreview() {
@@ -957,7 +1061,6 @@ document.getElementById("modal-container").classList.add("active");
 document.getElementById(id).classList.add("active"); 
 }
 function hideModal(id) {
-  console.log("Closing modal");
   document.getElementById("modal-container").classList.add("hidden");
   setTimeout(function() {
       document.getElementById("modal-container").classList.remove("active");
@@ -1259,7 +1362,17 @@ listContainers.forEach(listContainer => {
     }
     return dictionaryInfo;
 }
+let canUpdate = true;
 
+document.getElementById('update-preview-button').addEventListener('click', function() {
+    if (canUpdate) {
+        updatePreview();
+        canUpdate = false;
+        setTimeout(function() {
+            canUpdate = true;
+        }, 1000); // 1000 milliseconds cooldown
+    }
+});
 
     </script>
 </body>
