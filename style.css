@@ -552,19 +552,19 @@
     margin: 0 1rem 0 0;
     }
   }
-  article img.icon, .modal img.icon, .editor-tab.help img.icon {
+  img.icon{
   display: inline;
   height: 0.75rem;
   padding: 0 0.25rem;
   vertical-align: middle;
   }
-  article img.icon.medium, .modal img.icon.medium, .editor-tab.help img.icon.medium {
+  img.icon.medium{
   display: inline;
   height: 1.5rem;
   padding: 0 0.25rem 0.1rem 0.25rem;
   vertical-align: middle;
   }
-  article img.icon.large, .modal img.icon.large, .editor-tab.help img.icon.large {
+  img.icon.large{
   display: inline;
   height: 2rem;
   padding: 0.25rem;
@@ -2437,7 +2437,7 @@ border-bottom: 1px solid #c8ccd1;
   .editor-tab.help table.help tr td:nth-of-type(3) table{
   font-size: 0.8rem;
   }
-.editor-tab.help h1{
+.editor-tab.help h1, .toolbar-button-select-container .toolbar-button-select .toolbar-button h1{
   margin: 0;
   padding-top: 0;
   margin-top: 0;
@@ -2450,7 +2450,7 @@ border-bottom: 1px solid #c8ccd1;
   .editor-tab.help ul{
   margin: 0;
   }
-.editor-tab.help h2{
+.editor-tab.help h2, .toolbar-button-select-container .toolbar-button-select .toolbar-button h2{
   margin: 0;
   padding-top: 0;
   padding-top: 0;
@@ -2746,7 +2746,7 @@ margin: 0.5rem
 #etymology textarea{
 width: calc(100% - 1rem);
 margin: 0.5rem;
-height: 6rem;
+height: 5rem;
 resize: none;
 padding: 0.25rem;
 font-family: 'montserrat', 'montserrat alternates', sans-serif;
@@ -2806,4 +2806,180 @@ border-color: #a2a9b1;
 }
 article table{
 color: #111;
+}
+.toolbar-button-select-container{
+height: 100%;
+padding: 0 1.5rem;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+font-weight: 600;
+}
+.toolbar-button-select-container .toolbar-button-select{
+width: 160%;
+flex-direction: column;
+position: absolute;
+left: 0;
+top: 100%;
+box-sizing: border-box;
+background-color: #f8f9fa;
+border: 1px solid #c8ccd1;
+display: none;
+font-weight: 500;
+}
+.toolbar-button-select-container .toolbar-button-select:active{
+display: none;
+}
+.toolbar-button-select-container:hover .toolbar-button-select{
+display: flex;
+}
+.toolbar-button-select-container::before{
+  content: '';
+  transition: all 0.15s ease-in-out;
+  transform: rotate(90deg);
+  top: calc(50% - 0.25rem);
+  right: 0.65rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  background-image: url(https://i.ibb.co/d6ywPhS/strzalka.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+.cell-background-color-clear {
+  background-color: white !important;
+}
+.cell-background-color-clear_top {
+  border-top-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_bottom {
+  border-bottom-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_left {
+  border-left-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_right {
+  border-right-color: white !important;
+  background-color: white !important;
+}
+
+.cell-background-color-clear_top_bottom {
+  border-top-color: white !important;
+  border-bottom-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_top_left {
+  border-top-color: white !important;
+  border-left-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_top_right {
+  border-top-color: white !important;
+  border-right-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_bottom_left {
+  border-bottom-color: white !important;
+  border-left-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_bottom_right {
+  border-bottom-color: white !important;
+  border-right-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_left_right {
+  border-left-color: white !important;
+  border-right-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_top_bottom_left {
+  border-top-color: white !important;
+  border-bottom-color: white !important;
+  border-left-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_top_bottom_right {
+  border-top-color: white !important;
+  border-bottom-color: white !important;
+  border-right-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_top_left_right {
+  border-top-color: white !important;
+  border-left-color: white !important;
+  border-right-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_bottom_left_right {
+  border-bottom-color: white !important;
+  border-left-color: white !important;
+  border-right-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-clear_all {
+  border-top-color: white !important;
+  border-bottom-color: white !important;
+  border-left-color: white !important;
+  border-right-color: white !important;
+  background-color: white !important;
+}
+.cell-background-color-red{
+background-color: #FFC7C7; 
+}
+.cell-background-color-green{
+background-color: #9EFF9E;
+}
+.cell-background-color-yellow{
+background-color: #FFF2AE;
+}
+.cell-background-color-blue{
+background-color: #A2DAFE;
+}
+.cell-background-color-purple{
+background-color: #DDF;
+}
+.cell-background-color-pink{
+background-color: #FFDFFF;
+border-color: #a2a9b1 !important;
+}
+.cell-background-color-gold{
+background-color: #FFD700;
+}
+.cell-background-color-silver{
+background-color: #C0C0C0;
+}
+.cell-background-color-bronze{
+background-color: #E2B740;
+}
+.cell-background-color-indigo{
+background-color: #556;
+color: rgba(255,255,255, 0.85);
+}
+.cell-background-color-black{
+background-color: #000000;
+color: rgba(255,255,255, 0.85);
+border-color: #a2a9b1 !important;
+}
+.toolbar-button-select-container .toolbar-button-select .toolbar-button{
+width: 100%;
+padding: 1rem;
+box-sizing: border-box;
+font-size: 1rem;
+user-select: none;
+}
+#update-preview-button{
+padding: 0.25rem;
+cursor: pointer;
+user-select: none;
+}
+#update-preview-button i{
+transition: all 0.3s ease-out;
+}
+#update-preview-button:active i{
+transform: rotate(360deg);
 }
