@@ -151,7 +151,6 @@ function createModalWindow(id, innerhtml){
   modal.innerHTML = '<i class="fa-solid fa-xmark modal-close"></i>' + innerhtml;
   document.getElementById("modal-container").appendChild(modal);
 
-  // Fix: pass the hideModal function as a reference, not invoke it immediately
   document.getElementById(id).querySelector('.modal-close').addEventListener("click", () => hideModal(id));
   document.getElementById("modal-overlay").addEventListener("click", () => hideModal('any'));
 }
@@ -294,7 +293,8 @@ articleOptionsBar.appendChild(readButton);
 articleOptionsBar.appendChild(sourceCodeButton);
 
 
-document.getElementById('source-code').innerHTML = `<pre>${sourceCode}</pre>`;
+document.getElementById('source-code').innerHTML = '<pre></pre>';
+document.querySelector('#source-code pre').textContent = sourceCode;
 sourceCodeElement.innerHTML += '<div id="save-container"><div id="save-article"><i class="fa-solid fa-clipboard" aria-hidden="true"></i> Skopiuj do schowka</div></div>';
 
 function switchToRead(){
@@ -315,7 +315,7 @@ function switchToRead(){
   function copySourceCodeToClipboard() {
       const el = document.createElement('textarea');
       
-      el.value = document.querySelector("#source-code pre").innerHTML;
+      el.value = sourceCode;
       
       el.style.position = 'absolute';
       el.style.left = '-9999px';
