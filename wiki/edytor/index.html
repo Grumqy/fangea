@@ -2,10 +2,9 @@
 <html lang="pl">
 
 <head>
-    <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edytor - Fangea i inne kontynenty</title>
+    <title>Document</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -289,9 +288,121 @@
             </div>
             <textarea id="editor" spellcheck="false"></textarea>
             <div id="title-input-container">Tytuł: <input id="article-title" value="Tytuł Artykułu" type="text"> Data: <input id="article-date" value="DD.MM.YYYY" readonly type="text"></div>
-            <div id="save-container"><div id="save-article"><i class="fa-solid fa-clipboard"></i> Skopiuj do schowka</div></div>
+            <div id="save-container">
+                <div style="display: flex; align-items: center; margin-right: auto; margin-left: 1rem;">
+                    <label for="include-dictionary" style="padding-right: 0.5rem; user-select: none; cursor: pointer;">Słownik</label>
+                    <input type="checkbox" id="include-dictionary" style="cursor: pointer;">
+                    <span id="dictionary-error-message"></span>
+                </div>
+                <div id="save-article"><i class="fa-solid fa-clipboard"></i> Skopiuj do schowka</div>
+            </div>
+            <div id="dictionary-setup" class="hidden">
+                <div id="dictionary-tab-bar">
+                    <div data-tab="pronunciation" class="active">Wymowa</div>
+                    <div data-tab="meanings">Znaczenia</div>
+                    <div data-tab="inflection">Odmiana</div>
+                    <div data-tab="related">Wyrazy Pokrewne</div>
+                    <div data-tab="translation">Tłumaczenie</div>
+                    <div data-tab="etymology">Etymologia</div>
+                </div>
+                <div id="dictionary-tabs">
+                    <div id="pronunciation" class="active">
+                        <div class="content">
+                            <h2>wymowa</h2>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div id="meanings">
+                        <div class="content">
+                            <h2>znaczenia</h2>
+                            <div class="list-type-input-list">
+                                <div class="list-type-input-container">
+                                    <input type="text" class="list-type-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="inflection">
+                        <div class="content">
+                            <h2>odmiana</h2>
+                            <table class="inflection-table">
+                            <tbody><tr>
+                                <th>przypadek</th>
+                                <th>liczba pojedyncza</th>
+                                <th class="inflection-lm">liczba mnoga</th>
+                            </tr>
+                            <tr>
+                                <th>mianownik</th>
+                                <td><input type="text" id="mianownik-lp"></td>
+                                <td class="inflection-lm"><input type="text" id="mianownik-lm"></td>
+                            </tr>
+                            <tr>
+                                <th>dopełniacz</th>
+                                <td><input type="text" id="dopelniacz-lp"></td>
+                                <td class="inflection-lm"><input type="text" id="dopelniacz-lm"></td>
+                            </tr>
+                            <tr>
+                                <th>celownik</th>
+                                <td><input type="text" id="celownik-lp"></td>
+                                <td class="inflection-lm"><input type="text" id="celownik-lm"></td>
+                            </tr>
+                            <tr>
+                                <th>biernik</th>
+                                <td><input type="text" id="biernik-lp"></td>
+                                <td class="inflection-lm"><input type="text" id="biernik-lm"></td>
+                            </tr>
+                            <tr>
+                                <th>narzędnik</th>
+                                <td><input type="text" id="narzednik-lp"></td>
+                                <td class="inflection-lm"><input type="text" id="narzednik-lm"></td>
+                            </tr>
+                            <tr>
+                                <th>miejscownik</th>
+                                <td><input type="text" id="miejscownik-lp"></td>
+                                <td class="inflection-lm"><input type="text" id="miejscownik-lm"></td>
+                            </tr>
+                            <tr>
+                                <th>wołacz</th>
+                                <td><input type="text" id="wolacz-lp"></td>
+                                <td class="inflection-lm"><input type="text" id="wolacz-lm"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                        </div>
+                    </div>
+                    <div id="related">
+                        <div class="content">
+                            <h2>wyrazy pokrewne</h2>
+                            <div class="list-type-input-list">
+                                <div class="list-type-input-container">
+                                    <input type="text" class="list-type-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="translation">
+                        <div class="content">
+                            <h2>tłumaczenia</h2>
+                            <div class="list-type-input-list">
+                                <div class="list-type-input-container">
+                                    <input type="text" class="list-type-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="etymology">
+                        <div class="content">
+                            <h2>Etymologia</h2>
+                            <textarea spellcheck="false"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="preview-container">
+            <div id="modal-container">
+                <div id="modal-overlay"></div>
+            </div>
             <div id="preview-loading-container">
             </div>
             <article>
@@ -352,6 +463,9 @@
         }
     });
 });
+
+let includeDictionary = false;
+
 const textarea = document.getElementById('editor');
 textarea.value = `= Rozdział =
 
@@ -376,7 +490,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 == Śródtytuł ==
 
-Lorem ipsum dolor sit amet, (link-do-artykulu)[inny artykuł] consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, (https://grumqy.github.io/fangea/)[strona główna] consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 * Element listy
 * Element listy
@@ -552,7 +666,7 @@ function convertToHTML(text) {
     text = text.replace(/\[\[icon:(.+?)\|medium\]\]/g, '<img src="$1" class="icon medium"/>');
     text = text.replace(/\[\[icon:(.+?)\|large\]\]/g, '<img src="$1" class="icon large"/>');
 
-    text = text.replace(/\((.*?)\)\[(.*?)\]/g, '<a href="$1">$2</a>');
+    text = text.replace(/\((https?:\/\/[^\s]+?)\)\[([^\]]+?)\]/g, '<a href="$1">$2</a>');
 
     text = text.replace(/\[\[img:(.+?)\|(.+?)\|(.+?)\]\]/g, (match, p1, p2, p3) => {
         const alignment = p2 === 'left' || p2 === 'right' ? p2 : '';
@@ -658,16 +772,24 @@ function convertToHTML(text) {
 
     text = text.replace(/<(td|th)>tc/g, '<$1 style="text-align: center;">');
 
+    
     text = text.split('\n').map(line => {
-    if (line.trim() === '' || /<(?!\/?(i|a|b|img)\b)[a-z][\s\S]*>/i.test(line.trim())) {
-        return line;
-    }
-    return `<p>${line.trim()}</p>`;
-}).join('\n');
-
+        if (line.trim() === '' || /<(?!\/?(i|a|b|img)\b)[a-z][\s\S]*>/i.test(line.trim())) {
+            return line;
+        }
+        return `<p>${line.trim()}</p>`;
+    }).join('\n');
+    
     text = text.replace(/<p>\s*<\/p>/g, '');
+        
+        text = text.trim();
 
-    return text.trim();
+        text = text.replace('<ul><ol>', '<ul>');
+        text = text.replace('</ol></ul>', '</ul>');
+
+
+        console.log(text);
+    return text;
 }
 function updatePreview() {
     const text = `<header><div>${document.getElementById("article-title").value}</div><span>${document.getElementById("article-date").value}</span></header>\n` + textarea.value;
@@ -676,6 +798,10 @@ function updatePreview() {
     document.getElementById("preview-loading-container").appendChild(loading);
     setTimeout(function(){
         article.innerHTML = convertedHTML;
+        validateDictionaryIncluding();  
+        if(includeDictionary == true){
+            document.querySelector('article table.infobox tbody').innerHTML += '<tr><td colspan="2" style="border-top: 1px solid #a2a9b1;"><table class="ibox"><tbody><tr class="plainlink"><td><img src="https://i.ibb.co/XJQSsqS/slownik.png"></td><td><span class="modal-opener" id="dictionary-opener">Hasło w słowniku</span></td></tr></tbody></table></td></tr>';
+        }
     }, 750)
     setTimeout(function(){
         document.getElementById("preview-loading-container").innerHTML = '';
@@ -694,7 +820,8 @@ window.addEventListener('beforeunload', function (e) {
 document.getElementById('save-article').addEventListener('click', copyArticleToClipboard);
 
 function copyArticleToClipboard() {
-
+    updatePreview();
+    setTimeout(function(){
     const articleTitle = document.getElementById("article-title").value;
     const articleParagraphs = Array.from(document.querySelectorAll('#preview-container article p'));
 let articleDescription = '';
@@ -731,6 +858,17 @@ if (document.querySelector('article table.infobox img:not(.icon)')) {
     const pageheaderScript = '<script src="/fangea/pageheader.js"></' + 'script>';
     const articleScript = '<script src="/fangea/article.js"></' + 'script>';
     const fontAwesomeScript = '<script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></' + 'script>';
+    var dictionaryScript = '';
+    validateDictionaryIncluding();
+    var dictionaryInfo = gatherDictionaryInfo();
+
+    if (includeDictionary == true){
+    dictionaryScript = `<script>
+const dictionaryhtml = \`<h1>${articleTitle}</h1>\n${dictionaryInfo}\`;
+createModalWindow('dictionary', dictionaryhtml);
+setModalOpener('dictionary', 'dictionary-opener');
+</` + 'script>'; 
+    }
 
 
 el.value = `<html lang="pl">
@@ -767,6 +905,7 @@ ${fontAwesomeScript}
 </main>
 ${pageheaderScript}
 ${articleScript}
+${dictionaryScript}
 </body>
 </html>`;
     
@@ -792,6 +931,7 @@ ${articleScript}
     setTimeout(function(){
         document.getElementById('save-article').innerHTML = `<i class="fa-solid fa-clipboard" aria-hidden="true"></i> Skopiuj do schowka`;
     }, 1500)
+}, 850);
 }
 
     var isPreviewHidden = false;
@@ -809,7 +949,317 @@ ${articleScript}
     document.getElementById("switch-preview").innerHTML = '<i class="fa-solid fa-eye-slash" aria-hidden="true"></i>Ukryj podgląd';
     isPreviewHidden = false;
     }
+    
+}
+    function showModal(id){
+document.getElementById("modal-container").classList.add("active");
+document.getElementById(id).classList.add("active"); 
+}
+function hideModal(id) {
+  console.log("Closing modal");
+  document.getElementById("modal-container").classList.add("hidden");
+  setTimeout(function() {
+      document.getElementById("modal-container").classList.remove("active");
+      document.getElementById("modal-container").classList.remove("hidden");
+      if (id !== 'any') {
+          document.getElementById(id).classList.remove("active");
+      } else {
+          Array.from(document.getElementById("modal-container").querySelectorAll(".modal")).forEach(modal => {
+              modal.classList.remove("active");
+          });
+      }
+  }, 250);
+}
+
+function setModalOpener(modalId, openerId){
+document.getElementById(openerId).addEventListener("click", () => showModal(modalId));
+}
+function createModalWindow(id, innerhtml){
+  var modal = document.createElement("div");
+  modal.classList.add("modal");
+  modal.id = id;
+  modal.innerHTML = '<i class="fa-solid fa-xmark modal-close"></i>' + innerhtml;
+  document.getElementById("modal-container").appendChild(modal);
+
+  // Fix: pass the hideModal function as a reference, not invoke it immediately
+  document.getElementById(id).querySelector('.modal-close').addEventListener("click", () => hideModal(id));
+  document.getElementById("modal-overlay").addEventListener("click", () => hideModal('any'));
+}
+    // Get all tab elements
+    const tabElements = document.querySelectorAll('#dictionary-tab-bar > div');
+
+    // Add click event listener to each tab
+    tabElements.forEach(tabElement => {
+        tabElement.addEventListener('click', () => {
+            const tabName = tabElement.getAttribute('data-tab');
+
+            // Remove 'active' class from all tabs and content areas
+            tabElements.forEach(tab => {
+                tab.classList.remove('active');
+                document.getElementById(tab.getAttribute('data-tab')).classList.remove('active');
+            });
+
+            // Add 'active' class to the clicked tab and its content area
+            tabElement.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      const listContainer = document.querySelector('.list-type-input-list');
+
+      // Function to create a new input container
+      function createInputContainer() {
+        const newContainer = document.createElement('div');
+        newContainer.classList.add('list-type-input-container');
+
+        const newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.classList.add('list-type-input');
+
+        newInput.addEventListener('input', handleInput);
+
+        newContainer.appendChild(newInput);
+        listContainer.appendChild(newContainer);
+      }
+
+      // Function to handle input events
+      function handleInput(event) {
+        const currentInput = event.target;
+        const currentContainer = currentInput.parentElement;
+        const allInputs = listContainer.querySelectorAll('.list-type-input');
+
+        // If current input is the last one and has text, create a new input container
+        if (currentInput.value !== '' && currentContainer === listContainer.lastElementChild) {
+          createInputContainer();
+        }
+
+        // Remove empty input fields if they are not the last input
+        if (currentInput.value === '' && currentContainer !== listContainer.lastElementChild) {
+          currentContainer.remove();
+        }
+
+        // Ensure the last input container is always empty
+        const lastInput = listContainer.lastElementChild.querySelector('.list-type-input');
+        if (lastInput.value !== '') {
+          createInputContainer();
+        }
+      }
+
+      // Attach input event listener to the first input
+      const firstInput = listContainer.querySelector('.list-type-input');
+      firstInput.addEventListener('input', handleInput);
+
+    const listContainers = document.querySelectorAll('.list-type-input-list');
+
+// Function to create a new input container
+function createInputContainer(listContainer) {
+  const newContainer = document.createElement('div');
+  newContainer.classList.add('list-type-input-container');
+
+  const newInput = document.createElement('input');
+  newInput.type = 'text';
+  newInput.classList.add('list-type-input');
+
+  newInput.addEventListener('input', (event) => handleInput(event, listContainer));
+
+  newContainer.appendChild(newInput);
+  listContainer.appendChild(newContainer);
+}
+
+// Function to handle input events
+function handleInput(event, listContainer) {
+  const currentInput = event.target;
+  const currentContainer = currentInput.parentElement;
+  const allInputs = listContainer.querySelectorAll('.list-type-input');
+
+  // If current input is the last one and has text, create a new input container
+  if (currentInput.value !== '' && currentContainer === listContainer.lastElementChild) {
+    createInputContainer(listContainer);
+  }
+
+  // Remove empty input fields if they are not the last input
+  if (currentInput.value === '' && currentContainer !== listContainer.lastElementChild) {
+    currentContainer.remove();
+  }
+
+  // Ensure the last input container is always empty
+  const lastInput = listContainer.lastElementChild.querySelector('.list-type-input');
+  if (lastInput.value !== '') {
+    createInputContainer(listContainer);
+  }
+}
+
+// Attach input event listeners to the initial inputs
+listContainers.forEach(listContainer => {
+  const firstInput = listContainer.querySelector('.list-type-input');
+  firstInput.addEventListener('input', (event) => handleInput(event, listContainer));
+});
+});
+
+    const inflectionTable = document.querySelector('.inflection-table');
+    const inflectionCells = document.querySelectorAll('.inflection-lm');
+    const inflectionInputs = document.querySelectorAll('.inflection-lm input');
+
+    function checkInputs() {
+        for (let input of inflectionInputs) {
+            if (input.value.trim() !== '') {
+                inflectionTable.classList.add('lm-included');
+                return;
+            }
+        }
+        inflectionTable.classList.remove('lm-included');
     }
+
+    function handleMouseEnter() {
+        inflectionTable.classList.add('lm-included');
+    }
+
+    function handleMouseLeave() {
+        checkInputs();
+    }
+
+    inflectionCells.forEach(cell => {
+        cell.addEventListener('mouseenter', handleMouseEnter);
+        cell.addEventListener('mouseleave', handleMouseLeave);
+    });
+
+    inflectionInputs.forEach(input => {
+        input.addEventListener('input', checkInputs);
+    });
+
+    checkInputs();
+
+    document.getElementById("include-dictionary").addEventListener('change', validateDictionaryIncluding)
+
+    function validateDictionaryIncluding(){
+    const checkbox = document.getElementById("include-dictionary");
+
+        if(checkbox.checked == true){
+            if(document.querySelector('#preview-container article .infobox')){
+            document.getElementById('dictionary-setup').classList.remove("hidden");
+                includeDictionary = true;
+            } else{
+                document.getElementById('dictionary-setup').classList.add("hidden");
+                document.getElementById('dictionary-error-message').innerHTML = 'Musisz utworzyć tabelę infobox.'
+                setTimeout(function(){
+                    document.getElementById('dictionary-error-message').innerHTML = '';
+                }, 2000)
+                includeDictionary = false;
+                checkbox.checked = false;
+            }
+        } else{
+            document.getElementById('dictionary-setup').classList.add("hidden");
+            includeDictionary = false;
+        }
+
+    }
+
+    function gatherDictionaryInfo() {
+
+    var dictionaryInfo = '';
+
+    if (includeDictionary == true){
+    var pronunciation = '';
+    var meanings = '';
+    var inflection = '';
+    var related = '';
+    var translation = '';
+    var etymology = '';
+
+    if (document.querySelector('#pronunciation input').value.length > 0) {
+        pronunciation = `<h2>wymowa</h2>\n<p>${document.querySelector('#pronunciation input').value}</p>`;
+    }
+
+    if (document.querySelector('#meanings input').value.length > 0) {
+        var meaningsTemp = [];
+        Array.from(document.querySelectorAll('#meanings input')).forEach(element => {
+            if (element.value.length > 0) {
+                meaningsTemp.push(`<li>${element.value}</li>\n`);
+            }
+        });
+        meanings = `\n<h2>znaczenia</h2>\n<ul>\n${meaningsTemp.join('')}</ul>`;
+    }
+
+    // Check inputs for inflection table
+    const lpInputs = document.querySelectorAll('input[id$="-lp"]');
+    const lmInputs = document.querySelectorAll('input[id$="-lm"]');
+
+    const allInputsFilled = (inputs) => {
+        for (let input of inputs) {
+            if (input.value.trim() === '') {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    const lpFilled = allInputsFilled(lpInputs);
+    const lmFilled = allInputsFilled(lmInputs);
+
+    if (lpFilled || lmFilled) {
+        let tableHeaders = `\n<tr><th>przypadek</th>`;
+        let tableRows = '';
+
+        if (lpFilled) {
+            tableHeaders += `<th>liczba pojedyncza</th>`;
+        }
+        if (lmFilled) {
+            tableHeaders += `<th>liczba mnoga</th>`;
+        }
+        tableHeaders += `</tr>`;
+
+        const cases = ['mianownik', 'dopelniacz', 'celownik', 'biernik', 'narzednik', 'miejscownik', 'wolacz'];
+
+        cases.forEach(caseName => {
+            let row = `\n<tr><th>${caseName}</th>`;
+            if (lpFilled) {
+                row += `<td>${document.getElementById(caseName + '-lp').value}</td>`;
+            }
+            if (lmFilled) {
+                row += `<td>${document.getElementById(caseName + '-lm').value}</td>`;
+            }
+            row += `</tr>`;
+            tableRows += row;
+        });
+
+        inflection = `\n<h2>odmiana</h2>\n<table>\n<tbody>${tableHeaders}${tableRows}\n</tbody>\n</table>`;
+    }
+
+    if (document.querySelector('#related input').value.length > 0) {
+        var relatedTemp = [];
+        Array.from(document.querySelectorAll('#related input')).forEach(element => {
+            if (element.value.length > 0) {
+                relatedTemp.push(`<li>${element.value}</li>\n`);
+            }
+        });
+        related = `\n<h2>wyrazy pokrewne</h2>\n<ul>\n${relatedTemp.join('')}</ul>`;
+    }
+    
+    if (document.querySelector('#translation input').value.length > 0) {
+        var translationTemp = [];
+        Array.from(document.querySelectorAll('#translation input')).forEach(element => {
+            if (element.value.length > 0) {
+                translationTemp.push(`<li>${element.value}</li>\n`);
+            }
+        });
+        translation= `\n<h2>tłumaczenia</h2>\n<ul>\n${translationTemp.join('')}</ul>`;
+    }
+
+    if (document.querySelector('#etymology textarea').value.length > 0) {
+        etymology = `\n<h2>etymologia</h2>\n<p>${document.querySelector('#etymology textarea').value}</p>`;
+    }
+
+
+    // Combine all sections into a single dictionary information string
+    dictionaryInfo = pronunciation + meanings + inflection + related + translation + etymology;
+
+    dictionaryInfo = dictionaryInfo.replace(/'''(.+?)'''/g, '<b>$1</b>').replace(/''(.+?)''/g, '<i>$1</i>');
+
+    }
+    return dictionaryInfo;
+}
+
+
     </script>
 </body>
 
