@@ -2224,13 +2224,19 @@ overflow-y: auto;
 #editor-container.full{
 width: 100%;
 }
+#outter-options-bar{
+display: flex;
+flex-direction: row;
+width: 100%;
+height: 2.5rem;
+justify-content: left;
+align-items: center;
+}
 #exit-editor{
-margin-right: auto;
-margin-left: 0.5rem;
 height: 100%;
 display: flex;
 height: 1.5rem;
-margin-bottom: 0.5rem;
+padding: 0.5rem;
 width: fit-content;
 align-items: center;
 text-decoration: none;
@@ -3031,36 +3037,251 @@ transform: rotate(360deg);
   padding: 1rem;
 }
 #table-setup h3{
-
   margin-top: 0.5rem;
   margin-bottom: 0.75rem;
 }
 #table-setup input{
 width: 4rem;
+margin: auto 0;
 margin-right: 0.5rem;
 margin-bottom: 0.5rem;
 float: right;
 vertical-align: top;
+border: 0;
+outline: 0;
+border-bottom: 1px solid rgba(0,0,0, 0.25);
+padding: 0.25rem 0.5rem;
 justify-content: right;
 font-family: 'Montserrat', 'Montserrat Alternates', 'Geologica';
 text-align: right;
 }
 #table-setup input[type="number"]{
-width: 2rem;
+width: 1.75rem;
 }
 #table-setup input[type="checkbox"]{
-margin-right: 0;
 width: fit-content;
+margin: auto;
 margin-right: 0.5rem;
 }
 #table-setup div{
 display: none;
 flex-direction: row;
+align-items: center;
 }
 .toolbar-button-select-container:hover #table-setup div{
 display: flex;
+height: 2.25rem;
 }
 #table-setup span{
-  margin-bottom: 0.5rem;
-  margin-right: auto;
+margin: auto 0;
+margin-right: auto;
 }
+#theme-change{
+margin-left: 1rem;
+padding: 0.5rem;
+font-weight: 700;
+color: rgba(0, 0, 0, 0.4);
+cursor: pointer;
+display: flex;
+user-select: none;
+align-items: center;
+height: 1.5rem;
+}
+#theme-change i{
+margin-right: 0.5rem;
+}
+#editor-container.dark-mode{
+  background-color: #111;
+  color: rgba(255,255,255, 0.85);
+}
+#editor-container.dark-mode .toolbar-button:hover{
+background-color: rgba(255,255,255, 0.05);
+}
+#editor-container.dark-mode .toolbar-button span,
+#editor-container.dark-mode .toolbar-tab-button::before,
+#editor-container.dark-mode .toolbar-button-select-container::before{
+filter: invert(1);
+color: rgba(255,255,255, 0.75);
+opacity: 0.75;
+}
+#editor-container.dark-mode .editor-tab.special-characters .toolbar-button span{
+filter: invert(0);
+}
+#editor-container.dark-mode #editor{
+background-color: #131313;
+color: rgba(255,255,255, 0.85);
+}
+#editor-container.dark-mode .toolbar{
+background-color: #0f0f0f;
+}
+#editor-container.dark-mode #title-input-container,
+#editor-container.dark-mode #save-container,
+#editor-container.dark-mode .toolbar,
+#editor-container.dark-mode .editor-tab,
+#editor-container.dark-mode #editor,
+#editor-container.dark-mode #title-input-container input,
+#editor-container.dark-mode .editor-tab.help th,
+#editor-container.dark-mode .editor-tab.help td,
+#editor-container.dark-mode .toolbar-button-select-container .toolbar-button-select,
+#editor-container.dark-mode #dictionary-tab-bar div,
+#editor-container.dark-mode #dictionary-setup,
+#editor-container.dark-mode #dictionary-tab-bar,
+#editor-container.dark-mode #dictionary-setup #dictionary-tabs div,
+#editor-container.dark-mode .toolbar-button:active,
+#editor-container.dark-mode .toolbar-button.active{
+border-color: rgba(255,255,255, 0.15);
+}
+#editor-container.dark-mode #dictionary-tab-bar{
+border-bottom: 1px solid rgba(255,255,255, 0.15) !important;
+}
+#editor-container.dark-mode .toolbar-button-select-container .toolbar-button-select{
+  background-color: transparent;
+}
+#editor-container.dark-mode .editor-tab.special-characters .toolbar-button{
+border-right-color: rgba(255,255,255, 0.3);
+}
+#editor-container.dark-mode .toolbar-tab-button.active{
+color: rgba(255,255,255, 0.75);
+}
+#editor-container.dark-mode #switch-preview{
+color: rgba(255,255,255, 0.4);
+}
+#editor-container.dark-mode #exit-editor,
+#editor-container.dark-mode #theme-change{
+color: rgba(255,255,255, 0.4);
+}
+#editor-container.dark-mode .editor-tab.help table tr th{
+background-color: rgba(255,255,255, 0.05);
+color: rgba(255,255,255, 0.65);
+}
+#editor-container.dark-mode .editor-tab.help table.infobox tr th{
+color: #111;
+background-color: #eee;
+}
+#editor-container.dark-mode #table-setup input[type="checkbox"],
+#editor-container.dark-mode #include-dictionary{
+  filter: invert(0.95);
+}
+#editor-container.dark-mode #table-setup input,
+#editor-container.dark-mode .list-type-input,
+#editor-container.dark-mode #etymology textarea,
+#editor-container.dark-mode #pronunciation input{
+  background-color: #0d0d0d;
+  border: 0;
+  border-bottom: 1px solid #424242;
+  color: #8d8d8d;
+}
+#editor-container.dark-mode .list-type-input{
+  border-bottom: 1px solid #424242;
+}
+#editor-container.dark-mode #table-setup{
+  background-color: #161616;
+}
+#editor-container.dark-mode .toolbar-button-select-container .toolbar-button-select .toolbar-button:hover{
+background-color: #1b1b1b;
+}
+#editor-container.dark-mode .toolbar-button-select-container .toolbar-button-select .toolbar-button{
+background-color: #161616;
+}
+#editor-container.dark-mode .editor-tab.help table.infobox.help,
+#editor-container.dark-mode .editor-tab.help table.help-table,
+#editor-container.dark-mode .editor-tab.help table.help-table th{
+color: #111;
+}
+#editor-container.dark-mode #dictionary-tab-bar div,
+#editor-container.dark-mode #dictionary-tab-bar{
+  background-color: #111111;
+}
+#editor-container.dark-mode .toolbar-button:active,
+#editor-container.dark-mode .toolbar-button.active{
+background-color: #1a1a1a;
+border-color: #3b3b3b !important;
+}
+#editor-container.dark-mode #dictionary-setup{
+background-color: #161616;
+}
+#editor-container.dark-mode .editor-tab.help table.help-table,
+#editor-container.dark-mode .editor-tab.help table.help-table td,
+#editor-container.dark-mode .editor-tab.help table.help-table th{
+border: 1px solid #a2a9b1;
+}
+#editor-container.dark-mode #editor::-webkit-scrollbar-track,
+#editor-container.dark-mode .editor-tab.help::-webkit-scrollbar-track {
+  background-color: #131313;
+  }
+  #editor-container.dark-mode #editor::-webkit-scrollbar-thumb, 
+  #editor-container.dark-mode .editor-tab.help::-webkit-scrollbar-thumb {
+  background: #1d1d1d;
+  border-radius: 0;
+  }
+  #editor-container.dark-mode #editor::-webkit-scrollbar-thumb:hover,
+  #editor-container.dark-mode .editor-tab.help::-webkit-scrollbar--thumb:hover {
+  background: #2c2c2c;
+  }
+#editor-container.dark-mode::-webkit-scrollbar{
+  background: #111;
+    height: 8px;
+    }
+  #editor-container.dark-mode::-webkit-scrollbar-track{
+    background: #f8f9fa;
+    }
+  #editor-container.dark-mode::-webkit-scrollbar-thumb{
+    background: #1d1d1d;
+    border-radius: 0px;
+    }
+    #editor-container.dark-mode #title-input-container input,
+    #editor-container.dark-mode #save-article{
+    color: rgba(255,255,255, 0.75);
+    background-color: #1b1b1b;
+    }
+    #editor-container.dark-mode #save-article{
+    border-left: 1px solid rgba(255,255,255, 0.15);;
+    }
+  #editor-container.dark-mode::-webkit-scrollbar-thumb:hover{
+    background: #2c2c2c;
+    }
+    #dictionary-tabs>div .content::-webkit-scrollbar{
+background: #131313;
+    }
+    #editor-container.dark-mode #dictionary-tab-bar div:hover{
+background-color: #131313;
+    }
+    #editor-container.dark-mode #dictionary-tab-bar div.active{
+background-color: #161616;
+    }
+    #editor-container.dark-mode .inflection-table th{
+      background-color: #161616;
+    }
+    #editor-container.dark-mode .inflection-table{
+      background: #161616;
+    }
+    #editor-container.dark-mode .inflection-table th{
+      border-color: #4b4b4b;
+      color: rgba(255,255,255, 0.65);
+    }
+    #editor-container.dark-mode .toolbar-button:active,
+    #editor-container.dark-mode .toolbar-button.active{
+
+    }
+    #editor-container.dark-mode .inflection-table td{
+      background-color: #1a1a1a;
+      border-color: #4b4b4b;
+    }
+    #editor-container.dark-mode .inflection-table td input{
+      color: rgba(255,255,255, 0.65);
+    }
+    #editor-container.dark-mode .lm-included th.inflection-lm, #editor-container.dark-mode .lm-included td.inflection-lm{
+      border-color: #4b4b4b
+    }
+    #editor-container.dark-mode th.inflection-lm, #editor-container.dark-mode td.inflection-lm{
+    border-color: rgba(255,255,255, 0.05);
+    }
+    #editor-container.dark-mode #dictionary-tabs>div .content::-webkit-scrollbar-track{
+      background: #111;
+    }
+    #editor-container.dark-mode #dictionary-tabs>div .content::-webkit-scrollbar-thumb{
+      background: #252525;
+    }
+    #editor-container.dark-mode #dictionary-tabs>div .content::-webkit-scrollbar-thumb:hover{
+      background: #333333;
+    }
