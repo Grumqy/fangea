@@ -38,7 +38,10 @@
     <main class="article-editor">
         <div id="mobile-device-message">Edytor nie wspiera urządzeń mobilnych</div>
         <div id="editor-container">
-            <a id="exit-editor" title="Strona Główna" href="https://grumqy.github.io/fangea/"><i class="fa-solid fa-house"></i></a>
+            <div id="outter-options-bar">
+                <a id="exit-editor" title="Strona Główna" href="https://grumqy.github.io/fangea/"><i class="fa-solid fa-house"></i></a>
+                <div id="theme-change"><i class="fa-solid fa-moon"></i>Ciemny Motyw</div>
+            </div>
             <div class="toolbar">
                 <div class="toolbar-button" title="Wytłuszczenie">
                     <span class="bold tool-icon"></span>
@@ -1447,7 +1450,15 @@ document.getElementById('update-preview-button').addEventListener('click', funct
 });
 }
 
-
+    document.getElementById('theme-change').addEventListener('click', function(){
+    if(document.getElementById("editor-container").classList.contains("dark-mode")){
+        document.getElementById("editor-container").classList.remove("dark-mode");
+        document.getElementById('theme-change').innerHTML = `<i class="fa-solid fa-moon" aria-hidden="true"></i>Ciemny Motyw`;
+    } else{
+        document.getElementById("editor-container").classList.add("dark-mode");
+        document.getElementById('theme-change').innerHTML = `<i class="fa-solid fa-sun"></i>Jasny Motyw`;
+    }
+    })
     </script>
 </body>
 
