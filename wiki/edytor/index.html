@@ -15,7 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/fangea/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
     <style>
         @keyframes logo-entrance {
@@ -64,9 +64,6 @@
                 <div class="toolbar-button" title="Wstaw listę punktowaną">
                     <span class="ul tool-icon"></span>
                 </div>
-                <div class="toolbar-button" title="Wstaw tabelę">
-                    <span class="table tool-icon"></span>
-                </div>
                 <div class="toolbar-button ui" title="indeks górny">
                     <span class="ui tool-icon"></span>
                 </div>
@@ -75,6 +72,32 @@
                 </div>
                 <div class="toolbar-button" title="Wstaw przekierowanie">
                     <span class="rd tool-icon"></span>
+                </div>
+                <div class="toolbar-button-select-container" style="padding-left: 0;">
+                    <div class="toolbar-button" title="Wstaw tabelę">
+                        <span class="table tool-icon"></span>
+                    </div>
+                    <div class="toolbar-button-select" id="table-setup">
+                        <h3>Wstaw tabelę</h3>
+                        <div>
+                            <span>Ilość wierszy:</span><input id="rows-amount" type="number" min="2" value="3">
+                        </div>
+                        <div>
+                            <span>Ilość kolumn:</span><input id="columns-amount" type="number" min="2" value="3">
+                        </div>
+                        <div>
+                            <span>Treść nagłówków</span><input id="heading-content" type="text" value="nagłówek">
+                        </div>
+                        <div>
+                            <span>Treść komórek</span><input id="cell-content" type="text" value="komórka">
+                        </div>
+                        <div>
+                            <span>Kolumna nagłówków</span><input id="add-heading-column" type="checkbox">
+                        </div>
+                        <div>
+                            <span>Wiersz nagłówków</span><input id="add-heading-row" type="checkbox" checked>
+                        </div>
+                    </div>
                 </div>
                 <div class="toolbar-button-select-container">
                     Nagłówek
@@ -198,9 +221,9 @@
                         <i style="font-size: 0.5rem; line-height: 0.3rem;"><b>Scalenie:</b><br>
                         |c=2 podwójna komórka |<br>
                         <b>Wyśrodkowany tekst:</b><br>
-                        |tc wyśrodkowana komórka |<br>
+                        |t=c wyśrodkowana komórka |<br>
                         <b>Scalenie i wyśrodkowanie:</b><br>
-                        |tcc=2 wyśrodkowana i scalona komórka |
+                        |t=cc=2 wyśrodkowana i scalona komórka |
                         </i>
                         </td>
                         <td style="font-size: 0.7rem;">{|<br>
@@ -221,11 +244,11 @@
                         <td>Tabela Infobox</td>
                         <td style="font-size: 0.7rem;">
                             {|infobox Port Złotice<br>
-                            !tcc=2 miasto i gmina !<br>
+                            !t=cc=2 miasto i gmina !<br>
                             |c=2 [[timg:https://i.ibb.co/VNZHWQ0/image.png|Panorama miasta]] |<br>
                             |{ibox<br>
                             | [[timg:https://i.ibb.co/RBRPbgD/image.png|Flaga miasta]] || [[timg:https://i.ibb.co/ZcJ2kCT/image.png|herb miasta]] |<br>
-                            |tc Flaga || tc herb |<br>
+                            |t=c Flaga || t=c herb |<br>
                             }|<br>
                             ! Państwo !| [[icon:https://i.ibb.co/qyDFLK9/image.png|small]] Zjednoczone Królestwo Pieczarek |<br>
                             ! Województwo !| [[icon:https://i.ibb.co/RBRPbgD/image.png|small]] Złotickie |<br>
@@ -469,10 +492,49 @@
             const subheadingTemplate = `== Śródtytuł ==`;
             const bulletedListTemplate = `\n* List Item \n* List item \n* List item\n`;
             const numberedListTemplate = `\n# List Item \n# List item \n# List item\n`;
-            const tableTemplate = `\n{|\n! Nagłówek !! Nagłówek !! Nagłówek !\n| komórka || komórka || komórka |\n| komórka || komórka || komórka |\n| komórka || komórka || komórka |\n|}\n`;
-            const redirectionTemplate = `\n[[icon:https://i.ibb.co/vh0tWkb/informacja.png|medium]] ''Osobne Artykuły: [Link-pierwszego-artykułu](Pierwszy artykuł) i [Link-drugiego-artykułu](Drugi artykuł)''\n`;
+            const redirectionTemplate = `\n[[icon:https://i.ibb.co/vh0tWkb/informacja.png|medium]] ''Osobne Artykuły: (https://grumqy.github.io/fangea/wiki/edytor/)[Pierwszy artykuł] i (https://grumqy.github.io/fangea/wiki/edytor/)[Drugi artykuł]''\n`;
+            let tableTemplate = `\n{|\n! Nagłówek !! Nagłówek !! Nagłówek !\n| komórka || komórka || komórka |\n| komórka || komórka || komórka |\n| komórka || komórka || komórka |\n|}\n`;
 
+            function updateTableTemplate(){
+            const rowsAmount = document.getElementById('rows-amount').value; 
+            const columnsAmount = document.getElementById('columns-amount').value; 
+            const cellContent = document.getElementById('cell-content').value; 
+            const headingContent = document.getElementById('heading-content').value; 
+            const addHeadingColumn = document.getElementById('add-heading-column').checked; 
+            const addHeadingRow = document.getElementById('add-heading-row').checked; 
 
+            var cell = `| ${cellContent} |`;
+            var heading = `! ${headingContent} !`;
+            tableTemplate = ``;
+            var row = '';
+
+            if(addHeadingColumn == true){
+            row = heading;
+            }
+
+            for(i=0; i< columnsAmount; i++){
+            row += cell;
+            }
+            row += '\n';
+
+            
+            if(addHeadingRow == true){
+            for(i=0; i< columnsAmount; i++){
+            tableTemplate += heading;
+            }
+            if(addHeadingColumn == true){
+            tableTemplate += heading;
+            }
+            tableTemplate += '\n';
+            }
+
+            for(i=0; i< rowsAmount; i++){
+                tableTemplate += row;
+            }
+
+            tableTemplate = `{|\n${tableTemplate}|}`;
+
+            }
 
             function closeParentSelect(element){
                 element.parentElement.style.display = 'none';
@@ -494,7 +556,7 @@
             case 'Wstaw śródtytuł': insertTemplate(subheadingTemplate, true); closeParentSelect(button); break;
             case 'Wstaw listę numerowaną': insertTemplate(numberedListTemplate, true); break;
             case 'Wstaw listę punktowaną': insertTemplate(bulletedListTemplate, true); break;
-            case 'Wstaw tabelę': insertTemplate(tableTemplate); break;
+            case 'Wstaw tabelę': updateTableTemplate(); insertTemplate(tableTemplate); break;
             case 'indeks górny': superscript(); break;
             case 'indeks dolny': subscript(); break;
             case 'Wstaw ikonę małą': insertTemplate(iconSmallTemplate, true); closeParentSelect(button); break;
@@ -519,15 +581,15 @@ textarea.value = `= Rozdział =
 
 {|infobox Tytuł
 |c=2 [[timg:http://via.placeholder.com/640x360|Opis zdjęcia]] |
-|tcc=2 Podpis zdjęcia |
+|t=cc=2 Podpis zdjęcia |
 |{ibox
 |[[timg:http://via.placeholder.com/195x135|Opis zdjęcia]] || [[timg:http://via.placeholder.com/135x150|Opis zdjęcia]] |
-|tc Podpis 1 ||tc Podpis 2 |
+|t=c Podpis 1 ||t=c Podpis 2 |
 }|
 ! Informacja!| [[icon:http://via.placeholder.com/35x25|small]] Wartość z ikonką |
 ! Informacja !| Wartość |
 ! Informacja !| Wartość |
-!tcc=2 Nagłówek !
+!t=cc=2 Nagłówek !
 ! Informacja !| Wartość |
 ! Informacja !| Wartość |
 |}
@@ -553,7 +615,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 
 {|
-! Nagłówek !! Nagłówek !! Nagłówek !
+! nagłówek !! nagłówek !! nagłówek !
 | komórka || komórka || komórka |
 | komórka || komórka || komórka |
 | komórka || komórka || komórka |
@@ -582,13 +644,11 @@ function insertTemplate(insertionTemplate, dynamicInsertion) {
         if (start != textarea.value.length) {
             // Insert template at the specific place
             textarea.value = textarea.value.substring(0, start) + insertionTemplate + textarea.value.substring(end, textarea.value.length);
-            console.log('sraka');
         } else {
             // Append template to the end
             textarea.value += insertionTemplate;
             textarea.focus();
             textarea.scrollTop = textarea.scrollHeight;
-            console.log('sraczka');
         }
     } else {
         // Text is selected
@@ -602,7 +662,6 @@ function insertTemplate(insertionTemplate, dynamicInsertion) {
             textarea.selectionStart = start;
             textarea.selectionEnd = start + dynamicTemplate.length;
             textarea.scrollTop = initialScrollPosition;
-            console.log('sraka');
         } else {
             // Replace selected text with the template
             textarea.value = textarea.value.substring(0, start) + insertionTemplate + textarea.value.substring(end, textarea.value.length);
@@ -769,10 +828,6 @@ function convertToHTML(text) {
         return `<img src="${link}" data-description="${description}">`;
     });
 
-    text = text.replace(/\[\[icon:(.+?)\|small\]\]/g, '<img src="$1" class="icon small"/>');
-    text = text.replace(/\[\[icon:(.+?)\|medium\]\]/g, '<img src="$1" class="icon medium"/>');
-    text = text.replace(/\[\[icon:(.+?)\|large\]\]/g, '<img src="$1" class="icon large"/>');
-
     text = text.replace(/\((https?:\/\/[^\s]+?)\)\[([^\]]+?)\]/g, '<a href="$1">$2</a>');
 
     text = text.replace(/\[\[img:(.+?)\|(.+?)\|(.+?)\]\]/g, (match, p1, p2, p3) => {
@@ -863,7 +918,7 @@ function convertToHTML(text) {
                     tableHTML += '<tr>';
                     let cells = line.split('||');
                     for (let cell of cells) {
-                        tableHTML += `<td>${cell.trim().replace(/^\||\|$/g, '')}</td>`;
+                        tableHTML += `<td>${cell.trim().replace(/^\||\|$/g, '')} </td>`;
                     }
                     tableHTML += '</tr>';
                 }
@@ -874,11 +929,19 @@ function convertToHTML(text) {
         }
     });
     
-    text = text.replace(/>tc/g, ' style="text-align: center;" >');
+    text = text.replace(/>t=rv=t/g, ' style="text-align: right; vertical-align: top;" >');
+    text = text.replace(/>t=cv=t/g, ' style="text-align: center; vertical-align: top;" >');
+    text = text.replace(/>t=rv=b/g, ' style="text-align: right; vertical-align: bottom;" >');
+    text = text.replace(/>t=cv=b/g, ' style="text-align: center; vertical-align: bottom;" >');
+    text = text.replace(/>t=c/g, ' style="text-align: center;" >');
+    text = text.replace(/>t=r/g, ' style="text-align: right;" >');
+    text = text.replace(/>v=t/g, ' style="vertical-align: top;" >');
+    text = text.replace(/>v=b/g, ' style="vertical-align: bottom;" >');
     text = text.replace(/>r=(\d+)/g, ' rowspan="$1" >');
     text = text.replace(/>c=(\d+)/g, ' colspan="$1" >');
     text = text.replace(/>b=(\w+)/g, ' class="cell-background-color-$1">');
-
+    
+    text = text.replace(/\[\[icon:(https?:\/\/.+?)\|(\w+)\]\]/g, '<img src="$1" class="icon $2"/>');
     
     text = text.split('\n').map(line => {
         if (line.trim() === '' || /<(?!\/?(i|a|b|img)\b)[a-z][\s\S]*>/i.test(line.trim())) {
@@ -907,7 +970,8 @@ function updatePreview() {
         if(includeDictionary == true){
             document.querySelector('article table.infobox tbody').innerHTML += '<tr><td colspan="2" style="border-top: 1px solid #a2a9b1;"><table class="ibox"><tbody><tr class="plainlink"><td><img src="https://i.ibb.co/XJQSsqS/slownik.png"></td><td><span class="modal-opener" id="dictionary-opener">Hasło w słowniku</span></td></tr></tbody></table></td></tr>';
         }
-    }, 750)
+        wrapTables();
+    }, 750);
     setTimeout(function(){
         document.getElementById("preview-loading-container").innerHTML = '';
     }, 850)
@@ -988,16 +1052,12 @@ el.value = `<html lang="pl">
 <meta property="og:description" content="${articleDescription}">
 <meta name="twitter:description" content="${articleDescription}">
 ${articleMetaImageProperties}
-<link
-href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-rel="stylesheet">
-<link
-href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/fangea/style.css" />
 ${fontAwesomeScript}
 </head>
-
 <body>
 <header id="pageheader">
 </header>
@@ -1373,6 +1433,20 @@ document.getElementById('update-preview-button').addEventListener('click', funct
         }, 1000); // 1000 milliseconds cooldown
     }
 });
+
+    function wrapTables(){
+    const articleTables = Array.from(document.querySelectorAll("article table:not(.infobox, .ibox)"));
+    articleTables.forEach(table => {
+  // Check if the table is already wrapped
+  if (!table.closest('.table-wrapper')) {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('table-wrapper'); // Optional: Add a class to the div for styling
+    table.parentNode.insertBefore(wrapper, table); // Insert the <div> before the table
+    wrapper.appendChild(table); // Append the table inside the <div>
+  }
+});
+}
+
 
     </script>
 </body>
