@@ -118,9 +118,10 @@ const articleTables = Array.from(document.querySelectorAll("article table:not(.i
 
 articleTables.forEach(table => {
   if (!table.closest('.table-wrapper')) {
-    const wrapper1 = document.createElement('div');
-    wrapper1.classList.add('table-wrapper');
-    wrapper1.appendChild(table);
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('table-wrapper'); // Optional: Add a class to the div for styling
+    table.parentNode.insertBefore(wrapper, table); // Insert the <div> before the table
+    wrapper.appendChild(table); // Append the table inside the <div>
   }
 });
 
