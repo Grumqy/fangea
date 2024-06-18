@@ -96,14 +96,11 @@ const header = document.querySelector("main article header");
 const sourceCodeElement = document.getElementById("source-code");
 
 if (!document.getElementById("article-content") && sourceCodeElement){
-  // Select the header and the last div
   var lastDiv = document.getElementById('source-code');
-  
-  // Create a new div with the id 'content'
+
   var contentDiv = document.createElement('div');
   contentDiv.id = 'article-content';
   
-  // Get all elements between header and lastDiv
   var currentElement = header.nextElementSibling;
   
   while (currentElement && currentElement !== lastDiv) {
@@ -112,11 +109,22 @@ if (!document.getElementById("article-content") && sourceCodeElement){
       currentElement = nextElement;
   }
   
-  // Insert the new contentDiv into the DOM before the lastDiv
   lastDiv.parentNode.insertBefore(contentDiv, lastDiv);
 }
 
 const articleContent = document.getElementById("article-content");
+
+const articleTables = Array.from(document.querySelectorAll("article table:not(.infobox, .ibox)"));
+
+articleTables.forEach(table => {
+  if (!table.closest('.table-wrapper')) {
+    const wrapper1 = document.createElement('div');
+    wrapper1.classList.add('table-wrapper');
+    wrapper1.appendChild(table);
+  }
+});
+
+console.log(articleTables)
 
 let pictures = Array.from(document.querySelectorAll("main article table.infobox img:not(.icon, .plainlink img)")).map(img => ({
   src: img.src,
