@@ -493,7 +493,6 @@
   white-space: nowrap;
   padding: 0.25rem 0.5rem;
   font-size: 1rem;
-  width: 100%;
   }
   @media screen and (max-width: 500px){
   article table.infobox{
@@ -2448,6 +2447,9 @@ border-bottom: 1px solid #c8ccd1;
   padding: 0.5rem 0.1rem;
   vertical-align: top;
   }
+  .editor-tab.help table.infobox{
+  max-width: 250px;
+  }
   .editor-tab.help table.infobox tr{
   border-bottom: 0;
   }
@@ -3223,7 +3225,7 @@ border: 1px solid #a2a9b1;
     height: 8px;
     }
   #editor-container.dark-mode::-webkit-scrollbar-track{
-    background: #f8f9fa;
+    background: #111;
     }
   #editor-container.dark-mode::-webkit-scrollbar-thumb{
     background: #1d1d1d;
@@ -3241,7 +3243,7 @@ border: 1px solid #a2a9b1;
     background: #2c2c2c;
     }
     #dictionary-tabs>div .content::-webkit-scrollbar{
-background: #131313;
+background: #161616;
     }
     #editor-container.dark-mode #dictionary-tab-bar div:hover{
 background-color: #131313;
@@ -3277,7 +3279,7 @@ background-color: #161616;
     border-color: rgba(255,255,255, 0.05);
     }
     #editor-container.dark-mode #dictionary-tabs>div .content::-webkit-scrollbar-track{
-      background: #111;
+      background: #161616;
     }
     #editor-container.dark-mode #dictionary-tabs>div .content::-webkit-scrollbar-thumb{
       background: #252525;
