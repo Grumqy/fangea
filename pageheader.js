@@ -54,6 +54,7 @@ function simulateSearchResults(query) {
     { title: "Izydor Nwm Ktoś", url: "https://grumqy.github.io/fangea/wiki/izydor_nwm_ktoś/" },
     { title: "Wojna domowa w Wizgardzie", url: "https://grumqy.github.io/fangea/wiki/wojna_domowa_w_wizgardzie/" },
     { title: "Lemburg", url: "https://grumqy.github.io/fangea/wiki/lemburg/" },
+    { title: "Ergonbud", url: "https://grumqy.github.io/fangea/wiki/ergonbud/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
