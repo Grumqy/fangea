@@ -55,6 +55,7 @@ function simulateSearchResults(query) {
     { title: "Wojna domowa w Wizgardzie", url: "https://grumqy.github.io/fangea/wiki/wojna_domowa_w_wizgardzie/" },
     { title: "Lemburg", url: "https://grumqy.github.io/fangea/wiki/lemburg/" },
     { title: "Ergonbud", url: "https://grumqy.github.io/fangea/wiki/ergonbud/" },
+    { title: "Iznotia", url: "https://grumqy.github.io/fangea/wiki/iznotia/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
