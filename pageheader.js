@@ -56,6 +56,7 @@ function simulateSearchResults(query) {
     { title: "Lemburg", url: "https://grumqy.github.io/fangea/wiki/lemburg/" },
     { title: "Ergonbud", url: "https://grumqy.github.io/fangea/wiki/ergonbud/" },
     { title: "Iznotia", url: "https://grumqy.github.io/fangea/wiki/iznotia/" },
+    { title: "Mistrzostwa Fangei w Piłce Nożnej 2024", url: "https://grumqy.github.io/fangea/wiki/mistrzostwa_fangei_w_piłce_nożnej_2024/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
