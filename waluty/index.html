@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Waluty - Fangea i inne kontynenty</title>
-    <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -30,7 +30,7 @@
                             <div class="currency-logo" style="background-image: url('https://i.ibb.co/LCwD1nK/image-6.png');"></div>
                         </div>
                         <div class="currency-data">
-                            <div class="currency-name">KPA</div>
+                            <div class="currency-name">FNK</div>
                         </div>
                     </div>
                     <div class="currency-select">
@@ -40,7 +40,7 @@
                                     <div class="currency-logo" style="background-image: url('https://i.ibb.co/LCwD1nK/image-6.png');"></div>
                                 </div>
                                 <div class="currency-data">
-                                    <div class="currency-name">KPA</div>
+                                    <div class="currency-name">FNK</div>
                                     <div class="currency-description">Korona Pamperska</div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                                     <div class="currency-logo" style="background-image: url('https://i.ibb.co/VW5yqzz/image.png');"></div>
                                 </div>
                                 <div class="currency-data">
-                                    <div class="currency-name">ZLP</div>
+                                    <div class="currency-name">PCZ</div>
                                     <div class="currency-description">Złoty Pieczarski</div>
                                 </div>
                             </div>
@@ -96,6 +96,24 @@
                                 <div class="currency-data">
                                     <div class="currency-name">ADK</div>
                                     <div class="currency-description">Korona Atidalska</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/C7G3m2H/halandia.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">HLP</div>
+                                    <div class="currency-description">Petro Halandzkie</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/0rYxj2Q/alezjo-onecja.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">AOS</div>
+                                    <div class="currency-description">Sarmiszek Alezyjsko-Onecki</div>
                                 </div>
                             </div>
                             <div class="currency-item">
@@ -121,7 +139,7 @@
                     </div>
                     
                 <input id="currency-value-input" type="number"placeholder="0,00" step="0.01" oninput="exchangeCurrency();">
-                <label for="currency-value-input">Wartość w KPA</label>
+                <label for="currency-value-input">Wartość w FNK</label>
             </div>
             <div id="switch-currencies-button"><i class="fa-solid fa-repeat"></i></div>
             <div class="currency-calc-row" id="currency-output" data-selected-currency="UFD">
@@ -141,7 +159,7 @@
                                     <div class="currency-logo" style="background-image: url('https://i.ibb.co/LCwD1nK/image-6.png');"></div>
                                 </div>
                                 <div class="currency-data">
-                                    <div class="currency-name">KPA</div>
+                                    <div class="currency-name">FNK</div>
                                     <div class="currency-description">Korona Pamperska</div>
                                 </div>
                             </div>
@@ -186,7 +204,7 @@
                                     <div class="currency-logo" style="background-image: url('https://i.ibb.co/VW5yqzz/image.png');"></div>
                                 </div>
                                 <div class="currency-data">
-                                    <div class="currency-name">ZLP</div>
+                                    <div class="currency-name">PCZ</div>
                                     <div class="currency-description">Złoty Pieczarski</div>
                                 </div>
                             </div>
@@ -197,6 +215,24 @@
                                 <div class="currency-data">
                                     <div class="currency-name">ADK</div>
                                     <div class="currency-description">Korona Atidalska</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/C7G3m2H/halandia.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">HLP</div>
+                                    <div class="currency-description">Petro Halandzkie</div>
+                                </div>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-logo-container">
+                                    <div class="currency-logo" style="background-image: url('https://i.ibb.co/0rYxj2Q/alezjo-onecja.png');"></div>
+                                </div>
+                                <div class="currency-data">
+                                    <div class="currency-name">AOS</div>
+                                    <div class="currency-description">Sarmiszek Alezyjsko-Onecki</div>
                                 </div>
                             </div>
                             <div class="currency-item">
@@ -285,15 +321,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
     const exchangeRates = {
-        KPA: 1.0,
-        UFD: 1.0,
-        REG: 1.4,
+        FNK: 1.5,
+        UFD: 0.95,
+        REG: 1.35,
         IZM: 1.2,
-        REB: 10.0,
-        ZLP: 20.0,
-        ADK: 2.5,
+        REB: 9.3,
+        PCZ: 22.0,
+        ADK: 2.2,
         USD: 0.25,
         PLN: 1.0,
+        HLP: 80.0,
+        AOS: 2.7,
+
     }
     function exchangeCurrency(){
     const currencyInputElement = document.getElementById("currency-input");
