@@ -57,6 +57,7 @@ function simulateSearchResults(query) {
     { title: "Ergonbud", url: "https://grumqy.github.io/fangea/wiki/ergonbud/" },
     { title: "Iznotia", url: "https://grumqy.github.io/fangea/wiki/iznotia/" },
     { title: "Mistrzostwa Fangei w Piłce Nożnej 2024", url: "https://grumqy.github.io/fangea/wiki/mistrzostwa_fangei_w_piłce_nożnej_2024/" },
+    { title: "Kamienica Genreja Hejgbla w Porcie Złotice", url: "https://grumqy.github.io/fangea/wiki/kamienica_genreja_hejgbla_w_porcie_złotice/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
