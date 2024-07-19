@@ -40,6 +40,7 @@ searchInput.addEventListener("input", function () {
 
 function simulateSearchResults(query) {
   const articles = [
+    { title: "Artykuł dla początkujących wolontariuszy", url: "https://grumqy.github.io/fangea/wiki/artykuł_dla_początkujacych_wolontariuszy/" },
     { title: "Pampersia", url: "https://grumqy.github.io/fangea/wiki/pampersia" },
     { title: "Montecydia", url: "https://grumqy.github.io/fangea/wiki/montecydia" },
     { title: "Nadmorze", url: "https://grumqy.github.io/fangea/wiki/nadmorze" },
