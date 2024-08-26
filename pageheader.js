@@ -60,6 +60,7 @@ function simulateSearchResults(query) {
     { title: "Mistrzostwa Fangei w Piłce Nożnej 2024", url: "https://grumqy.github.io/fangea/wiki/mistrzostwa_fangei_w_piłce_nożnej_2024/" },
     { title: "Kamienica Genreja Hejgbla w Porcie Złotice", url: "https://grumqy.github.io/fangea/wiki/kamienica_genreja_hejgbla_w_porcie_złotice/" },
     { title: "Greenpay", url: "https://grumqy.github.io/fangea/wiki/greenpay/" },
+    { title: "Shot Paste", url: "https://grumqy.github.io/fangea/wiki/shot_paste/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
