@@ -61,6 +61,7 @@ function simulateSearchResults(query) {
     { title: "Kamienica Genreja Hejgbla w Porcie Złotice", url: "https://grumqy.github.io/fangea/wiki/kamienica_genreja_hejgbla_w_porcie_złotice/" },
     { title: "Greenpay", url: "https://grumqy.github.io/fangea/wiki/greenpay/" },
     { title: "Shot Paste", url: "https://grumqy.github.io/fangea/wiki/shot_paste/" },
+    { title: "Powstanie Ekwalijskie", url: "https://grumqy.github.io/fangea/wiki/powstanie_ekwalijskie/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
