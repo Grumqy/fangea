@@ -234,50 +234,6 @@ document.getElementById(openerId).addEventListener("click", () => showModal(moda
 }
 ;
 
-const imageGroupElements = document.querySelectorAll("article .image-group");
-
-Array.from(imageGroupElements).forEach(element=>{
-
-let imageGroupNavigation = document.createElement("nav");
-element.insertBefore(imageGroupNavigation, element.firstChild);
-var imageElements = Array.from(element.querySelectorAll("figure"));
-imageElements[0].classList.add("active");
-let currentIndex = 1;
-
-function setImageGroupNavigation(){
-  if(currentIndex == 1){
-    imageGroupNavigation.innerHTML = `<span>${currentIndex}/${imageElements.length}</span><i class="fa-solid fa-caret-right"></i>`;
-    imageGroupNavigation.querySelector("i.fa-caret-right").addEventListener("click", () => switchImage('right'));
-  } else if(currentIndex == imageElements.length){
-    imageGroupNavigation.innerHTML = `<i class="fa-solid fa-caret-left"></i><span>${currentIndex}/${imageElements.length}</span>`;
-    imageGroupNavigation.querySelector("i.fa-caret-left").addEventListener("click", () => switchImage('left'));
-  } else{
-    imageGroupNavigation.innerHTML = `<i class="fa-solid fa-caret-left"></i><span>${currentIndex}/${imageElements.length}</span></span><i class="fa-solid fa-caret-right"></i>`;
-    imageGroupNavigation.querySelector("i.fa-caret-left").addEventListener("click", () => switchImage('left'));
-    imageGroupNavigation.querySelector("i.fa-caret-right").addEventListener("click", () => switchImage('right'));
-  }
-};
-
-setImageGroupNavigation();
-
-function switchImage(direction){
-
-  imageElements.forEach(element=>{
-  element.classList.remove('active');
-  })
-  
-if(direction == 'left'){
-currentIndex--;
-imageElements[currentIndex-1].classList.add("active");
-
-} else{
-currentIndex++;
-imageElements[currentIndex-1].classList.add("active");
-}
-setImageGroupNavigation();
-}
-});
-
 let articleOptionsBar = document.createElement("div");
 header.appendChild(articleOptionsBar);
 
@@ -359,3 +315,47 @@ editorButton.target = '_blank';
 editorButton.href = 'https://grumqy.github.io/fangea/wiki/edytor/';
 
 articleOptionsBar.appendChild(editorButton);
+
+const imageGroupElements = document.querySelectorAll("article .image-group");
+
+Array.from(imageGroupElements).forEach(element=>{
+
+let imageGroupNavigation = document.createElement("nav");
+element.insertBefore(imageGroupNavigation, element.firstChild);
+var imageElements = Array.from(element.querySelectorAll("figure"));
+imageElements[0].classList.add("active");
+let currentIndex = 1;
+
+function setImageGroupNavigation(){
+  if(currentIndex == 1){
+    imageGroupNavigation.innerHTML = `<span>${currentIndex}/${imageElements.length}</span><i class="fa-solid fa-caret-right"></i>`;
+    imageGroupNavigation.querySelector("i.fa-caret-right").addEventListener("click", () => switchImage('right'));
+  } else if(currentIndex == imageElements.length){
+    imageGroupNavigation.innerHTML = `<i class="fa-solid fa-caret-left"></i><span>${currentIndex}/${imageElements.length}</span>`;
+    imageGroupNavigation.querySelector("i.fa-caret-left").addEventListener("click", () => switchImage('left'));
+  } else{
+    imageGroupNavigation.innerHTML = `<i class="fa-solid fa-caret-left"></i><span>${currentIndex}/${imageElements.length}</span></span><i class="fa-solid fa-caret-right"></i>`;
+    imageGroupNavigation.querySelector("i.fa-caret-left").addEventListener("click", () => switchImage('left'));
+    imageGroupNavigation.querySelector("i.fa-caret-right").addEventListener("click", () => switchImage('right'));
+  }
+};
+
+setImageGroupNavigation();
+
+function switchImage(direction){
+
+  imageElements.forEach(element=>{
+  element.classList.remove('active');
+  })
+  
+if(direction == 'left'){
+currentIndex--;
+imageElements[currentIndex-1].classList.add("active");
+
+} else{
+currentIndex++;
+imageElements[currentIndex-1].classList.add("active");
+}
+setImageGroupNavigation();
+}
+});
