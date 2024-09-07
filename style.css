@@ -483,6 +483,7 @@
   padding: min(0.25vw, 0.25rem) min(0.5vw, 0.5rem);
   vertical-align: top;
   word-wrap: break-word;
+  color: #111111;
   border: 1px solid #a2a9b1;
   border-collapse: collapse;
   font-size: min(1.5vw, 1rem);
