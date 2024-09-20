@@ -57,6 +57,7 @@ function simulateSearchResults(query) {
     { title: "Greenpay", url: "https://grumqy.github.io/fangea/wiki/greenpay/" },
     { title: "Shot Paste", url: "https://grumqy.github.io/fangea/wiki/shot_paste/" },
     { title: "Powstanie Ekwalijskie", url: "https://grumqy.github.io/fangea/wiki/powstanie_ekwalijskie/" },
+    { title: "Pameryjskie tablice rejestracyjne", url: "https://grumqy.github.io/fangea/wiki/pameryjskie_tablice_rejestracyjne/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
