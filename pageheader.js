@@ -58,6 +58,9 @@ function simulateSearchResults(query) {
     { title: "Shot Paste", url: "https://grumqy.github.io/fangea/wiki/shot_paste/" },
     { title: "Powstanie Ekwalijskie", url: "https://grumqy.github.io/fangea/wiki/powstanie_ekwalijskie/" },
     { title: "Pameryjskie tablice rejestracyjne", url: "https://grumqy.github.io/fangea/wiki/pameryjskie_tablice_rejestracyjne/" },
+    { title: "Teran", url: "https://grumqy.github.io/fangea/wiki/teran/" },
+    { title: "Taj-Hoi", url: "https://grumqy.github.io/fangea/wiki/taj-hoi/" },
+    { title: "Martylia", url: "https://grumqy.github.io/fangea/wiki/martylia/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
