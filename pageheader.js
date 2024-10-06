@@ -61,6 +61,7 @@ function simulateSearchResults(query) {
     { title: "Teran", url: "https://grumqy.github.io/fangea/wiki/teran/" },
     { title: "Taj-Hoi", url: "https://grumqy.github.io/fangea/wiki/taj-hoi/" },
     { title: "Martylia", url: "https://grumqy.github.io/fangea/wiki/martylia/" },
+    { title: "Liwonia", url: "https://grumqy.github.io/fangea/wiki/liwonia/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
