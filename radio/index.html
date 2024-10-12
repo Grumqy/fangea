@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stacje Radiowe - Fangea i inne kontynenty</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/fangea/style.css" />
+    <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
+    <style id="radio_filters">
+        main #radio-list ul a.lang_pl{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_en{
+            display: contents;
+        }
+        main #radio-list ul a.lang_ge{
+            display: contents;
+        }
+        main #radio-list ul a.lang_jp{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_se{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_si{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_cz{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_kz{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_ua{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_ru{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_dk{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_ee{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_kr{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_vn{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_it{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_mt{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_gr{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_lt{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_at{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_lv{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_il{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_hr{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_hu{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_bg{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_al{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_mk{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_rs{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_ba{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_me{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_pop{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_citypop{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_electro{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_hiphop{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_breakbeat{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_randb{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_lofi{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_phonk{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_opera{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_country{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_swing{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_disco{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_rock{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_metal{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_info{
+           display: contents; 
+        }
+        main #radio-list ul a.lang_al {
+        display: contents;
+        }
+        main #radio-list ul a.lang_at {
+        display: contents;
+        }
+        main #radio-list ul a.lang_ba {
+        display: contents;
+        }
+        main #radio-list ul a.lang_bg {
+        display: contents;
+        }
+        main #radio-list ul a.lang_cz {
+        display: contents;
+        }
+        main #radio-list ul a.lang_dk {
+        display: contents;
+        }
+        main #radio-list ul a.lang_ee {
+        display: contents;
+        }
+        main #radio-list ul a.lang_en {
+        display: contents;
+        }
+        main #radio-list ul a.lang_ge {
+        display: contents;
+        }
+        main #radio-list ul a.lang_gr {
+        display: contents;
+        }
+        main #radio-list ul a.lang_hr {
+        display: contents;
+        }
+        main #radio-list ul a.lang_hu {
+        display: contents;
+        }
+        main #radio-list ul a.lang_il {
+        display: contents;
+        }
+        main #radio-list ul a.lang_it {
+        display: contents;
+        }
+        main #radio-list ul a.lang_jp {
+        display: contents;
+        }
+        main #radio-list ul a.lang_kr {
+        display: contents;
+        }
+        main #radio-list ul a.lang_kz {
+        display: contents;
+        }
+        main #radio-list ul a.lang_lt {
+        display: contents;
+        }
+        main #radio-list ul a.lang_lv {
+        display: contents;
+        }
+        main #radio-list ul a.lang_me {
+        display: contents;
+        }
+        main #radio-list ul a.lang_mk {
+        display: contents;
+        }
+        main #radio-list ul a.lang_mt {
+        display: contents;
+        }
+        main #radio-list ul a.lang_pl {
+        display: contents;
+        }
+        main #radio-list ul a.lang_rs {
+        display: contents;
+        }
+        main #radio-list ul a.lang_ru {
+        display: contents;
+        }
+        main #radio-list ul a.lang_se {
+        display: contents;
+        }
+        main #radio-list ul a.lang_si {
+        display: contents;
+        }
+        main #radio-list ul a.lang_ua {
+        display: contents;
+        }
+        main #radio-list ul a.lang_vn {
+        display: contents;
+        }
+        main #radio-list ul a.genre_pop{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_citypop{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_electro{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_hiphop{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_breakbeat{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_randb{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_lofi{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_phonk{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_opera{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_country{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_swing{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_disco{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_rock{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_metal{
+            display: contents; 
+        }
+        main #radio-list ul a.genre_info{
+            display: contents; 
+        }
+        main #radio-list ul a.loc_alezjoonecja {
+            display: contents;
+        }
+        main #radio-list ul a.loc_arduzja {
+            display: contents;
+        }
+        main #radio-list ul a.loc_atidalia {
+            display: contents;
+        }
+        main #radio-list ul a.loc_ebengrad {
+            display: contents;
+        }
+        main #radio-list ul a.loc_ekwalia {
+            display: contents;
+        }
+        main #radio-list ul a.loc_gurdzuria {
+            display: contents;
+        }
+        main #radio-list ul a.loc_halandia {
+            display: contents;
+        }
+        main #radio-list ul a.loc_iznotia {
+            display: contents;
+        }
+        main #radio-list ul a.loc_jarezja {
+            display: contents;
+        }
+        main #radio-list ul a.loc_kanawia {
+            display: contents;
+        }
+        main #radio-list ul a.loc_liwonia {
+            display: contents;
+        }
+        main #radio-list ul a.loc_makronezja {
+            display: contents;
+        }
+        main #radio-list ul a.loc_martylia {
+            display: contents;
+        }
+        main #radio-list ul a.loc_montecydia {
+            display: contents;
+        }
+        main #radio-list ul a.loc_najbielansk {
+            display: contents;
+        }
+        main #radio-list ul a.loc_nowytuhalf {
+            display: contents;
+        }
+        main #radio-list ul a.loc_pamercja {
+            display: contents;
+        }
+        main #radio-list ul a.loc_peczeria {
+            display: contents;
+        }
+        main #radio-list ul a.loc_peczeriadem {
+            display: contents;
+        }
+        main #radio-list ul a.loc_stanyzjednoczone {
+            display: contents;
+        }
+        main #radio-list ul a.loc_tajhoi {
+            display: contents;
+        }
+        main #radio-list ul a.loc_teran {
+            display: contents;
+        }
+        main #radio-list ul a.loc_zoltostan {
+            display: contents;
+        }
+    </style>
+    <div id="radio-nav" style="z-index: 10; position: relative;">
+        <div>Filtruj wg lokalizacji</div>
+        <ul>
+            <form>
+                <input type="checkbox" id="loc_all" class="checkbox_select_all" data-categories="loc_alezjoonecja;loc_arduzja;loc_atidalia;loc_ebengrad;loc_ekwalia;loc_gurdzuria;loc_halandia;loc_iznotia;loc_jarezja;loc_kanawia;loc_liwonia;loc_makronezja;loc_martylia;loc_montecydia;loc_najbielansk;loc_nowytuhalf;loc_pamercja;loc_peczeria;loc_peczeriadem;loc_stanyzjednoczone;loc_tajhoi;loc_teran;loc_zoltostan" checked>
+                <input type="checkbox" id="loc_alezjoonecja" checked>
+                <input type="checkbox" id="loc_arduzja" checked>
+                <input type="checkbox" id="loc_atidalia" checked>
+                <input type="checkbox" id="loc_ebengrad" checked>
+                <input type="checkbox" id="loc_ekwalia" checked>
+                <input type="checkbox" id="loc_gurdzuria" checked>
+                <input type="checkbox" id="loc_halandia" checked>
+                <input type="checkbox" id="loc_iznotia" checked>
+                <input type="checkbox" id="loc_jarezja" checked>
+                <input type="checkbox" id="loc_kanawia" checked>
+                <input type="checkbox" id="loc_liwonia" checked>
+                <input type="checkbox" id="loc_makronezja" checked>
+                <input type="checkbox" id="loc_martylia" checked>
+                <input type="checkbox" id="loc_montecydia" checked>
+                <input type="checkbox" id="loc_najbielansk" checked>
+                <input type="checkbox" id="loc_nowytuhalf" checked>
+                <input type="checkbox" id="loc_pamercja" checked>
+                <input type="checkbox" id="loc_peczeria" checked>
+                <input type="checkbox" id="loc_peczeriadem" checked>
+                <input type="checkbox" id="loc_stanyzjednoczone" checked>
+                <input type="checkbox" id="loc_tajhoi" checked>
+                <input type="checkbox" id="loc_teran" checked>
+                <input type="checkbox" id="loc_zoltostan" checked>
+            </form>
+            <label for="loc_all" class="active"><li>Wszystkie</li></label>
+            <label for="loc_alezjoonecja" class="active"><li>Alezjo-Onecja</li></label>
+            <label for="loc_arduzja" class="active"><li>Arduzja</li></label>
+            <label for="loc_atidalia" class="active"><li>Atidalia</li></label>
+            <label for="loc_ebengrad" class="active"><li>Ebengrad</li></label>
+            <label for="loc_ekwalia" class="active"><li>Ekwalia</li></label>
+            <label for="loc_gurdzuria" class="active"><li>Gurdżuria</li></label>
+            <label for="loc_halandia" class="active"><li>Halandia</li></label>
+            <label for="loc_iznotia" class="active"><li>Iznotia</li></label>
+            <label for="loc_jarezja" class="active"><li>Jarezja</li></label>
+            <label for="loc_kanawia" class="active"><li>Kanawia</li></label>
+            <label for="loc_liwonia" class="active"><li>Liwonia</li></label>
+            <label for="loc_makronezja" class="active"><li>Makronezja</li></label>
+            <label for="loc_martylia" class="active"><li>Martylia</li></label>
+            <label for="loc_montecydia" class="active"><li>Montecydia</li></label>
+            <label for="loc_najbielansk" class="active"><li>Najbielańsk</li></label>
+            <label for="loc_nowytuhalf" class="active"><li>Nowy Tuhalf</li></label>
+            <label for="loc_pamercja" class="active"><li>Pamercja</li></label>
+            <label for="loc_peczeria" class="active"><li>Peczeria</li></label>
+            <label for="loc_peczeriadem" class="active"><li>Peczeria Demokratyczna</li></label>
+            <label for="loc_stanyzjednoczone" class="active"><li>Stany Zjednoczone</li></label>
+            <label for="loc_tajhoi" class="active"><li>Taj-hoi</li></label>
+            <label for="loc_teran" class="active"><li>Teran</li></label>
+            <label for="loc_zoltostan" class="active"><li>Żółtostan</li></label>
+        </ul>
+    </div>
+    <div id="radio-nav" style="z-index: 10; position: relative;">
+        <div>Filtruj wg języka</div>
+        <ul>
+            <form>
+                <input type="checkbox" id="lang_all" class="checkbox_select_all" data-categories="lang_al;lang_at;lang_ba;lang_bg;lang_cz;lang_dk;lang_ee;lang_en;lang_ge;lang_gr;lang_hr;lang_hu;lang_il;lang_it;lang_jp;lang_kr;lang_kz;lang_lt;lang_lv;lang_me;lang_mk;lang_mt;lang_pl;lang_rs;lang_ru;lang_se;lang_si;lang_ua;lang_vn" checked>
+                <input type="checkbox" id="lang_al" checked>
+                <input type="checkbox" id="lang_at" checked>
+                <input type="checkbox" id="lang_ba" checked>
+                <input type="checkbox" id="lang_bg" checked>
+                <input type="checkbox" id="lang_cz" checked>
+                <input type="checkbox" id="lang_dk" checked>
+                <input type="checkbox" id="lang_ee" checked>
+                <input type="checkbox" id="lang_en" checked>
+                <input type="checkbox" id="lang_ge" checked>
+                <input type="checkbox" id="lang_gr" checked>
+                <input type="checkbox" id="lang_hr" checked>
+                <input type="checkbox" id="lang_hu" checked>
+                <input type="checkbox" id="lang_il" checked>
+                <input type="checkbox" id="lang_it" checked>
+                <input type="checkbox" id="lang_jp" checked>
+                <input type="checkbox" id="lang_kr" checked>
+                <input type="checkbox" id="lang_kz" checked>
+                <input type="checkbox" id="lang_lt" checked>
+                <input type="checkbox" id="lang_lv" checked>
+                <input type="checkbox" id="lang_me" checked>
+                <input type="checkbox" id="lang_mk" checked>
+                <input type="checkbox" id="lang_mt" checked>
+                <input type="checkbox" id="lang_pl" checked>
+                <input type="checkbox" id="lang_rs" checked>
+                <input type="checkbox" id="lang_ru" checked>
+                <input type="checkbox" id="lang_se" checked>
+                <input type="checkbox" id="lang_si" checked>
+                <input type="checkbox" id="lang_ua" checked>
+                <input type="checkbox" id="lang_vn" checked>
+            </form>
+            <label for="lang_all" class="active"><li>Wszystkie</li></label>
+            <label for="lang_al" class="active"><li>Albański</li></label>
+            <label for="lang_at" class="active"><li>Austriacki</li></label>
+            <label for="lang_ba" class="active"><li>Bośniacki</li></label>
+            <label for="lang_bg" class="active"><li>Bułgarski</li></label>
+            <label for="lang_cz" class="active"><li>Czeski</li></label>
+            <label for="lang_dk" class="active"><li>Duński</li></label>
+            <label for="lang_ee" class="active"><li>Estoński</li></label>
+            <label for="lang_en" class="active"><li>Angielski</li></label>
+            <label for="lang_ge" class="active"><li>Niemiecki</li></label>
+            <label for="lang_gr" class="active"><li>Grecki</li></label>
+            <label for="lang_hr" class="active"><li>Chorwacki</li></label>
+            <label for="lang_hu" class="active"><li>Węgierski</li></label>
+            <label for="lang_il" class="active"><li>Hebrajski</li></label>
+            <label for="lang_it" class="active"><li>Włoski</li></label>
+            <label for="lang_jp" class="active"><li>Japoński</li></label>
+            <label for="lang_kr" class="active"><li>Karelski</li></label>
+            <label for="lang_kz" class="active"><li>Kazachski</li></label>
+            <label for="lang_lt" class="active"><li>Litewski</li></label>
+            <label for="lang_lv" class="active"><li>Łotewski</li></label>
+            <label for="lang_me" class="active"><li>Czarnogórski</li></label>
+            <label for="lang_mk" class="active"><li>Macedoński</li></label>
+            <label for="lang_mt" class="active"><li>Maltański</li></label>
+            <label for="lang_pl" class="active"><li>Polski</li></label>
+            <label for="lang_rs" class="active"><li>Serbski</li></label>
+            <label for="lang_ru" class="active"><li>Rosyjski</li></label>
+            <label for="lang_se" class="active"><li>Szwedzki</li></label>
+            <label for="lang_si" class="active"><li>Słoweński</li></label>
+            <label for="lang_ua" class="active"><li>Ukraiński</li></label>
+            <label for="lang_vn" class="active"><li>Wietnamski</li></label>
+        </ul>
+    </div>
+    <div>Filtruj wg gatunku</div>
+    <ul>
+        <form>
+        <input type="checkbox" id="genre_all" class="checkbox_select_all" data-categories="genre_pop;genre_citypop;genre_electro;genre_hiphop;genre_breakbeat;genre_randb;genre_lofi;genre_phonk;genre_opera;genre_country;genre_swing;genre_disco;genre_rock;genre_metal;genre_info" checked>
+        <input type="checkbox" id="genre_pop" checked>
+        <input type="checkbox" id="genre_citypop" checked>
+        <input type="checkbox" id="genre_electro" checked>
+        <input type="checkbox" id="genre_hiphop" checked>
+        <input type="checkbox" id="genre_breakbeat" checked>
+        <input type="checkbox" id="genre_randb" checked>
+        <input type="checkbox" id="genre_lofi" checked>
+        <input type="checkbox" id="genre_phonk" checked>
+        <input type="checkbox" id="genre_opera" checked>
+        <input type="checkbox" id="genre_country" checked>
+        <input type="checkbox" id="genre_swing" checked>
+        <input type="checkbox" id="genre_disco" checked>
+        <input type="checkbox" id="genre_rock" checked>
+        <input type="checkbox" id="genre_metal" checked>
+        <input type="checkbox" id="genre_info" checked>
+        </form>
+        <label for="genre_all" class="active">
+            <li>Wszystkie</li>
+        </label>
+        <label for="genre_pop" class="active">
+            <li>Pop</li>
+        </label>
+        <label for="genre_citypop" class="active">
+            <li>City Pop</li>
+        </label>
+        <label for="genre_electro" class="active">
+            <li>Electro</li>
+        </label>
+        <label for="genre_hiphop" class="active">
+            <li>Hip-Hop</li>
+        </label>
+        <label for="genre_breakbeat" class="active">
+            <li>Breakbeat</li>
+        </label>
+        <label for="genre_randb" class="active">
+            <li>R&B</li>
+        </label>
+        <label for="genre_lofi" class="active">
+            <li>Lo-fi</li>
+        </label>
+        <label for="genre_phonk" class="active">
+            <li>Phonk</li>
+        </label>   
+        <label for="genre_opera" class="active">
+            <li>Opera</li>
+        </label>
+        <label for="genre_country" class="active">
+            <li>Country</li>
+        </label>
+        <label for="genre_swing" class="active">
+            <li>Swing</li>
+        </label>
+        <label for="genre_disco" class="active">
+            <li>Disco</li>
+        </label>
+        <label for="genre_rock" class="active">
+            <li>Rock</li>
+        </label>
+        <label for="genre_metal" class="active">
+            <li>Metal</li>
+        </label>
+        <label for="genre_info" class="active">
+            <li>Informacyjne</li>
+        </label>
+    </ul>
+    </div>
+    <div id="radio-list">
+        <ul>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="lang_pl genre_pop loc_pamercja">
+                    <li>
+                        <img src="https://i.ibb.co/KNT8xY0/tvradio.png">
+                        <span>Radio Republika</span>
+                    </li>  
+                </a>
+        </ul>
+    </div>
+    </main>
+    <script>
+        let checkboxes = Array.from(document.querySelectorAll("input[type='checkbox']"));
+        checkboxes.forEach(checkbox =>{
+        checkbox.addEventListener("change", function(){
+            if(checkbox.checked == true){
+                document.querySelector(`label[for='${checkbox.id}']`).classList.add("active");
+            } else{
+                document.querySelector(`label[for='${checkbox.id}']`).classList.remove("active");
+            }
+            if(!checkbox.classList.contains('checkbox_select_all')){
+                checkForAllSelection(checkbox.parentElement);
+                filterRadioStations();
+            }
+        })
+        });
+        let selectAllCheckboxes = Array.from(document.querySelectorAll("input[type='checkbox'].checkbox_select_all"));
+        selectAllCheckboxes.forEach(checkbox =>{
+        var categories = checkbox.dataset.categories.split(';');
+        checkbox.addEventListener('change', function(){
+            categories.forEach(category=>{
+            if(checkbox.checked == true){
+                document.getElementById(category).checked = true;
+                document.querySelector(`label[for='${category}']`).classList.add("active");
+            } else{
+                document.getElementById(category).checked = false;
+                document.querySelector(`label[for='${category}']`).classList.remove("active");
+            }
+            })
+            filterRadioStations();
+        })
+        })
+        function checkForAllSelection(form) {
+    var checkboxes = Array.from(form.querySelectorAll('input[type="checkbox"]'));
+    var allAreSelected = true;
+    
+    for (let i = 1; i < checkboxes.length; i++) {
+        if (!checkboxes[i].checked) {
+            allAreSelected = false;
+            break;
+        }
+    }
+    
+    if (allAreSelected) {
+        checkboxes[0].checked = true;
+        document.querySelector(`label[for="${checkboxes[0].id}"]`).classList.add("active");
+    } else {
+        checkboxes[0].checked = false;
+        document.querySelector(`label[for="${checkboxes[0].id}"]`).classList.remove("active");
+    }
+}
+function filterRadioStations(){
+    var filters = [];
+    var checkboxes = Array.from(document.querySelectorAll("input[type='checkbox']:not(.checkbox_select_all)"));
+    checkboxes.forEach(checkbox=>{
+        if(checkbox.checked == true){
+        var filter = `main #radio-list ul a.${checkbox.id} {display:contents;}`;
+        } else {
+        var filter = `main #radio-list ul a.${checkbox.id} {display:none !important;}`; 
+        }
+        filters.push(filter);
+    })
+    filters = filters.join(' ');
+    document.getElementById('radio_filters').innerHTML = filters;
+    }
+
+    </script>
+    <script src="/fangea/pageheader.js"></script>
+</body>
+
+</html>
