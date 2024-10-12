@@ -63,6 +63,7 @@ function simulateSearchResults(query) {
     { title: "Martylia", url: "https://grumqy.github.io/fangea/wiki/martylia/" },
     { title: "Liwonia", url: "https://grumqy.github.io/fangea/wiki/liwonia/" },
     { title: "Hierarchia dróg", url: "https://grumqy.github.io/fangea/wiki/hierarchia_dróg/" },
+    { title: "Monteverische Ordnung (Montecydyjski Ład)", url: "https://grumqy.github.io/fangea/wiki/montecydyjski_ład/" },
   ];
 
   const filteredArticles = articles.filter((article) =>
