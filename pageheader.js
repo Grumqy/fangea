@@ -67,6 +67,9 @@ function simulateSearchResults(query) {
     { title: "Monteverische Ordnung (Montecydyjski Ład)", url: "https://grumqy.github.io/fangea/wiki/montecydyjski_ład/" },
     { title: "Neku", url: "https://grumqy.github.io/fangea/wiki/neku/" },
     { title: "MMT Transport", url: "https://grumqy.github.io/fangea/wiki/mmt_transport/" },
+    { title: "Flaga Lemburga", url: "https://grumqy.github.io/fangea/wiki/flaga_lemburga/" },
+    { title: "Godło Lemburga", url: "https://grumqy.github.io/fangea/wiki/godło_lemburga/" },
+
   ];
 
   const filteredArticles = articles.filter((article) =>
