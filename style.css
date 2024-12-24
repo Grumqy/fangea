@@ -2073,6 +2073,9 @@
   article .article-badge.uncomplete{
   border-left-color: #FFA500;
   }
+  article .article-badge.noncanonical{
+  border-left-color: #FFA500;
+  }
   article .article-badge .content{
   border: 1px solid #a2a9b1;
   border-left: 0;
@@ -2118,6 +2121,9 @@
   width: 30px;
   }
   article .article-badge.uncomplete .content .icon img{
+  width: 40px;
+  }
+  article .article-badge.noncanonical .content .icon img{
   width: 40px;
   }
   article table.infobox tr.plainlink td:first-of-type{
