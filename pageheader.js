@@ -68,7 +68,7 @@ function simulateSearchResults(query) {
     { title: "Neku", url: "https://grumqy.github.io/fangea/wiki/neku/" },
     { title: "MMT Transport", url: "https://grumqy.github.io/fangea/wiki/mmt_transport/" },
     { title: "Flaga Lemburga", url: "https://grumqy.github.io/fangea/wiki/flaga_lemburga/" },
-    { title: "Godło Lemburga", url: "https://grumqy.github.io/fangea/wiki/godło_lemburga/" },
+    { title: "Herb Lemburga", url: "https://grumqy.github.io/fangea/wiki/herb_lemburga/" },
 
   ];
 
