@@ -44,6 +44,21 @@ if (article.classList.contains("improvable")){
   </div>`;
   article.insertBefore(articleBadge, article.querySelector("header").nextSibling);
 };
+if (article.classList.contains("noncanonical")){
+  var articleBadge = document.createElement("div");
+  articleBadge.classList.add("article-badge", "noncanonical");
+  articleBadge.innerHTML = 
+  `<div class="content">
+  <div class="icon">
+  <img src="https://i.ibb.co/0FvTnhx/puzell.png">
+  </div>
+  <div class="text">
+      <h2>Ten artykuł nie wpisuje się w kanon roleplay'u.</h2>
+      <p>Treść tego artykułu nie dotyczy wydarzeń związanych z roleplay'em. Może mieć charakter informacyjny lub odnosić się do wydarzeń uznawanych za niekanoniczne.</p>
+  </div>
+  </div>`;
+  article.insertBefore(articleBadge, article.querySelector("header").nextSibling);
+};
 const uncompleteSectionsBadges = article.querySelectorAll(".uncomplete");
 if(uncompleteSectionsBadges){
 Array.from(uncompleteSectionsBadges).forEach(badge=>{
