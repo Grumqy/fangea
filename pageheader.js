@@ -70,6 +70,7 @@ function simulateSearchResults(query) {
     { title: "Flaga Lemburga", url: "https://grumqy.github.io/fangea/wiki/flaga_lemburga/" },
     { title: "Herb Lemburga", url: "https://grumqy.github.io/fangea/wiki/herb_lemburga/" },
     { title: "Historia flag Fangei", url: "https://grumqy.github.io/fangea/wiki/historia_flag_fangei/" },
+    { title: "FARNET", url: "https://grumqy.github.io/fangea/wiki/farnet" },
               
 
   ];
