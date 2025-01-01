@@ -71,6 +71,7 @@ function simulateSearchResults(query) {
     { title: "Herb Lemburga", url: "https://grumqy.github.io/fangea/wiki/herb_lemburga/" },
     { title: "Historia flag Fangei", url: "https://grumqy.github.io/fangea/wiki/historia_flag_fangei/" },
     { title: "FARNET", url: "https://grumqy.github.io/fangea/wiki/farnet" },
+    { title: "Epsilon 3.1", url: "https://grumqy.github.io/fangea/wiki/epsilon_3.1" },
               
 
   ];
