@@ -43,8 +43,6 @@ function simulateSearchResults(query) {
   const articles = [
     { title: "Artykuł dla początkujących wolontariuszy", url: "https://grumqy.github.io/fangea/wiki/artykuł_dla_początkujacych_wolontariuszy/" },
     { title: "Montecydia", url: "https://grumqy.github.io/fangea/wiki/montecydia" },
-    { title: "Richteryzm", url: "https://grumqy.github.io/fangea/wiki/richteryzm" },
-    { title: "Wojna domowa w Wizgardzie", url: "https://grumqy.github.io/fangea/wiki/wojna_domowa_w_wizgardzie/" },
     { title: "Lemburg", url: "https://grumqy.github.io/fangea/wiki/lemburg/" },
     { title: "Ergonbud", url: "https://grumqy.github.io/fangea/wiki/ergonbud/" },
     { title: "Iznotia", url: "https://grumqy.github.io/fangea/wiki/iznotia/" },
@@ -54,7 +52,6 @@ function simulateSearchResults(query) {
     { title: "Nowy Tuhalf", url: "https://grumqy.github.io/fangea/wiki/nowy_tuhalf/" },
     { title: "Stany Zjednoczone", url: "https://grumqy.github.io/fangea/wiki/stany_zjednoczone/" },
     { title: "Halandia", url: "https://grumqy.github.io/fangea/wiki/halandia/" },
-    { title: "Mistrzostwa Fangei w Piłce Nożnej 2024", url: "https://grumqy.github.io/fangea/wiki/mistrzostwa_fangei_w_piłce_nożnej_2024/" },
     { title: "Greenpay", url: "https://grumqy.github.io/fangea/wiki/greenpay/" },
     { title: "Shot Paste", url: "https://grumqy.github.io/fangea/wiki/shot_paste/" },
     { title: "Powstanie Ekwalijskie", url: "https://grumqy.github.io/fangea/wiki/powstanie_ekwalijskie/" },
