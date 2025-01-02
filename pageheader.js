@@ -72,6 +72,7 @@ function simulateSearchResults(query) {
     { title: "DOMA", url: "https://grumqy.github.io/fangea/wiki/doma" },
     { title: "Cartland", url: "https://grumqy.github.io/fangea/wiki/cartland" },
     { title: "Kürzer", url: "https://grumqy.github.io/fangea/wiki/kürzer" },
+    { title: "PayWall", url: "https://grumqy.github.io/fangea/wiki/paywall" },
               
 
   ];
