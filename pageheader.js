@@ -73,6 +73,10 @@ function simulateSearchResults(query) {
     { title: "Cartland", url: "https://grumqy.github.io/fangea/wiki/cartland" },
     { title: "Kürzer", url: "https://grumqy.github.io/fangea/wiki/kürzer" },
     { title: "PayWall", url: "https://grumqy.github.io/fangea/wiki/paywall" },
+    { title: "Wizgard", url: "https://grumqy.github.io/fangea/wiki/wizgard" },
+    { title: "Lendawia Północna", url: "https://grumqy.github.io/fangea/wiki/lendawia_północna" },
+    { title: "Lendawia Południowa", url: "https://grumqy.github.io/fangea/wiki/lendawia_południowa" },
+    { title: "Nadmrocze", url: "https://grumqy.github.io/fangea/wiki/nadmrocze" },
               
 
   ];
