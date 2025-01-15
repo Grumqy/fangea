@@ -77,6 +77,7 @@ function simulateSearchResults(query) {
     { title: "Lendawia Północna", url: "https://grumqy.github.io/fangea/wiki/lendawia_północna" },
     { title: "Lendawia Południowa", url: "https://grumqy.github.io/fangea/wiki/lendawia_południowa" },
     { title: "Nadmrocze", url: "https://grumqy.github.io/fangea/wiki/nadmrocze" },
+    { title: "Fankladonia", url: "https://grumqy.github.io/fangea/wiki/fankladonia" },
               
 
   ];
