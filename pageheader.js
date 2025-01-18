@@ -79,6 +79,7 @@ function simulateSearchResults(query) {
     { title: "Nadmrocze", url: "https://grumqy.github.io/fangea/wiki/nadmrocze" },
     { title: "Fankladonia", url: "https://grumqy.github.io/fangea/wiki/fankladonia" },
     { title: "Lipławieck", url: "https://grumqy.github.io/fangea/wiki/lipławieck" },
+    { title: "Województwo pomerańskie", url: "https://grumqy.github.io/fangea/wiki/województwo_pomerańskie" },
               
 
   ];
