@@ -3295,3 +3295,6 @@ background-color: #161616;
     #editor-container.dark-mode #dictionary-tabs>div .content::-webkit-scrollbar-thumb:hover{
       background: #333333;
     }
+    article table.infobox td[colspan="2"]>img {
+       max-height: 10rem;
+    }
