@@ -3020,7 +3020,7 @@ color: rgba(255,255,255, 0.85);
 }
 .cell-background-color-black{
 background-color: #000000;
-color: rgba(255,255,255, 0.85);
+color: rgba(255,255,255, 0.85) !important;
 border-color: #a2a9b1 !important;
 }
 .toolbar-button-select-container .toolbar-button-select .toolbar-button{
