@@ -78,6 +78,7 @@ function simulateSearchResults(query) {
     { title: "Lendawia Południowa", url: "https://grumqy.github.io/fangea/wiki/lendawia_południowa" },
     { title: "Nadmrocze", url: "https://grumqy.github.io/fangea/wiki/nadmrocze" },
     { title: "Fankladonia", url: "https://grumqy.github.io/fangea/wiki/fankladonia" },
+    { title: "Lipławieck", url: "https://grumqy.github.io/fangea/wiki/lipławieck" },
               
 
   ];
