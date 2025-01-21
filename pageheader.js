@@ -80,7 +80,7 @@ function simulateSearchResults(query) {
     { title: "Fankladonia", url: "https://grumqy.github.io/fangea/wiki/fankladonia" },
     { title: "Lipławieck", url: "https://grumqy.github.io/fangea/wiki/lipławieck" },
     { title: "Województwo pomerańskie", url: "https://grumqy.github.io/fangea/wiki/województwo_pomerańskie" },
-              
+    { title: "Van Kirk", url: "https://grumqy.github.io/fangea/wiki/van_kirk" },
 
   ];
 
