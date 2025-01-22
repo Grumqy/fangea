@@ -81,6 +81,7 @@ function simulateSearchResults(query) {
     { title: "Lipławieck", url: "https://grumqy.github.io/fangea/wiki/lipławieck" },
     { title: "Województwo pomerańskie", url: "https://grumqy.github.io/fangea/wiki/województwo_pomerańskie" },
     { title: "Van Kirk", url: "https://grumqy.github.io/fangea/wiki/van_kirk" },
+    { title: "The Grimscape", url: "https://grumqy.github.io/fangea/wiki/the_grimscape" },
 
   ];
 
