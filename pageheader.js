@@ -82,6 +82,7 @@ function simulateSearchResults(query) {
     { title: "Województwo pomerańskie", url: "https://grumqy.github.io/fangea/wiki/województwo_pomerańskie" },
     { title: "Van Kirk", url: "https://grumqy.github.io/fangea/wiki/van_kirk" },
     { title: "The Grimscape", url: "https://grumqy.github.io/fangea/wiki/the_grimscape" },
+    { title: "Lista państw świata", url: "https://grumqy.github.io/fangea/wiki/lista_państw_świata" },
 
   ];
 
