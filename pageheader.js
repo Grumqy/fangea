@@ -82,7 +82,7 @@ function simulateSearchResults(query) {
     { title: "Van Kirk", url: "https://grumqy.github.io/fangea/wiki/van_kirk" },
     { title: "The Grimscape", url: "https://grumqy.github.io/fangea/wiki/the_grimscape" },
     { title: "Lista państw świata", url: "https://grumqy.github.io/fangea/wiki/lista_państw_świata" },
-    { title: "Rzesza Iznotiańska", url: "https://grumqy.github.io/fangea/wiki/rzesza_iznotiańska" },
+    { title: "III Imperium Iznotiańskie", url: "https://grumqy.github.io/fangea/wiki/III_imperium_iznotiańskie" },
 
   ];
 
