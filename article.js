@@ -59,9 +59,9 @@ if (article.classList.contains("noncanonical")){
   </div>`;
   article.insertBefore(articleBadge, article.querySelector("header").nextSibling);
 };
-const uncompleteSectionsBadges = article.querySelectorAll(".cleanup");
-if(uncompleteSectionsBadges){
-Array.from(uncompleteSectionsBadges).forEach(badge=>{
+const cleanupSectionsBadges = article.querySelectorAll(".cleanup");
+if(cleanupSectionsBadges){
+Array.from(cleanupSectionsBadges).forEach(badge=>{
 badge.classList.add("article-badge");
 badge.innerHTML =   `<div class="content">
 <div class="icon">
