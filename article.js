@@ -68,7 +68,7 @@ badge.innerHTML =   `<div class="content">
 <img src="https://i.ibb.co/bjbMs2S3/miotla.png">
 </div>
 <div class="text">
-    <h2>Ten artykuł wymaga drobnej korekty.</h2>
+    <h2>Ta sekcja wymaga drobnej korekty.</h2>
     <p>Może to dotyczyć zbyt dużej ilości hiperłączy, złego języka, błędów ortograficznych lub gramatycznych.</p>
 </div>
 </div>`;
