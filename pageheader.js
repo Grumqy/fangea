@@ -83,6 +83,7 @@ function simulateSearchResults(query) {
     { title: "The Grimscape", url: "https://grumqy.github.io/fangea/wiki/the_grimscape" },
     { title: "Lista państw świata", url: "https://grumqy.github.io/fangea/wiki/lista_państw_świata" },
     { title: "III Imperium Iznotiańskie", url: "https://grumqy.github.io/fangea/wiki/III_imperium_iznotiańskie" },
+    { title: "Hans von Wepzig", url: "https://grumqy.github.io/fangea/wiki/hans_von_wepzig" },
 
   ];
 
