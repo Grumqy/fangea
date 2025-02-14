@@ -72,7 +72,7 @@ badge.innerHTML =   `<div class="content">
     <p>Może to dotyczyć zbyt dużej ilości hiperłączy, złego języka, błędów ortograficznych lub gramatycznych.</p>
 </div>
 </div>`
-};
+};)
 const uncompleteSectionsBadges = article.querySelectorAll(".uncomplete");
 if(uncompleteSectionsBadges){
 Array.from(uncompleteSectionsBadges).forEach(badge=>{
