@@ -84,6 +84,7 @@ function simulateSearchResults(query) {
     { title: "Lista państw świata", url: "https://grumqy.github.io/fangea/wiki/lista_państw_świata" },
     { title: "III Imperium Iznotiańskie", url: "https://grumqy.github.io/fangea/wiki/III_imperium_iznotiańskie" },
     { title: "Hans von Wepzig", url: "https://grumqy.github.io/fangea/wiki/hans_von_wepzig" },
+    { title: "Ron Tyler", url: "https://grumqy.github.io/fangea/wiki/ron_tyler" },
 
   ];
 
