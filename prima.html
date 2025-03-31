@@ -58,6 +58,11 @@
       font-size: 16px;
     }
 
+    /* Dodany margines pod checkboxem */
+    #captchaText {
+      margin-bottom: 20px;
+    }
+
     .timer {
       font-size: 18px;
       font-weight: bold;
@@ -93,15 +98,15 @@
         </label>
       </div>
       <div class="game-box" id="gameBox">
-        <p class="captcha-text">Zagraj w grę przez <span id="timer">4:00</span>, aby przejść weryfikację!</p>
-        <iframe src="https://www.kogama.com/games/embed/9072135/" width="600" height="400" style="border:none;"></iframe>
+        <p class="captcha-text">Zagraj w grę przez 4 minuty, aby przejść weryfikację.</p>
+        <iframe src="https://cobular.ct8.pl/play/mystic-valley/classic/" width="640" height="360" style="border:none;"></iframe>
       </div>
       <!-- Timer umieszczony nad stopką -->
       <div id="timerContainer" class="timer hidden"></div>
       <!-- Stopka z miejscem na logo -->
       <div class="captcha-footer">
-        <img src="TWOJE_LOGO.png" alt="Captcha Logo"> <!-- TUTAJ DODAJ LOGO -->
-        <span>reCAPTCHA</span>
+        <img src="https://i.ibb.co/xqMfTMQk/obraz-2025-03-31-201804392.png" alt="Captcha Logo"> <!-- TUTAJ DODAJ LOGO -->
+        <span>Ron Tyler Roundabout INC.</span>
       </div>
     </div>
   </div>
@@ -125,7 +130,7 @@
           let minutes = Math.floor(timeLeft / 60);
           let seconds = timeLeft % 60;
           timerElement.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-          timerContainer.textContent = `Pozostały czas: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+          timerContainer.textContent = `Pozostań w grze przez: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}, aby przejść weryfikację.`;
 
           if (timeLeft > 0) {
             timeLeft--;
