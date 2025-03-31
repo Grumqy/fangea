@@ -127,7 +127,7 @@
         function updateTimer() {
           let minutes = Math.floor(timeLeft / 60);
           let seconds = timeLeft % 60;
-          timerContainer.textContent = `Pozostań w grze przez: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}, aby przejść weryfikację.`;
+          timerContainer.textContent = `Pozostań w grze przez ${minutes}:${seconds < 10 ? "0" : ""}${seconds}, aby przejść weryfikację.`;
 
           if (timeLeft > 0) {
             timeLeft--;
