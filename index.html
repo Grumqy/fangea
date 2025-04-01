@@ -1,152 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Strona Główna - Fangea i inne kontynenty</title>
-  <meta property="og:title" content="Fangea i inne kontynenty">
-  <meta name="twitter:title" content="Fangea i inne kontynenty">
-  <meta name="description" content="Profesjonalny roleplay o prowadzeniu własnego państwa.">
-  <meta property="og:description" content="Profesjonalny roleplay o prowadzeniu własnego państwa.">
-  <meta name="twitter:description" content="Profesjonalny roleplay o prowadzeniu własnego państwa.">
-  <meta property="og:image" content="/fangea/local/fangeapage.png">
-  <meta name="twitter:image" content="/fangea/local/fangeapage.png">
-  <meta name="keywords" content="fangea, inne kontynenty">
-  <meta name="robots" content="index, follow">
-  <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
-  <style>
-    .captcha-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(5px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strona Główna - Fangea i inne kontynenty</title>
+    <meta property="og:title" content="Fangea i inne kontynenty">
+    <meta name="twitter:title" content="Fangea i inne kontynenty">
+    <meta name="description" content="Profesjonalny roleplay o prowadzeniu własnego państwa.">
+    <meta property="og:description" content="Profesjonalny roleplay o prowadzeniu własnego państwa.">
+    <meta name="twitter:description" content="Profesjonalny roleplay o prowadzeniu własnego państwa.">
+    <meta property="og:image" content="/fangea/local/fangeapage.png">
+    <meta name="twitter:image" content="/fangea/local/fangeapage.png">
+    <meta name="keywords" content="fangea, inne kontynenty">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
+    <style>
+        @keyframes logo-entrance {
+            from{
+            transform: translate(-50%, -50%) scale(2);
+            filter: blur(3px);
+            opacity: 0;
+            }
+            to{
+            transform: translate(-50%, -50%) scale(1);
+            filter: blur(0);
+            opacity: 1;      
+            }
+        }
 
-    .captcha-box {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      max-width: 90%;
-      position: relative;
-    }
-
-    .game-box {
-      display: none;
-      margin-top: 20px;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .captcha-text {
-      color: black;
-      font-size: 16px;
-    }
-
-    /* Dodany margines pod checkboxem */
-    #captchaText {
-      margin-bottom: 20px;
-    }
-
-    .timer {
-      font-size: 18px;
-      font-weight: bold;
-      color: red;
-      margin: 20px 0; /* odstęp od okna gry */
-    }
-
-    .captcha-footer {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      font-size: 12px;
-      color: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-    }
-
-    .captcha-footer img {
-      width: 16px;
-      height: 16px;
-      margin-right: 5px;
-    }
-  </style>
+    </style>
 </head>
 
 <body>
-  <!-- CAPTCHA -->
-  <div class="captcha-overlay" id="captchaOverlay">
-    <div class="captcha-box" id="captchaBox">
-      <div id="captchaText">
-        <label class="captcha-text">
-          <input type="checkbox" id="captchaCheckbox"> <span id="captchaLabel">Nie jestem robotem</span>
-        </label>
-      </div>
-      <div class="game-box" id="gameBox">
-        <iframe src="https://cobular.ct8.pl/play/mystic-valley/classic/" width="640" height="360" style="border:none;"></iframe>
-      </div>
-      <!-- Timer umieszczony nad stopką -->
-      <div id="timerContainer" class="timer hidden"></div>
-      <!-- Stopka z miejscem na logo -->
-      <div class="captcha-footer">
-        <img src="https://i.ibb.co/b5c0Rwwq/ron-tyler-emoji-nerd.png" alt="Captcha Logo">
-        <span>Tyler Verifier</span>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById("captchaCheckbox").addEventListener("change", function () {
-      if (this.checked) {
-        // Ukrycie checkboxa i napisu "Nie jestem robotem"
-        document.getElementById("captchaText").classList.add("hidden");
-        // Pokazanie gry oraz timera
-        document.getElementById("gameBox").style.display = "block";
-        document.getElementById("timerContainer").classList.remove("hidden");
-
-        // Ustawienie czasu na 4 minuty (240 sekund)
-        let timeLeft = 240;
-        const timerContainer = document.getElementById("timerContainer");
-
-        // Funkcja odliczająca czas
-        function updateTimer() {
-          let minutes = Math.floor(timeLeft / 60);
-          let seconds = timeLeft % 60;
-          timerContainer.textContent = `Pozostań w grze przez ${minutes}:${seconds < 10 ? "0" : ""}${seconds}, aby przejść weryfikację.`;
-
-          if (timeLeft > 0) {
-            timeLeft--;
-            setTimeout(updateTimer, 1000);
-          } else {
-            // Po zakończeniu licznika ukryj captcha
-            document.getElementById("captchaOverlay").style.display = "none";
-          }
-        }
-        // Uruchomienie timera
-        updateTimer();
-      }
-    });
-  </script>
-
-  <!-- Main Page Content -->
-  <header id="pageheader" style="background-color: transparent; transition: background 0.25s ease-out;">
-  </header>
-  <main style="background-color: #101920; margin-top: 0; padding-top: 80px;">
+    <header id="pageheader" style="background-color: transparent; transition: background 0.25s ease-out;">
+    </header>
+    <main style="background-color: #101920; margin-top: 0; padding-top: 80px;">
         
     <div style="box-sizing: border-box; padding-top: 4rem; position: relative; z-index: 5;">
         <h1 class="home-main-heading">Fangea <br>& inne kontynenty</h1>
