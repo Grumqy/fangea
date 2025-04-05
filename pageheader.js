@@ -86,7 +86,8 @@ function simulateSearchResults(query) {
     { title: "Hans von Wepzig", url: "https://grumqy.github.io/fangea/wiki/hans_von_wepzig" },
     { title: "Ron Tyler", url: "https://grumqy.github.io/fangea/wiki/ron_tyler" },
     { title: "Liga Suwerennych Syndykatów Maurazji", url: "https://grumqy.github.io/fangea/wiki/liga_suwerennych_syndykatów_maurazji" },
-
+    { title: "Królestwo Pamercji", url: "https://grumqy.github.io/fangea/wiki/królestwo_pamercji" },
+              
   ];
 
   const filteredArticles = articles.filter((article) =>
