@@ -87,6 +87,7 @@ function simulateSearchResults(query) {
     { title: "Ron Tyler", url: "https://grumqy.github.io/fangea/wiki/ron_tyler" },
     { title: "Liga Suwerennych Syndykatów Maurazji", url: "https://grumqy.github.io/fangea/wiki/liga_suwerennych_syndykatów_maurazji" },
     { title: "Królestwo Pamercji", url: "https://grumqy.github.io/fangea/wiki/królestwo_pamercji" },
+    { title: "Wielkie Królestwo Trojga Narodów", url: "https://grumqy.github.io/fangea/wiki/wielkie_królestwo_trojga_narodów" },
               
   ];
 
