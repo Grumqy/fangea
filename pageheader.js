@@ -88,6 +88,7 @@ function simulateSearchResults(query) {
     { title: "Liga Suwerennych Syndykatów Maurazji", url: "https://grumqy.github.io/fangea/wiki/liga_suwerennych_syndykatów_maurazji" },
     { title: "Królestwo Pamercji", url: "https://grumqy.github.io/fangea/wiki/królestwo_pamercji" },
     { title: "Wielkie Królestwo Trojga Narodów", url: "https://grumqy.github.io/fangea/wiki/wielkie_królestwo_trojga_narodów" },
+    { title: "Zaren", url: "https://grumqy.github.io/fangea/wiki/zaren" },
               
   ];
 
