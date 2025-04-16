@@ -90,6 +90,7 @@ function simulateSearchResults(query) {
     { title: "Wielkie Królestwo Trojga Narodów", url: "https://grumqy.github.io/fangea/wiki/wielkie_królestwo_trojga_narodów" },
     { title: "Zaren", url: "https://grumqy.github.io/fangea/wiki/zaren" },
     { title: "Kanały telewizyjne w Pamercji", url: "https://grumqy.github.io/fangea/wiki/kanały_telewizyjne_w_pamercji" },
+    { title: "TOP", url: "https://grumqy.github.io/fangea/wiki/top" },
   ];
 
   const filteredArticles = articles.filter((article) =>
