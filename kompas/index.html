@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polityczny Kompas Społeczności</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #121212;
@@ -14,7 +17,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Montserrat', system-ui, sans-serif;
             margin: 0;
             background: var(--bg-color);
             color: var(--text-color);
@@ -163,11 +166,11 @@
         <div id="modalContent" onclick="event.stopPropagation()">
             <img id="modalProfile" class="modal-profile" src="" alt="Profil">
             <div class="modal-header">
-                <h2 id="modalTitle" style="margin: 0 0 5px 0; color: var(--accent-color)"></h2>
-                <small style="color: #888">Polityczny kompas:</small>
-                <div id="modalCoordinates" style="color: var(--accent-color)"></div>
+                <h2 id="modalTitle" style="margin: 0 0 5px 0; color: var(--accent-color); font-weight: 600;"></h2>
+                <small style="color: #888; font-weight: 500;">Polityczny kompas:</small>
+                <div id="modalCoordinates" style="color: var(--accent-color); font-weight: 500;"></div>
             </div>
-            <p id="modalDescription" class="modal-description"></p>
+            <p id="modalDescription" class="modal-description" style="font-weight: 400;"></p>
         </div>
     </div>
 
