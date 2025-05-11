@@ -28,6 +28,7 @@
             --text-color: #ffffff;
             --card-bg: #101920;
             --border-color: #1b2a36;
+            --desktop-compass-margin: 80px;
         }
 
         body {
@@ -49,10 +50,24 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center;
             overflow-x: auto;
             padding: 20px 0;
             min-height: calc(100vh - var(--header-height, 60px));
+        }
+
+        /* Desktop - kompas z regulowanym marginesem górnym */
+        @media (min-width: 769px) {
+            #wrapper {
+                align-items: flex-start;
+                padding-top: var(--desktop-compass-margin);
+            }
+        }
+
+        /* Mobile - kompas wyśrodkowany */
+        @media (max-width: 768px) {
+            #wrapper {
+                align-items: center;
+            }
         }
 
         #compassContainer {
@@ -176,10 +191,6 @@
                 height: calc(100vw - 20px);
                 margin: 10px;
             }
-            
-            #wrapper {
-                min-height: calc(100vh - var(--header-height, 80px));
-            }
         }
     </style>
 </head>
@@ -264,12 +275,10 @@
             }
         }
 
-        // Inicjalizacja po załadowaniu DOM
         document.addEventListener('DOMContentLoaded', function() {
             updateHeaderHeight();
             initPins();
             
-            // Obserwuj zmiany w headerze (jeśli jest dynamiczny)
             const observer = new MutationObserver(updateHeaderHeight);
             const header = document.getElementById('pageheader');
             if (header) {
