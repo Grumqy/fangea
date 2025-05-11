@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityczny Kompas Społeczności</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --accent-color: #00ff88;
+            --text-color: #ffffff;
+            --card-bg: #1e1e1e;
+            --border-color: #2d2d2d;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #wrapper {
+            width: 100%;
+            overflow-x: auto;
+            padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        #compassContainer {
+            width: 800px;
+            height: 800px;
+            margin: 20px auto;
+            position: relative;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Political_Compass_yellow_LibRight_v2.svg') no-repeat center/contain;
+        }
+
+        .pin {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+            object-fit: cover;
+        }
+
+        .pin:hover {
+            transform: scale(1.1);
+        }
+
+        #modalOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #modalOverlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        #modalContent {
+            background: var(--card-bg);
+            padding: 40px 30px 30px 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            border: 1px solid var(--border-color);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        #modalOverlay.active #modalContent {
+            transform: scale(1);
+        }
+
+        .modal-profile {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            right: 20px;
+            top: -40px;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+        }
+
+        .modal-header {
+            margin-bottom: 15px;
+            padding-right: 20px;
+        }
+
+        .modal-description {
+            line-height: 1.5;
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            #compassContainer {
+                width: 600px;
+                height: 600px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            #compassContainer {
+                width: 450px;
+                height: 450px;
+            }
+            
+            .pin {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .modal-profile {
+                width: 60px;
+                height: 60px;
+                top: -30px;
+                right: 10px;
+            }
+            
+            #modalContent {
+                padding: 30px 20px 20px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #compassContainer {
+                width: 350px;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="https://grumqy.github.io/fangea/scripts/pageheader.js"></script>
+
+    <div id="wrapper">
+        <div id="compassContainer"></div>
+    </div>
+
+    <div id="modalOverlay" onclick="closeModal()">
+        <div id="modalContent" onclick="event.stopPropagation()">
+            <img id="modalProfile" class="modal-profile" src="" alt="Profil">
+            <div class="modal-header">
+                <h2 id="modalTitle" style="margin: 0 0 5px 0; color: var(--accent-color)"></h2>
+                <small style="color: #888">Polityczny kompas:</small>
+                <div id="modalCoordinates" style="color: var(--accent-color)"></div>
+            </div>
+            <p id="modalDescription" class="modal-description"></p>
+        </div>
+    </div>
+
+    <script>
+        const users = [
+            {
+                nick: "Boxin",
+                posX: 2,
+                posY: -3,
+                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
+                description: "Przykładowy opis użytkownika"
+            },
+            // Tutaj możesz dodać więcej użytkowników
+        ];
+
+        function initPins() {
+            const container = document.getElementById('compassContainer');
+            
+            users.forEach(user => {
+                const pin = document.createElement('img');
+                pin.className = 'pin';
+                pin.src = user.avatar;
+                pin.style.left = `${(user.posX + 10) * 5}%`;
+                pin.style.top = `${(10 - user.posY) * 5}%`;
+                
+                pin.onclick = (e) => {
+                    e.stopPropagation();
+                    showModal(user);
+                };
+
+                container.appendChild(pin);
+            });
+        }
+
+        function showModal(user) {
+            const overlay = document.getElementById('modalOverlay');
+            overlay.style.display = 'flex';
+            
+            setTimeout(() => {
+                overlay.classList.add('active');
+            }, 10);
+            
+            document.getElementById('modalProfile').src = user.avatar;
+            document.getElementById('modalTitle').textContent = user.nick;
+            document.getElementById('modalCoordinates').textContent = `X: ${user.posX}, Y: ${user.posY}`;
+            document.getElementById('modalDescription').textContent = user.description;
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('modalOverlay');
+            overlay.classList.remove('active');
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300);
+        }
+
+        window.onload = initPins;
+    </script>
+</body>
+</html>
