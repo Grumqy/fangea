@@ -1,196 +1,253 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kompas Polityczny - Fangea i inne kontynenty</title>
-    
-    <!-- Globalne style Fangea -->
-    <link rel="stylesheet" href="/fangea/style.css">
-    
-    <!-- Style kompasu -->
+    <meta property="og:title" content="Kompas Polityczny">
+    <meta name="twitter:title" content="Kompas Polityczny">
+    <meta name="description" content="Kompas polityczny członków naszego Roleplay'u.">
+    <meta property="og:description" content="Kompas polityczny członków naszego Roleplay'u.">
+    <meta name="twitter:description" content="Kompas polityczny członków naszego Roleplay'u.">
+    <meta property="og:image" content="https://i.ibb.co/84CqrhX/obraz-2024-06-10-181542049.png">
+    <meta name="twitter:image" content="https://i.ibb.co/84CqrhX/obraz-2024-06-10-181542049.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/fangea/style.css" />
+    <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
     <style>
-        /* Kontener główny */
-        .compass-container {
-            padding: 20px 0;
-            max-width: 1200px;
-            margin: 0 auto;
+        :root {
+            --bg-color: #101920;
+            --accent-color: #ffffff;
+            --text-color: #ffffff;
+            --card-bg: #101920;
+            --border-color: #1b2a36;
         }
 
-        /* Obszar kompasu z przewijaniem */
-        .compass-wrapper {
+        body {
+            font-family: 'Montserrat', system-ui, sans-serif;
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #wrapper {
+            width: 100%;
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
             padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
         }
 
-        /* Canvas kompasu */
-        #compassCanvas {
+        #compassContainer {
             width: 800px;
             height: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
             position: relative;
             background: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Political_Compass_yellow_LibRight_v2.svg') no-repeat center/contain;
         }
 
-        /* Pinezki */
-        .compass-pin {
-            width: 35px;
-            height: 35px;
+        .pin {
+            width: 40px;
+            height: 40px;
             position: absolute;
+            cursor: pointer;
             border-radius: 50%;
             border: 2px solid var(--accent-color);
-            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             transition: transform 0.2s;
             object-fit: cover;
         }
 
-        .compass-pin:hover {
-            transform: scale(1.15);
+        .pin:hover {
+            transform: scale(1.1);
         }
 
-        /* Modal */
-        #compassModal {
+        #modalOverlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
+            background: rgba(0,0,0,0.7);
             justify-content: center;
             align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        .modal-box {
-            background: var(--bg-card);
-            width: 90%;
+        #modalOverlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        #modalContent {
+            background: var(--card-bg);
+            padding: 40px 30px 30px 30px;
+            border-radius: 10px;
+            width: 100%;
             max-width: 400px;
-            border-radius: 8px;
-            padding: 25px;
             position: relative;
             border: 1px solid var(--border-color);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            box-sizing: border-box;
         }
 
-        .modal-avatar {
+        #modalOverlay.active #modalContent {
+            transform: scale(1);
+        }
+
+        .modal-profile {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             position: absolute;
-            right: -40px;
+            right: 20px;
             top: -40px;
-            border: 3px solid var(--accent-color);
+            border: 4px solid var(--accent-color);
             object-fit: cover;
         }
 
-        @media (max-width: 768px) {
-            #compassCanvas {
+        .modal-header {
+            margin-bottom: 15px;
+            padding-right: 20px;
+        }
+
+        .modal-description {
+            line-height: 1.5;
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            #compassContainer {
                 width: 600px;
                 height: 600px;
             }
+        }
+
+        @media (max-width: 650px) {
+            #compassContainer {
+                width: 450px;
+                height: 450px;
+            }
             
-            .modal-avatar {
+            .pin {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .modal-profile {
                 width: 60px;
                 height: 60px;
-                right: -30px;
                 top: -30px;
+                right: 10px;
+            }
+            
+            #modalContent {
+                padding: 30px 20px 20px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #compassContainer {
+                width: 350px;
+                height: 350px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header wstrzykiwany przez skrypt -->
-    <div id="pageHeader"></div>
+    <header id="pageheader">
+    </header>
 
-    <!-- Główna zawartość -->
-    <main class="main-content">
-        <div class="section-header">
-            <h1>Kompas Polityczny</h1>
-            <div class="section-description">
-                Mapa poglądów członków społeczności
+    <div id="wrapper">
+        <div id="compassContainer"></div>
+    </div>
+
+    <div id="modalOverlay" onclick="closeModal()">
+        <div id="modalContent" onclick="event.stopPropagation()">
+            <img id="modalProfile" class="modal-profile" src="" alt="Profil">
+            <div class="modal-header">
+                <h2 id="modalTitle" style="margin: 0 0 5px 0; color: var(--accent-color); font-weight: 600;"></h2>
+                <small style="color: #888; font-weight: 500;">Polityczny kompas:</small>
+                <div id="modalCoordinates" style="color: var(--accent-color); font-weight: 500;"></div>
             </div>
-        </div>
-
-        <div class="compass-container">
-            <div class="compass-wrapper">
-                <div id="compassCanvas"></div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Modal -->
-    <div id="compassModal" onclick="closeModal(event)">
-        <div class="modal-box" onclick="event.stopPropagation()">
-            <img class="modal-avatar" id="modalAvatar" alt="Avatar">
-            <h2 class="modal-title" id="modalName"></h2>
-            <div class="meta-info" id="modalCoords"></div>
-            <div class="content-box" id="modalDescription"></div>
-            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <p id="modalDescription" class="modal-description" style="font-weight: 400;"></p>
         </div>
     </div>
 
-    <!-- Wymagane skrypty -->
-    <script src="https://grumqy.github.io/fangea/pageheader.js"></script>
-
-    <!-- Skrypt kompasu -->
     <script>
-        // Konfiguracja społeczności
-        const communityMembers = [
+        const users = [
             {
                 nick: "Boxin",
                 posX: 2,
                 posY: -3,
                 avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
                 description: "Przykładowy opis użytkownika"
-            }
-            // Dodaj kolejnych użytkowników tutaj
+            },
+            // Tutaj możesz dodać więcej użytkowników
         ];
 
-        // Inicjalizacja kompasu
-        function initCompass() {
-            const $canvas = $('#compassCanvas');
+        function initPins() {
+            const container = document.getElementById('compassContainer');
             
-            communityMembers.forEach(member => {
-                const $pin = $('<img>', {
-                    class: 'compass-pin',
-                    src: member.avatar,
-                    css: {
-                        left: `${(member.posX + 10) * 5}%`,
-                        top: `${(10 - member.posY) * 5}%`
-                    }
-                }).click(() => showModal(member));
+            users.forEach(user => {
+                const pin = document.createElement('img');
+                pin.className = 'pin';
+                pin.src = user.avatar;
+                pin.style.left = `${(user.posX + 10) * 5}%`;
+                pin.style.top = `${(10 - user.posY) * 5}%`;
                 
-                $canvas.append($pin);
+                pin.onclick = (e) => {
+                    e.stopPropagation();
+                    showModal(user);
+                };
+
+                container.appendChild(pin);
             });
         }
 
-        // Obsługa modala
-        function showModal(member) {
-            $('#modalAvatar').attr('src', member.avatar);
-            $('#modalName').text(member.nick);
-            $('#modalCoords').html(`<i class="fas fa-map-marker-alt"></i> X: ${member.posX}, Y: ${member.posY}`);
-            $('#modalDescription').text(member.description);
-            $('#compassModal').fadeIn(200);
+        function showModal(user) {
+            const overlay = document.getElementById('modalOverlay');
+            overlay.style.display = 'flex';
+            
+            setTimeout(() => {
+                overlay.classList.add('active');
+            }, 10);
+            
+            document.getElementById('modalProfile').src = user.avatar;
+            document.getElementById('modalTitle').textContent = user.nick;
+            document.getElementById('modalCoordinates').textContent = `X: ${user.posX}, Y: ${user.posY}`;
+            document.getElementById('modalDescription').textContent = user.description;
         }
 
         function closeModal() {
-            $('#compassModal').fadeOut(200);
+            const overlay = document.getElementById('modalOverlay');
+            overlay.classList.remove('active');
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300);
         }
 
-        // Inicjalizacja po załadowaniu strony
-        $(document).ready(function() {
-            // Inicjalizacja headera
-            initPageHeader();
-            
-            // Inicjalizacja kompasu
-            initCompass();
-            
-            // Obsługa kliknięć w tło modala
-            $(document).on('click', '#compassModal', function(e) {
-                if (e.target === this) closeModal();
-            });
+        // Inicjalizacja po załadowaniu DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            initPins();
         });
     </script>
+    <script src="/fangea/pageheader.js"></script>
 </body>
 </html>
