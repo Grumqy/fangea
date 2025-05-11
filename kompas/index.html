@@ -157,7 +157,7 @@
 </head>
 <body>
     <!-- Header będzie wstrzyknięty przez pageheader.js -->
-    <div id="pageHeader"></div>
+    <div id="pageheader"></div>
 
     <div id="wrapper">
         <div id="compassContainer"></div>
@@ -178,7 +178,7 @@
     <!-- Dodaj jQuery i jQuery UI przed pageheader.js -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://grumqy.github.io/fangea/scripts/pageheader.js"></script>
+    <script src="/fangea/pageheader.js"></script>
 
     <script>
         const users = [
@@ -238,8 +238,8 @@
         function waitForJQuery() {
             if (window.jQuery && window.jQuery.ui) {
                 // Dodatkowe sprawdzenie czy pageheader jest gotowy
-                if (typeof initPageHeader !== 'undefined') {
-                    initPageHeader();
+                if (typeof initPageheader !== 'undefined') {
+                    initPageheader();
                 }
                 initPins();
             } else {
