@@ -1,28 +1,20 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
-    <title>Kompas Polityczny - Fangea i inne kontynenty</title>
-    <meta property="og:title" content="Kompas Polityczny">
-    <meta name="twitter:title" content="Kompas Polityczny">
-    <meta name="description" content="Kompas polityczny uczestników naszego Roleplay'u.">
-    <meta property="og:description" content="Kompas polityczny uczestników naszego Roleplay'u.">
-    <meta name="twitter:description" content="Kompas polityczny uczestników naszego Roleplay'u.">
-    <meta property="og:image" content="https://i.ibb.co/0QFtcSZ/pieniadze4.png">
-    <meta name="twitter:image" content="https://i.ibb.co/0QFtcSZ/pieniadze4.png">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/fangea/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityczny Kompas Społeczności</title>
+    <!-- Dodaj te linijki przed pageheader.js -->
+    <script src="https://grumqy.github.io/fangea/scripts/jquery-3.6.0.min.js"></script>
+    <script src="https://grumqy.github.io/fangea/scripts/jquery-ui.min.js"></script>
+    <script src="https://grumqy.github.io/fangea/scripts/pageheader.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #101920;
+            --bg-color: #121212;
             --accent-color: #00ff88;
             --text-color: #ffffff;
             --card-bg: #1e1e1e;
@@ -169,11 +161,12 @@
     </style>
 </head>
 <body>
-    <header id="pageheader">
-    </header>
+    <!-- Header zostanie wstrzyknięty przez pageheader.js -->
+
     <div id="wrapper">
         <div id="compassContainer"></div>
     </div>
+
     <div id="modalOverlay" onclick="closeModal()">
         <div id="modalContent" onclick="event.stopPropagation()">
             <img id="modalProfile" class="modal-profile" src="" alt="Profil">
@@ -240,8 +233,10 @@
             }, 300);
         }
 
-        window.onload = initPins;
+        // Inicjalizacja po załadowaniu DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            initPins();
+        });
     </script>
-    <script src="pageheader.js"></script>
 </body>
 </html>
