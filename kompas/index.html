@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polityczny Kompas Społeczności</title>
-    <!-- Dodaj te linijki przed pageheader.js -->
-    <script src="https://grumqy.github.io/fangea/scripts/jquery-3.6.0.min.js"></script>
-    <script src="https://grumqy.github.io/fangea/scripts/jquery-ui.min.js"></script>
-    <script src="https://grumqy.github.io/fangea/scripts/pageheader.js"></script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -161,7 +156,8 @@
     </style>
 </head>
 <body>
-    <!-- Header zostanie wstrzyknięty przez pageheader.js -->
+    <!-- Header będzie wstrzyknięty przez pageheader.js -->
+    <div id="pageHeader"></div>
 
     <div id="wrapper">
         <div id="compassContainer"></div>
@@ -178,6 +174,11 @@
             <p id="modalDescription" class="modal-description" style="font-weight: 400;"></p>
         </div>
     </div>
+
+    <!-- Dodaj jQuery i jQuery UI przed pageheader.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://grumqy.github.io/fangea/scripts/pageheader.js"></script>
 
     <script>
         const users = [
@@ -233,9 +234,21 @@
             }, 300);
         }
 
-        // Inicjalizacja po załadowaniu DOM
+        // Poczekaj aż jQuery i pageheader się załadują
+        function waitForJQuery() {
+            if (window.jQuery && window.jQuery.ui) {
+                // Dodatkowe sprawdzenie czy pageheader jest gotowy
+                if (typeof initPageHeader !== 'undefined') {
+                    initPageHeader();
+                }
+                initPins();
+            } else {
+                setTimeout(waitForJQuery, 100);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            initPins();
+            waitForJQuery();
         });
     </script>
 </body>
