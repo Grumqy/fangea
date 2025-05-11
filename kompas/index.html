@@ -157,6 +157,8 @@
     </style>
 </head>
 <body>
+    <header id="pageheader">
+    </header>
     <div id="wrapper">
         <div id="compassContainer"></div>
     </div>
@@ -228,16 +230,6 @@
         }
 
         window.onload = initPins;
-    </script>
-    <script>
-        window.addEventListener("scroll", pageheaderHandleScroll);
-        function pageheaderHandleScroll(){
-        if(window.pageYOffset < 100){
-        document.getElementById("pageheader").style.background = "transparent";
-        } else{
-        document.getElementById("pageheader").style.background = "#1b262f";
-        }
-        }
     </script>
     <script src="pageheader.js"></script>
 </body>
