@@ -10,7 +10,7 @@
     <link rel="icon" href="/fangea/local/fangeapage.png" type="image/png">
     <style>
         :root {
-            --bg-color: #121212;
+            --bg-color: #101920;
             --accent-color: #00ff88;
             --text-color: #ffffff;
             --card-bg: #1e1e1e;
@@ -157,7 +157,8 @@
     </style>
 </head>
 <body>
-    <script src="https://grumqy.github.io/fangea/scripts/pageheader.js"></script>
+    <header id="pageheader" style="background-color: transparent; transition: background 0.25s ease-out;">
+    </header>
 
     <div id="wrapper">
         <div id="compassContainer"></div>
@@ -230,6 +231,16 @@
         }
 
         window.onload = initPins;
+    </script>
+    <script>
+        window.addEventListener("scroll", pageheaderHandleScroll);
+        function pageheaderHandleScroll(){
+        if(window.pageYOffset < 100){
+        document.getElementById("pageheader").style.background = "transparent";
+        } else{
+        document.getElementById("pageheader").style.background = "#1b262f";
+        }
+        }
     </script>
     <script src="pageheader.js"></script>
 </body>
