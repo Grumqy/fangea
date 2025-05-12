@@ -230,30 +230,27 @@
 </head>
     
 <body>
-<header id="pageheader">
-</header>
-
-            <div id="wrapper">
-                <div id="compassContainer"></div>
-            </div>
-            
-                <div id="modalOverlay" onclick="closeModal()">
-                    <div id="modalContent" onclick="event.stopPropagation()">
-                        <img id="modalProfile" class="modal-profile" src="" alt="Profil">
-                        <div class="modal-header">
-                            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
-                                <h2 id="modalTitle" style="margin: 0; color: var(--accent-color); font-weight: 600;"></h2>
-                                <small id="modalDiscord" style="color: #888; font-weight: 500;"></small>
-                            </div>                
-                            <div class="modal-roles" id="modalRoles"></div>
-                            <small style="color: #888; font-weight: 500;">Poglądy polityczne:</small>
-                            <div class="modal-views" id="modalViews"></div>
-                        </div>
-                        <p id="modalDescription" class="modal-description" style="font-weight: 400;"></p>
+    <header id="pageheader">
+    </header>
+        <div id="wrapper">
+            <div id="compassContainer"></div>
+        </div> 
+            <div id="modalOverlay" onclick="closeModal()">
+                <div id="modalContent" onclick="event.stopPropagation()">
+                    <img id="modalProfile" class="modal-profile" src="" alt="Profil">
+                    <div class="modal-header">
+                        <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+                            <h2 id="modalTitle" style="margin: 0; color: var(--accent-color); font-weight: 600;"></h2>
+                            <small id="modalDiscord" style="color: #888; font-weight: 500;"></small>
+                        </div>                
+                        <div class="modal-roles" id="modalRoles"></div>
+                        <small style="color: #888; font-weight: 500;">Poglądy polityczne:</small>
+                        <div class="modal-views" id="modalViews"></div>
                     </div>
+                    <p id="modalDescription" class="modal-description" style="font-weight: 400;"></p>
                 </div>
-    
-        <script>
+            </div>
+<script>
             const users = [
                 {
                     nick: "Boxin",
@@ -512,6 +509,6 @@
 
     window.addEventListener('resize', updateHeaderHeight);
     </script>
-<script src="pageheader.js"></script>
+    <script src="pageheader.js"></script>
 </body>
 </html>
