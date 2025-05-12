@@ -55,7 +55,6 @@
             min-height: calc(100vh - var(--header-height, 60px));
         }
 
-        /* Desktop - kompas z regulowanym marginesem górnym */
         @media (min-width: 769px) {
             #wrapper {
                 align-items: flex-start;
@@ -63,7 +62,6 @@
             }
         }
 
-        /* Mobile - kompas wyśrodkowany */
         @media (max-width: 768px) {
             #wrapper {
                 align-items: center;
@@ -218,8 +216,8 @@
         }
 
         .role-icon {
-            width: 16px;
-            height: 16px;
+            width: auto;
+            max-height: 16px;
             border-radius: 3px;
         }
 
@@ -242,7 +240,10 @@
         <div id="modalContent" onclick="event.stopPropagation()">
             <img id="modalProfile" class="modal-profile" src="" alt="Profil">
             <div class="modal-header">
-                <h2 id="modalTitle" style="margin: 0 0 5px 0; color: var(--accent-color); font-weight: 600;"></h2>
+                <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+                    <h2 id="modalTitle" style="margin: 0; color: var(--accent-color); font-weight: 600;"></h2>
+                    <small id="modalDiscord" style="color: #888; font-weight: 500;"></small>
+                </div>                
                 <div class="modal-roles" id="modalRoles"></div>
                 <small style="color: #888; font-weight: 500;">Poglądy polityczne:</small>
                 <div class="modal-views" id="modalViews"></div>
@@ -255,11 +256,12 @@
         const users = [
             {
                 nick: "Boxin",
+                discord: "boxin_",
                 posX: 5.6,
                 posY: 0.5,
-                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
-                description: "Boxinek kogama lubi touhou uwu owo hej kogama odpisz mi ",
-                views: "Anarchokapitalizm",
+                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                description: "Brak opisu.",
+                views: "Brak danych",
                 roles: [
                     {
                         name: "Republika Liwonii",
@@ -270,11 +272,12 @@
             },
             {
                 nick: "Nataniel",
+                discord: "nie_wiem_jakis_random_122",
                 posX: -1.5,
                 posY: 0.5,
-                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
-                description: "Przykładowy opis.",
-                views: "Super pogląd",
+                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                description: "Brak opisu.",
+                views: "Brak danych",
                 roles: [
                     {
                         name: "Republika Fankladonii",
@@ -284,27 +287,29 @@
                 ]
             },
             {
-                nick: "Atosbos",
+                nick: "Novites",
+                discord: "novites",
                 posX: -1,
                 posY: 2.8,
-                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
-                description: "Przykładowy opis.",
-                views: "Super pogląd",
+                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                description: "Brak opisu.",
+                views: "Brak danych",
                 roles: [
                     {
                         name: "Republika Tuwalii",
-                        icon: "https://grumqy.github.io/fangea/images/icons/opposition.png",
+                        icon: "https://i.ibb.co/tMwpVDy9/obraz-2025-05-12-104534121.png",
                         url: "https://grumqy.github.io/fangea/wiki/tuwalia/"
                     }
                 ]
             },
             {
                 nick: "Vexon",
+                discord: ".vexon.",
                 posX: 1.6,
                 posY: 1,
-                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
-                description: "Przykładowy opis.",
-                views: "Socjaldemokracja, Reformizm, Ekologia",
+                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                description: "Brak opisu.",
+                views: "Liberalizm gospodarczy, Kapitalizm, Nacjonalizm, Unitaryzm, Etatyzm",
                 roles: [
                     {
                         name: "Iznotiańska Republika Demokratyczna",
@@ -330,11 +335,12 @@
             },
             {
                 nick: "Grumpy",
+                discord: "grumpy5",
                 posX: 3.2,
                 posY: 2.3,
-                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
-                description: "Przykładowy opis.",
-                views: "Super pogląd",
+                avatar: "https://i.ibb.co/n8bnkkDD/image.png",
+                description: "Główny zarządca Roleplay'u oraz właściciel serwera Discord. Zajmuję się szerokopojętą grafiką komputerową i to w niej spełniam się w naszym Roleplay'u – to ja stworzyłem większość flag, logo itp. na stronie. Odpowiadam również za niektóre scenerie w artykułach na wiki oraz dodałem kilka funkcji na naszej stronie. ",
+                views: "Paleolibertarianizm, Kapitalizm, Tradycjonalizm",
                 roles: [
                     {
                         name: "Republika Lemburska",
@@ -345,11 +351,12 @@
             },
             {
                 nick: "Lukasox",
+                discord: "lukasox",
                 posX: 2.4,
                 posY: -2,
-                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
-                description: "Przykładowy opis.",
-                views: "Super pogląd",
+                avatar: "https://i.ibb.co/hGthdxW/obraz-2025-05-12-110716160.png",
+                description: "Brak opisu.",
+                views: "Liberalizm klasyczny, Kapitalizm, Leseferyzm, Globalizm, Federalizm",
                 roles: [
                     {
                         name: "Rzeczpospolita Pamercja",
@@ -360,11 +367,12 @@
             },
             {
                 nick: "Banio",
+                discord: "b4gni4k",
                 posX: 4,
                 posY: -2.8,
-                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
-                description: "Przykładowy opis.",
-                views: "Super pogląd",
+                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                description: "Brak opisu.",
+                views: "Brak danych",
                 roles: [
                     {
                         name: "Konfederacja Montecydyjska",
@@ -375,11 +383,12 @@
             },
             {
                 nick: "SVH",
+                discord: "svh6296",
                 posX: 3.5,
                 posY: -4.6,
-                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
-                description: "Przykładowy opis.",
-                views: "Super pogląd",
+                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                description: "Brak opisu.",
+                views: "Brak danych",
                 roles: [
                     {
                         name: "Stany Zjednoczone Fangei",
@@ -390,11 +399,12 @@
             },
             {
                 nick: "Jasek",
+                discord: "jasekkkk",
                 posX: 3.5,
                 posY: -4.6,
-                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
-                description: "Przykładowy opis.",
-                views: "Super pogląd",
+                avatar: "https://i.ibb.co/4ZPn65TZ/obraz-2025-05-12-115105711.png",
+                description: "Brak opisu.",
+                views: "Socjallibertarianizm, Cywilny libertarianizm, Transhumanizm, Piratyzm, Technoliberalizm, Demokracja bezpośrednia",
                 roles: [
                     {
                         name: "Księstwo Nowego Tuhalfu",
@@ -413,7 +423,7 @@
                     },
                     {
                         name: "Lendawska Republika Ludowo-Demokratyczna",
-                        icon: "https://i.ibb.co/gbYrvbY3/image.png",
+                        icon: "https://i.ibb.co/kVRbTRTL/image.png",
                         url: "https://grumqy.github.io/fangea/wiki/lendawia_północna/"
                     },
                     {
@@ -425,96 +435,82 @@
             },
         ];
 
-        function showModal(user) {
-            const overlay = document.getElementById('modalOverlay');
-            overlay.style.display = 'flex';
+    function initPins() {
+        const container = document.getElementById('compassContainer');
+        
+        users.forEach(user => {
+            const pin = document.createElement('img');
+            pin.className = 'pin';
+            pin.src = user.avatar;
+            pin.style.left = `${(user.posX + 10) * 5}%`;
+            pin.style.top = `${(10 - user.posY) * 5}%`;
             
-            setTimeout(() => {
-                overlay.classList.add('active');
-            }, 10);
-            
-            // Aktualizacja zawartości modala
-            document.getElementById('modalProfile').src = user.avatar;
-            document.getElementById('modalTitle').textContent = user.nick;
-            document.getElementById('modalViews').textContent = user.views;
-            document.getElementById('modalDescription').textContent = user.description;
-            
-            // Generowanie ról
-            const rolesContainer = document.getElementById('modalRoles');
-            rolesContainer.innerHTML = '';
-            user.roles.forEach(role => {
-                const roleElement = document.createElement('a');
-                roleElement.className = 'role-item';
-                roleElement.href = role.url;
-                roleElement.innerHTML = `
-                    <img src="${role.icon}" class="role-icon" alt="Ikona roli">
-                    ${role.name}
-                `;
-                rolesContainer.appendChild(roleElement);
-            });
-        }
+            pin.onclick = (e) => {
+                e.stopPropagation();
+                showModal(user);
+            };
 
-        function initPins() {
-            const container = document.getElementById('compassContainer');
-            
-            users.forEach(user => {
-                const pin = document.createElement('img');
-                pin.className = 'pin';
-                pin.src = user.avatar;
-                pin.style.left = `${(user.posX + 10) * 5}%`;
-                pin.style.top = `${(10 - user.posY) * 5}%`;
-                
-                pin.onclick = (e) => {
-                    e.stopPropagation();
-                    showModal(user);
-                };
-
-                container.appendChild(pin);
-            });
-        }
-
-        function showModal(user) {
-            const overlay = document.getElementById('modalOverlay');
-            overlay.style.display = 'flex';
-            
-            setTimeout(() => {
-                overlay.classList.add('active');
-            }, 10);
-            
-            document.getElementById('modalProfile').src = user.avatar;
-            document.getElementById('modalTitle').textContent = user.nick;
-            document.getElementById('modalCoordinates').textContent = `X: ${user.posX}, Y: ${user.posY}`;
-            document.getElementById('modalDescription').textContent = user.description;
-        }
-
-        function closeModal() {
-            const overlay = document.getElementById('modalOverlay');
-            overlay.classList.remove('active');
-            
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 300);
-        }
-
-        function updateHeaderHeight() {
-            const header = document.getElementById('pageheader');
-            if (header) {
-                document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateHeaderHeight();
-            initPins();
-            
-            const observer = new MutationObserver(updateHeaderHeight);
-            const header = document.getElementById('pageheader');
-            if (header) {
-                observer.observe(header, { childList: true, subtree: true });
-            }
+            container.appendChild(pin);
         });
+    }
 
-        window.addEventListener('resize', updateHeaderHeight);
+    function showModal(user) {
+        const overlay = document.getElementById('modalOverlay');
+        overlay.style.display = 'flex';
+        
+        setTimeout(() => {
+            overlay.classList.add('active');
+        }, 10);
+        
+        document.getElementById('modalProfile').src = user.avatar;
+        document.getElementById('modalTitle').textContent = user.nick;
+        document.getElementById('modalViews').textContent = user.views;
+        document.getElementById('modalDescription').textContent = user.description;
+        document.getElementById('modalDiscord').textContent = user.discord || '';
+        
+        const rolesContainer = document.getElementById('modalRoles');
+        rolesContainer.innerHTML = '';
+        user.roles.forEach(role => {
+            const roleElement = document.createElement('a');
+            roleElement.className = 'role-item';
+            roleElement.href = role.url;
+            roleElement.innerHTML = `
+                <img src="${role.icon}" class="role-icon" alt="Ikona roli">
+                ${role.name}
+            `;
+            rolesContainer.appendChild(roleElement);
+        });
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        overlay.classList.remove('active');
+        
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 300);
+    }
+
+    function updateHeaderHeight() {
+        const header = document.getElementById('pageheader');
+        if (header) {
+            document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateHeaderHeight();
+        initPins();
+        
+        const observer = new MutationObserver(updateHeaderHeight);
+        const header = document.getElementById('pageheader');
+        if (header) {
+            observer.observe(header, { childList: true, subtree: true });
+        }
+    });
+
+    window.addEventListener('resize', updateHeaderHeight);
     </script>
+    <script src="pageheader.js"></script>
 </body>
 </html>
