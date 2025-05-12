@@ -230,285 +230,285 @@
 </head>
     
 <body>
-    <header id="pageheader">
-    </header>
+<header id="pageheader">
+</header>
 
-        <div id="wrapper">
-            <div id="compassContainer"></div>
-        </div>
-        
-            <div id="modalOverlay" onclick="closeModal()">
-                <div id="modalContent" onclick="event.stopPropagation()">
-                    <img id="modalProfile" class="modal-profile" src="" alt="Profil">
-                    <div class="modal-header">
-                        <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
-                            <h2 id="modalTitle" style="margin: 0; color: var(--accent-color); font-weight: 600;"></h2>
-                            <small id="modalDiscord" style="color: #888; font-weight: 500;"></small>
-                        </div>                
-                        <div class="modal-roles" id="modalRoles"></div>
-                        <small style="color: #888; font-weight: 500;">Poglądy polityczne:</small>
-                        <div class="modal-views" id="modalViews"></div>
-                    </div>
-                    <p id="modalDescription" class="modal-description" style="font-weight: 400;"></p>
-                </div>
+            <div id="wrapper">
+                <div id="compassContainer"></div>
             </div>
-
-    <script>
-        const users = [
-            {
-                nick: "Boxin",
-                discord: "boxin_",
-                posX: 5.6,
-                posY: 0.5,
-                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
-                description: "Brak opisu.",
-                views: "Brak danych",
-                roles: [
-                    {
-                        name: "Republika Liwonii",
-                        icon: "https://i.ibb.co/cSfjhpsx/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/liwonia/"
-                    }
-                ]
-            },
-            {
-                nick: "Nataniel",
-                discord: "nie_wiem_jakis_random_122",
-                posX: -1.5,
-                posY: 0.5,
-                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
-                description: "Brak opisu.",
-                views: "Brak danych",
-                roles: [
-                    {
-                        name: "Republika Fankladonii",
-                        icon: "https://i.ibb.co/d0QVGGz3/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/fankladonia/"
-                    }
-                ]
-            },
-            {
-                nick: "Novites",
-                discord: "novites",
-                posX: -1,
-                posY: 2.8,
-                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
-                description: "Brak opisu.",
-                views: "Brak danych",
-                roles: [
-                    {
-                        name: "Republika Tuwalii",
-                        icon: "https://i.ibb.co/tMwpVDy9/obraz-2025-05-12-104534121.png",
-                        url: "https://grumqy.github.io/fangea/wiki/tuwalia/"
-                    }
-                ]
-            },
-            {
-                nick: "Vexon",
-                discord: ".vexon.",
-                posX: 1.6,
-                posY: 1,
-                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
-                description: "Brak opisu.",
-                views: "Liberalizm gospodarczy, Kapitalizm, Nacjonalizm, Unitaryzm, Etatyzm",
-                roles: [
-                    {
-                        name: "Iznotiańska Republika Demokratyczna",
-                        icon: "https://i.ibb.co/wNvFG2HT/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/iznotia/"
-                    },
-                    {
-                        name: "Republika Ebengradu",
-                        icon: "https://i.ibb.co/dvPBBnS/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/ebengrad/"
-                    },
-                    {
-                        name: "V Republika Atidalii",
-                        icon: "https://i.ibb.co/BVB84QMv/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/atidalia/"
-                    },
-                    {
-                        name: "Peczerska Republika Demokratyczna",
-                        icon: "https://i.ibb.co/rG6CP16W/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/peczeria_demokratyczna/"
-                    }
-                ]
-            },
-            {
-                nick: "Grumpy",
-                discord: "grumpy5",
-                posX: 3.2,
-                posY: 2.3,
-                avatar: "https://i.ibb.co/n8bnkkDD/image.png",
-                description: "Główny zarządca Roleplay'u oraz właściciel serwera Discord. Zajmuję się szerokopojętą grafiką komputerową i to w niej spełniam się w naszym Roleplay'u – to ja stworzyłem większość flag, logo itp. na stronie. Odpowiadam również za niektóre scenerie w artykułach na wiki oraz dodałem kilka funkcji na naszej stronie. ",
-                views: "Paleolibertarianizm, Kapitalizm, Tradycjonalizm",
-                roles: [
-                    {
-                        name: "Republika Lemburska",
-                        icon: "https://i.ibb.co/8L7296Gy/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/lemburg/"
-                    }
-                ]
-            },
-            {
-                nick: "Lukasox",
-                discord: "lukasox",
-                posX: 2.4,
-                posY: -2,
-                avatar: "https://i.ibb.co/hGthdxW/obraz-2025-05-12-110716160.png",
-                description: "Brak opisu.",
-                views: "Liberalizm klasyczny, Kapitalizm, Leseferyzm, Globalizm, Federalizm",
-                roles: [
-                    {
-                        name: "Rzeczpospolita Pamercja",
-                        icon: "https://i.ibb.co/msX76Z2/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/pamercja/"
-                    }
-                ]
-            },
-            {
-                nick: "Banio",
-                discord: "b4gni4k",
-                posX: 4,
-                posY: -2.8,
-                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
-                description: "Brak opisu.",
-                views: "Brak danych",
-                roles: [
-                    {
-                        name: "Konfederacja Montecydyjska",
-                        icon: "https://i.ibb.co/GfTpfjXT/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/montecydia/"
-                    }
-                ]
-            },
-            {
-                nick: "SVH",
-                discord: "svh6296",
-                posX: 3.5,
-                posY: -4.6,
-                avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
-                description: "Brak opisu.",
-                views: "Brak danych",
-                roles: [
-                    {
-                        name: "Stany Zjednoczone Fangei",
-                        icon: "https://i.ibb.co/MD24NQkJ/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/stany_zjednoczone/"
-                    }
-                ]
-            },
-            {
-                nick: "Jasek",
-                discord: "jasekkkk",
-                posX: 3.5,
-                posY: -4.6,
-                avatar: "https://i.ibb.co/4ZPn65TZ/obraz-2025-05-12-115105711.png",
-                description: "Brak opisu.",
-                views: "Socjallibertarianizm, Cywilny libertarianizm, Transhumanizm, Piratyzm, Technoliberalizm, Demokracja bezpośrednia",
-                roles: [
-                    {
-                        name: "Księstwo Nowego Tuhalfu",
-                        icon: "https://i.ibb.co/G3d7bXw7/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/nowy_tuhalf/"
-                    },
-                    {
-                        name: "Królestwo Teranu",
-                        icon: "https://i.ibb.co/gbYrvbY3/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/teran/"
-                    },
-                    {
-                        name: "Nadmroczańska Republika Ludowa",
-                        icon: "https://i.ibb.co/nM7jJK2x/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/nadmrocze/"
-                    },
-                    {
-                        name: "Lendawska Republika Ludowo-Demokratyczna",
-                        icon: "https://i.ibb.co/kVRbTRTL/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/lendawia_północna/"
-                    },
-                    {
-                        name: "Republika Lendawii",
-                        icon: "https://i.ibb.co/392g9fzn/image.png",
-                        url: "https://grumqy.github.io/fangea/wiki/lendawia_południowa/"
-                    }
-                ]
-            },
-        ];
-
-    function initPins() {
-        const container = document.getElementById('compassContainer');
-        
-        users.forEach(user => {
-            const pin = document.createElement('img');
-            pin.className = 'pin';
-            pin.src = user.avatar;
-            pin.style.left = `${(user.posX + 10) * 5}%`;
-            pin.style.top = `${(10 - user.posY) * 5}%`;
             
-            pin.onclick = (e) => {
-                e.stopPropagation();
-                showModal(user);
-            };
-
-            container.appendChild(pin);
-        });
-    }
-
-    function showModal(user) {
-        const overlay = document.getElementById('modalOverlay');
-        overlay.style.display = 'flex';
-        
-        setTimeout(() => {
-            overlay.classList.add('active');
-        }, 10);
-        
-        document.getElementById('modalProfile').src = user.avatar;
-        document.getElementById('modalTitle').textContent = user.nick;
-        document.getElementById('modalViews').textContent = user.views;
-        document.getElementById('modalDescription').textContent = user.description;
-        document.getElementById('modalDiscord').textContent = user.discord || '';
-        
-        const rolesContainer = document.getElementById('modalRoles');
-        rolesContainer.innerHTML = '';
-        user.roles.forEach(role => {
-            const roleElement = document.createElement('a');
-            roleElement.className = 'role-item';
-            roleElement.href = role.url;
-            roleElement.innerHTML = `
-                <img src="${role.icon}" class="role-icon" alt="Ikona roli">
-                ${role.name}
-            `;
-            rolesContainer.appendChild(roleElement);
-        });
-    }
-
-    function closeModal() {
-        const overlay = document.getElementById('modalOverlay');
-        overlay.classList.remove('active');
-        
-        setTimeout(() => {
-            overlay.style.display = 'none';
-        }, 300);
-    }
-
-    function updateHeaderHeight() {
-        const header = document.getElementById('pageheader');
-        if (header) {
-            document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+                <div id="modalOverlay" onclick="closeModal()">
+                    <div id="modalContent" onclick="event.stopPropagation()">
+                        <img id="modalProfile" class="modal-profile" src="" alt="Profil">
+                        <div class="modal-header">
+                            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+                                <h2 id="modalTitle" style="margin: 0; color: var(--accent-color); font-weight: 600;"></h2>
+                                <small id="modalDiscord" style="color: #888; font-weight: 500;"></small>
+                            </div>                
+                            <div class="modal-roles" id="modalRoles"></div>
+                            <small style="color: #888; font-weight: 500;">Poglądy polityczne:</small>
+                            <div class="modal-views" id="modalViews"></div>
+                        </div>
+                        <p id="modalDescription" class="modal-description" style="font-weight: 400;"></p>
+                    </div>
+                </div>
+    
+        <script>
+            const users = [
+                {
+                    nick: "Boxin",
+                    discord: "boxin_",
+                    posX: 5.6,
+                    posY: 0.5,
+                    avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                    description: "Brak opisu.",
+                    views: "Brak danych",
+                    roles: [
+                        {
+                            name: "Republika Liwonii",
+                            icon: "https://i.ibb.co/cSfjhpsx/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/liwonia/"
+                        }
+                    ]
+                },
+                {
+                    nick: "Nataniel",
+                    discord: "nie_wiem_jakis_random_122",
+                    posX: -1.5,
+                    posY: 0.5,
+                    avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                    description: "Brak opisu.",
+                    views: "Brak danych",
+                    roles: [
+                        {
+                            name: "Republika Fankladonii",
+                            icon: "https://i.ibb.co/d0QVGGz3/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/fankladonia/"
+                        }
+                    ]
+                },
+                {
+                    nick: "Novites",
+                    discord: "novites",
+                    posX: -1,
+                    posY: 2.8,
+                    avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                    description: "Brak opisu.",
+                    views: "Brak danych",
+                    roles: [
+                        {
+                            name: "Republika Tuwalii",
+                            icon: "https://i.ibb.co/tMwpVDy9/obraz-2025-05-12-104534121.png",
+                            url: "https://grumqy.github.io/fangea/wiki/tuwalia/"
+                        }
+                    ]
+                },
+                {
+                    nick: "Vexon",
+                    discord: ".vexon.",
+                    posX: 1.6,
+                    posY: 1,
+                    avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                    description: "Brak opisu.",
+                    views: "Liberalizm gospodarczy, Kapitalizm, Nacjonalizm, Unitaryzm, Etatyzm",
+                    roles: [
+                        {
+                            name: "Iznotiańska Republika Demokratyczna",
+                            icon: "https://i.ibb.co/wNvFG2HT/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/iznotia/"
+                        },
+                        {
+                            name: "Republika Ebengradu",
+                            icon: "https://i.ibb.co/dvPBBnS/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/ebengrad/"
+                        },
+                        {
+                            name: "V Republika Atidalii",
+                            icon: "https://i.ibb.co/BVB84QMv/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/atidalia/"
+                        },
+                        {
+                            name: "Peczerska Republika Demokratyczna",
+                            icon: "https://i.ibb.co/rG6CP16W/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/peczeria_demokratyczna/"
+                        }
+                    ]
+                },
+                {
+                    nick: "Grumpy",
+                    discord: "grumpy5",
+                    posX: 3.2,
+                    posY: 2.3,
+                    avatar: "https://i.ibb.co/n8bnkkDD/image.png",
+                    description: "Główny zarządca Roleplay'u oraz właściciel serwera Discord. Zajmuję się szerokopojętą grafiką komputerową i to w niej spełniam się w naszym Roleplay'u – to ja stworzyłem większość flag, logo itp. na stronie. Odpowiadam również za niektóre scenerie w artykułach na wiki oraz dodałem kilka funkcji na naszej stronie. ",
+                    views: "Paleolibertarianizm, Kapitalizm, Tradycjonalizm",
+                    roles: [
+                        {
+                            name: "Republika Lemburska",
+                            icon: "https://i.ibb.co/8L7296Gy/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/lemburg/"
+                        }
+                    ]
+                },
+                {
+                    nick: "Lukasox",
+                    discord: "lukasox",
+                    posX: 2.4,
+                    posY: -2,
+                    avatar: "https://i.ibb.co/hGthdxW/obraz-2025-05-12-110716160.png",
+                    description: "Brak opisu.",
+                    views: "Liberalizm klasyczny, Kapitalizm, Leseferyzm, Globalizm, Federalizm",
+                    roles: [
+                        {
+                            name: "Rzeczpospolita Pamercja",
+                            icon: "https://i.ibb.co/msX76Z2/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/pamercja/"
+                        }
+                    ]
+                },
+                {
+                    nick: "Banio",
+                    discord: "b4gni4k",
+                    posX: 4,
+                    posY: -2.8,
+                    avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                    description: "Brak opisu.",
+                    views: "Brak danych",
+                    roles: [
+                        {
+                            name: "Konfederacja Montecydyjska",
+                            icon: "https://i.ibb.co/GfTpfjXT/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/montecydia/"
+                        }
+                    ]
+                },
+                {
+                    nick: "SVH",
+                    discord: "svh6296",
+                    posX: 3.5,
+                    posY: -4.6,
+                    avatar: "https://i.ibb.co/d4KfNnTD/obraz-2025-05-12-115841309.png",
+                    description: "Brak opisu.",
+                    views: "Brak danych",
+                    roles: [
+                        {
+                            name: "Stany Zjednoczone Fangei",
+                            icon: "https://i.ibb.co/MD24NQkJ/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/stany_zjednoczone/"
+                        }
+                    ]
+                },
+                {
+                    nick: "Jasek",
+                    discord: "jasekkkk",
+                    posX: 3.5,
+                    posY: -4.6,
+                    avatar: "https://i.ibb.co/4ZPn65TZ/obraz-2025-05-12-115105711.png",
+                    description: "Brak opisu.",
+                    views: "Socjallibertarianizm, Cywilny libertarianizm, Transhumanizm, Piratyzm, Technoliberalizm, Demokracja bezpośrednia",
+                    roles: [
+                        {
+                            name: "Księstwo Nowego Tuhalfu",
+                            icon: "https://i.ibb.co/G3d7bXw7/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/nowy_tuhalf/"
+                        },
+                        {
+                            name: "Królestwo Teranu",
+                            icon: "https://i.ibb.co/gbYrvbY3/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/teran/"
+                        },
+                        {
+                            name: "Nadmroczańska Republika Ludowa",
+                            icon: "https://i.ibb.co/nM7jJK2x/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/nadmrocze/"
+                        },
+                        {
+                            name: "Lendawska Republika Ludowo-Demokratyczna",
+                            icon: "https://i.ibb.co/kVRbTRTL/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/lendawia_północna/"
+                        },
+                        {
+                            name: "Republika Lendawii",
+                            icon: "https://i.ibb.co/392g9fzn/image.png",
+                            url: "https://grumqy.github.io/fangea/wiki/lendawia_południowa/"
+                        }
+                    ]
+                },
+            ];
+    
+        function initPins() {
+            const container = document.getElementById('compassContainer');
+            
+            users.forEach(user => {
+                const pin = document.createElement('img');
+                pin.className = 'pin';
+                pin.src = user.avatar;
+                pin.style.left = `${(user.posX + 10) * 5}%`;
+                pin.style.top = `${(10 - user.posY) * 5}%`;
+                
+                pin.onclick = (e) => {
+                    e.stopPropagation();
+                    showModal(user);
+                };
+    
+                container.appendChild(pin);
+            });
         }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        updateHeaderHeight();
-        initPins();
-        
-        const observer = new MutationObserver(updateHeaderHeight);
-        const header = document.getElementById('pageheader');
-        if (header) {
-            observer.observe(header, { childList: true, subtree: true });
+    
+        function showModal(user) {
+            const overlay = document.getElementById('modalOverlay');
+            overlay.style.display = 'flex';
+            
+            setTimeout(() => {
+                overlay.classList.add('active');
+            }, 10);
+            
+            document.getElementById('modalProfile').src = user.avatar;
+            document.getElementById('modalTitle').textContent = user.nick;
+            document.getElementById('modalViews').textContent = user.views;
+            document.getElementById('modalDescription').textContent = user.description;
+            document.getElementById('modalDiscord').textContent = user.discord || '';
+            
+            const rolesContainer = document.getElementById('modalRoles');
+            rolesContainer.innerHTML = '';
+            user.roles.forEach(role => {
+                const roleElement = document.createElement('a');
+                roleElement.className = 'role-item';
+                roleElement.href = role.url;
+                roleElement.innerHTML = `
+                    <img src="${role.icon}" class="role-icon" alt="Ikona roli">
+                    ${role.name}
+                `;
+                rolesContainer.appendChild(roleElement);
+            });
         }
-    });
+    
+        function closeModal() {
+            const overlay = document.getElementById('modalOverlay');
+            overlay.classList.remove('active');
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300);
+        }
+    
+        function updateHeaderHeight() {
+            const header = document.getElementById('pageheader');
+            if (header) {
+                document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+            }
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            updateHeaderHeight();
+            initPins();
+            
+            const observer = new MutationObserver(updateHeaderHeight);
+            const header = document.getElementById('pageheader');
+            if (header) {
+                observer.observe(header, { childList: true, subtree: true });
+            }
+        });
 
     window.addEventListener('resize', updateHeaderHeight);
     </script>
