@@ -11,8 +11,8 @@
     <meta name="description" content="Kompas polityczny członków naszego Roleplay'u.">
     <meta property="og:description" content="Kompas polityczny członków naszego Roleplay'u.">
     <meta name="twitter:description" content="Kompas polityczny członków naszego Roleplay'u.">
-    <meta property="og:image" content="https://i.ibb.co/84CqrhX/obraz-2024-06-10-181542049.png">
-    <meta name="twitter:image" content="https://i.ibb.co/84CqrhX/obraz-2024-06-10-181542049.png">
+    <meta property="og:image" content="https://i.ibb.co/Hfx76JdG/kompas.png">
+    <meta name="twitter:image" content="https://i.ibb.co/Hfx76JdG/kompas.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -192,23 +192,60 @@
                 margin: 10px;
             }
         }
+        .modal-roles {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 12px 0;
+        }
+
+        .role-item {
+            background: #1b2a36;
+            border-radius: 15px;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .role-item:hover {
+            transform: scale(1.05);
+            background: #22303c;
+        }
+
+        .role-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+        .modal-views {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
-    <header id="pageheader">
-    </header>
+<header id="pageheader">
+</header>
 
-    <div id="wrapper">
-        <div id="compassContainer"></div>
-    </div>
+<div id="wrapper">
+    <div id="compassContainer"></div>
+</div>
 
     <div id="modalOverlay" onclick="closeModal()">
         <div id="modalContent" onclick="event.stopPropagation()">
             <img id="modalProfile" class="modal-profile" src="" alt="Profil">
             <div class="modal-header">
                 <h2 id="modalTitle" style="margin: 0 0 5px 0; color: var(--accent-color); font-weight: 600;"></h2>
-                <small style="color: #888; font-weight: 500;">Polityczny kompas:</small>
-                <div id="modalCoordinates" style="color: var(--accent-color); font-weight: 500;"></div>
+                <div class="modal-roles" id="modalRoles"></div>
+                <small style="color: #888; font-weight: 500;">Poglądy polityczne:</small>
+                <div class="modal-views" id="modalViews"></div>
             </div>
             <p id="modalDescription" class="modal-description" style="font-weight: 400;"></p>
         </div>
@@ -218,13 +255,204 @@
         const users = [
             {
                 nick: "Boxin",
-                posX: 2,
-                posY: -3,
+                posX: 5.6,
+                posY: 0.5,
                 avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
-                description: "Przykładowy opis użytkownika"
+                description: "Boxinek kogama lubi touhou uwu owo hej kogama odpisz mi ",
+                views: "Anarchokapitalizm",
+                roles: [
+                    {
+                        name: "Republika Liwonii",
+                        icon: "https://i.ibb.co/cSfjhpsx/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/liwonia/"
+                    }
+                ]
             },
-            // Tutaj możesz dodać więcej użytkowników
+            {
+                nick: "Nataniel",
+                posX: -1.5,
+                posY: 0.5,
+                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
+                description: "Przykładowy opis.",
+                views: "Super pogląd",
+                roles: [
+                    {
+                        name: "Republika Fankladonii",
+                        icon: "https://i.ibb.co/d0QVGGz3/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/fankladonia/"
+                    }
+                ]
+            },
+            {
+                nick: "Atosbos",
+                posX: -1,
+                posY: 2.8,
+                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
+                description: "Przykładowy opis.",
+                views: "Super pogląd",
+                roles: [
+                    {
+                        name: "Republika Tuwalii",
+                        icon: "https://grumqy.github.io/fangea/images/icons/opposition.png",
+                        url: "https://grumqy.github.io/fangea/wiki/tuwalia/"
+                    }
+                ]
+            },
+            {
+                nick: "Vexon",
+                posX: 1.6,
+                posY: 1,
+                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
+                description: "Przykładowy opis.",
+                views: "Socjaldemokracja, Reformizm, Ekologia",
+                roles: [
+                    {
+                        name: "Iznotiańska Republika Demokratyczna",
+                        icon: "https://i.ibb.co/wNvFG2HT/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/iznotia/"
+                    },
+                    {
+                        name: "Republika Ebengradu",
+                        icon: "https://i.ibb.co/dvPBBnS/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/ebengrad/"
+                    },
+                    {
+                        name: "V Republika Atidalii",
+                        icon: "https://i.ibb.co/BVB84QMv/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/atidalia/"
+                    },
+                    {
+                        name: "Peczerska Republika Demokratyczna",
+                        icon: "https://i.ibb.co/rG6CP16W/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/peczeria_demokratyczna/"
+                    }
+                ]
+            },
+            {
+                nick: "Grumpy",
+                posX: 3.2,
+                posY: 2.3,
+                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
+                description: "Przykładowy opis.",
+                views: "Super pogląd",
+                roles: [
+                    {
+                        name: "Republika Lemburska",
+                        icon: "https://i.ibb.co/8L7296Gy/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/lemburg/"
+                    }
+                ]
+            },
+            {
+                nick: "Lukasox",
+                posX: 2.4,
+                posY: -2,
+                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
+                description: "Przykładowy opis.",
+                views: "Super pogląd",
+                roles: [
+                    {
+                        name: "Rzeczpospolita Pamercja",
+                        icon: "https://i.ibb.co/msX76Z2/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/pamercja/"
+                    }
+                ]
+            },
+            {
+                nick: "Banio",
+                posX: 4,
+                posY: -2.8,
+                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
+                description: "Przykładowy opis.",
+                views: "Super pogląd",
+                roles: [
+                    {
+                        name: "Konfederacja Montecydyjska",
+                        icon: "https://i.ibb.co/GfTpfjXT/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/montecydia/"
+                    }
+                ]
+            },
+            {
+                nick: "SVH",
+                posX: 3.5,
+                posY: -4.6,
+                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
+                description: "Przykładowy opis.",
+                views: "Super pogląd",
+                roles: [
+                    {
+                        name: "Stany Zjednoczone Fangei",
+                        icon: "https://i.ibb.co/MD24NQkJ/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/stany_zjednoczone/"
+                    }
+                ]
+            },
+            {
+                nick: "Jasek",
+                posX: 3.5,
+                posY: -4.6,
+                avatar: "https://i.ebayimg.com/images/g/REcAAOSwkApfbIGQ/s-l960.webp",
+                description: "Przykładowy opis.",
+                views: "Super pogląd",
+                roles: [
+                    {
+                        name: "Księstwo Nowego Tuhalfu",
+                        icon: "https://i.ibb.co/G3d7bXw7/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/nowy_tuhalf/"
+                    },
+                    {
+                        name: "Królestwo Teranu",
+                        icon: "https://i.ibb.co/gbYrvbY3/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/teran/"
+                    },
+                    {
+                        name: "Nadmroczańska Republika Ludowa",
+                        icon: "https://i.ibb.co/nM7jJK2x/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/nadmrocze/"
+                    },
+                    {
+                        name: "Lendawska Republika Ludowo-Demokratyczna",
+                        icon: "https://i.ibb.co/gbYrvbY3/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/lendawia_północna/"
+                    },
+                    {
+                        name: "Republika Lendawii",
+                        icon: "https://i.ibb.co/392g9fzn/image.png",
+                        url: "https://grumqy.github.io/fangea/wiki/lendawia_południowa/"
+                    }
+                ]
+            },
         ];
+
+        function showModal(user) {
+            const overlay = document.getElementById('modalOverlay');
+            overlay.style.display = 'flex';
+            
+            setTimeout(() => {
+                overlay.classList.add('active');
+            }, 10);
+            
+            // Aktualizacja zawartości modala
+            document.getElementById('modalProfile').src = user.avatar;
+            document.getElementById('modalTitle').textContent = user.nick;
+            document.getElementById('modalViews').textContent = user.views;
+            document.getElementById('modalDescription').textContent = user.description;
+            
+            // Generowanie ról
+            const rolesContainer = document.getElementById('modalRoles');
+            rolesContainer.innerHTML = '';
+            user.roles.forEach(role => {
+                const roleElement = document.createElement('a');
+                roleElement.className = 'role-item';
+                roleElement.href = role.url;
+                roleElement.innerHTML = `
+                    <img src="${role.icon}" class="role-icon" alt="Ikona roli">
+                    ${role.name}
+                `;
+                rolesContainer.appendChild(roleElement);
+            });
+        }
 
         function initPins() {
             const container = document.getElementById('compassContainer');
@@ -288,6 +516,5 @@
 
         window.addEventListener('resize', updateHeaderHeight);
     </script>
-    <script src="/fangea/pageheader.js"></script>
 </body>
 </html>
