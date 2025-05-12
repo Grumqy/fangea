@@ -22,6 +22,18 @@
     <link rel="stylesheet" href="/fangea/style.css" />
     <script src="https://kit.fontawesome.com/533593bc84.js" crossorigin="anonymous"></script>
     <style>
+        @keyframes logo-entrance {
+            from{
+            transform: translate(-50%, -50%) scale(2);
+            filter: blur(3px);
+            opacity: 0;
+            }
+            to{
+            transform: translate(-50%, -50%) scale(1);
+            filter: blur(0);
+            opacity: 1;      
+            }
+        }
         :root {
             --bg-color: #101920;
             --accent-color: #ffffff;
@@ -228,30 +240,31 @@
         }
     </style>
 </head>
+    
 <body>
-<header id="pageheader">
-</header>
+    <header id="pageheader">
+    </header>
 
-<div id="wrapper">
-    <div id="compassContainer"></div>
-</div>
-
-    <div id="modalOverlay" onclick="closeModal()">
-        <div id="modalContent" onclick="event.stopPropagation()">
-            <img id="modalProfile" class="modal-profile" src="" alt="Profil">
-            <div class="modal-header">
-                <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
-                    <h2 id="modalTitle" style="margin: 0; color: var(--accent-color); font-weight: 600;"></h2>
-                    <small id="modalDiscord" style="color: #888; font-weight: 500;"></small>
-                </div>                
-                <div class="modal-roles" id="modalRoles"></div>
-                <small style="color: #888; font-weight: 500;">Poglądy polityczne:</small>
-                <div class="modal-views" id="modalViews"></div>
-            </div>
-            <p id="modalDescription" class="modal-description" style="font-weight: 400;"></p>
+        <div id="wrapper">
+            <div id="compassContainer"></div>
         </div>
-    </div>
-    <script src="pageheader.js"></script>
+        
+            <div id="modalOverlay" onclick="closeModal()">
+                <div id="modalContent" onclick="event.stopPropagation()">
+                    <img id="modalProfile" class="modal-profile" src="" alt="Profil">
+                    <div class="modal-header">
+                        <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+                            <h2 id="modalTitle" style="margin: 0; color: var(--accent-color); font-weight: 600;"></h2>
+                            <small id="modalDiscord" style="color: #888; font-weight: 500;"></small>
+                        </div>                
+                        <div class="modal-roles" id="modalRoles"></div>
+                        <small style="color: #888; font-weight: 500;">Poglądy polityczne:</small>
+                        <div class="modal-views" id="modalViews"></div>
+                    </div>
+                    <p id="modalDescription" class="modal-description" style="font-weight: 400;"></p>
+                </div>
+            </div>
+
     <script>
         const users = [
             {
@@ -511,5 +524,6 @@
 
     window.addEventListener('resize', updateHeaderHeight);
     </script>
+    <script src="pageheader.js"></script>
 </body>
 </html>
