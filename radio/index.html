@@ -301,6 +301,12 @@
         main #radio-list ul a.genre_indierock{
            display: contents; 
         }
+        ain #radio-list ul a.genre_punk{
+           display: contents; 
+        }
+        main #radio-list ul a.genre_emo{
+           display: contents; 
+        }
         main #radio-list ul a.genre_metal{
             display: contents; 
         }
@@ -443,7 +449,7 @@
     <div>Filtruj wg gatunku</div>
     <ul>
         <form>
-        <input type="checkbox" id="genre_all" class="checkbox_select_all" data-categories="genre_pop;genre_citypop;genre_electro;genre_hiphop;genre_breakbeat;genre_breakcore;genre_hardstyle;genre_nightcore;genre_randb;genre_lofi;genre_phonk;genre_opera;genre_country;genre_swing;genre_disco;genre_rock;genre_altrock;genre_indierock;genre_metal;genre_klasyczna;genre_info" checked>
+        <input type="checkbox" id="genre_all" class="checkbox_select_all" data-categories="genre_pop;genre_citypop;genre_electro;genre_hiphop;genre_breakbeat;genre_breakcore;genre_hardstyle;genre_nightcore;genre_randb;genre_lofi;genre_phonk;genre_opera;genre_country;genre_swing;genre_disco;genre_rock;genre_altrock;genre_indierock;genre_punk;genre_emo;genre_metal;genre_klasyczna;genre_info" checked>
         <input type="checkbox" id="genre_pop" checked>
         <input type="checkbox" id="genre_citypop" checked>
         <input type="checkbox" id="genre_electro" checked>
@@ -462,6 +468,8 @@
         <input type="checkbox" id="genre_rock" checked>
         <input type="checkbox" id="genre_altrock" checked>
         <input type="checkbox" id="genre_indierock" checked>
+        <input type="checkbox" id="genre_punk" checked>
+        <input type="checkbox" id="genre_emo" checked>
         <input type="checkbox" id="genre_metal" checked>
         <input type="checkbox" id="genre_klasyczna" checked>
         <input type="checkbox" id="genre_info" checked>
@@ -522,6 +530,12 @@
         </label>
         <label for="genre_indierock" class="active">
             <li>Indie Rock</li>
+        </label>
+        <label for="genre_punk" class="active">
+            <li>Punk Rock</li>
+        </label>
+        <label for="genre_emo" class="active">
+            <li>Emo</li>
         </label>
         <label for="genre_metal" class="active">
             <li>Metal</li>
@@ -600,6 +614,12 @@
                     <li>
                         <img src="https://i.ibb.co/nNn1YK3c/sigma-radio-Obszar-roboczy-1.png">
                         <span>Sigma Radio</span>
+                    </li>  
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLXOsc_dJNyeVYzBcaHUdgInzOn_U7mHUQ" class="lang_en genre_rock genre_altrock genre_emo genre_punk loc_stanyzjednoczone">
+                    <li>
+                        <img src="https://i.ibb.co/pvqX72J0/8080-i-rebel-Obszar-roboczy-1.png">
+                        <span>-80/80</span>
                     </li>  
                 </a>
         </ul>
