@@ -32,9 +32,9 @@
       z-index: 1;
     }
 
-    /* Sam widget */
+    /* Widget */
     .fangea-widget {
-      position: absolute;
+      position: relative; /* zmiana z absolute na relative */
       right: -260px;
       width: 300px;
       background: rgb(27, 38, 47);
@@ -46,7 +46,6 @@
       z-index: 2;
     }
 
-    /* Kiedy kontener jest na hoverze, wysuwamy widget */
     .fangea-container:hover .fangea-widget {
       right: 0;
     }
@@ -104,7 +103,6 @@
 // @grant        none
 // ==/UserScript==
 
-// Tutaj dodaj właściwą logikę stylizacji odtwarzacza
 console.log("Fangea Rich Player aktywowany");`;
 
       navigator.clipboard.writeText(code).then(() => {
