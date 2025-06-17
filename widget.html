@@ -21,27 +21,26 @@ body {
   position: fixed;
   bottom: 20px;
   right: 0;
-  width: 320px;
+  width: 340px;
   height: auto;
   z-index: 99999;
 }
 
 .fangea-widget {
   position: relative;
-  right: -280px; /* 300px szerokości - 20px uchwytu = -280px */
-  width: 300px;
+  right: -300px; /* 320px szerokości - 20px uchwytu */
+  width: 320px;   /* zwiększona szerokość widgetu */
   background: rgb(27, 38, 47);
   color: white;
   border-radius: 16px 0 0 16px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   padding: 20px;
-  padding-right: 60px; /* Dodatkowa przestrzeń po prawej */
   transition: right 0.3s ease;
   z-index: 2;
-  font-family: 'Montserrat', 'Montserrat Alternates', Arial, sans-serif; /* na wszelki wypadek */
+  font-family: 'Montserrat', 'Montserrat Alternates', Arial, sans-serif;
 }
 
-/* Wysunięcie tylko gdy NAJEDZIESZ na sam widget */
+/* Wysunięcie przy hoverze */
 .fangea-widget:hover {
   right: 0;
 }
