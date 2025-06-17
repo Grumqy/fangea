@@ -16,8 +16,8 @@
     right: 0;
     width: 320px;
     height: auto;
-    z-index: 99999;
-    pointer-events: none; /* kontener nie przeszkadza myszce */
+    z-index: 10;
+    pointer-events: none;
   }
 
   .fangea-widget {
@@ -48,7 +48,6 @@
     pointer-events: auto;
   }
 
-  /* Wysunięcie widgetu tylko jeśli najechano na "wystającą część" */
   .fangea-tab:hover + .fangea-widget,
   .fangea-widget:hover {
     right: 0;
@@ -84,7 +83,7 @@
 
 
 <div class="fangea-container">
-  <div class="fangea-tab"></div> <!-- wystająca część -->
+  <div class="fangea-tab"></div>
   <div class="fangea-widget">
     <div class="fangea-content">
       <p>Aby w pełni zanurzyć się w doświadczenie słuchania naszych stacji radiowych, dodaj do swojej przeglądarki rozszerzenie <strong>Fangea Rich Player</strong>!</p>
