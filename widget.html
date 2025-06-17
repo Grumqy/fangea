@@ -1,101 +1,75 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: transparent;
-      font-family: Arial, sans-serif;
-    }
+<style>
+  .fangea-container {
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    width: 320px;
+    height: auto;
+    z-index: 99999;
+  }
 
-    /* Kontener obejmujący widget i strefę aktywacji */
-    .fangea-container {
-      position: fixed;
-      bottom: 20px;
-      right: 0;
-      width: 320px;
-      height: auto;
-      z-index: 99999;
-    }
+  .fangea-widget {
+    position: relative;
+    right: -280px; /* 300px szerokości - 20px uchwytu = -280px */
+    width: 300px;
+    background: rgb(27, 38, 47);
+    color: white;
+    border-radius: 16px 0 0 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 2;
+  }
 
-    /* Niewidzialna strefa po prawej */
-    .fangea-hover-area {
-      position: absolute;
-      top: 0;
-      right: -20px;
-      width: 40px;
-      height: 100%;
-      background: transparent;
-      z-index: 1;
-    }
+  /* Wysunięcie tylko gdy NAJEDZIESZ na sam widget */
+  .fangea-widget:hover {
+    right: 0;
+  }
 
-    /* Widget */
-    .fangea-widget {
-      position: relative; /* zmiana z absolute na relative */
-      right: -280px;
-      width: 300px;
-      background: rgb(27, 38, 47);
-      color: white;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-      padding: 20px;
-      transition: right 0.3s ease;
-      z-index: 2;
-    }
+  .fangea-content {
+    font-size: 14px;
+    text-align: left;
+    line-height: 1.5;
+  }
 
-    .fangea-container:hover .fangea-widget {
-      right: 10px;
-    }
+  .fangea-content ul {
+    padding-left: 18px;
+    margin: 10px 0;
+  }
 
-    .fangea-content {
-      font-size: 14px;
-      text-align: left;
-      line-height: 1.5;
-    }
+  .fangea-content li {
+    margin-bottom: 6px;
+  }
 
-    .fangea-content ul {
-      padding-left: 18px;
-      margin: 10px 0;
-    }
+  .fangea-content a {
+    color: #658aad;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-    .fangea-content li {
-      margin-bottom: 6px;
-    }
+  .fangea-content a:hover {
+    text-decoration: underline;
+  }
+</style>
 
-    .fangea-content a {
-      color: #658aad;
-      font-weight: bold;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .fangea-content a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <div class="fangea-container">
-    <div class="fangea-hover-area"></div>
-    <div class="fangea-widget">
-      <div class="fangea-content">
-        <p>Aby w pełni zanurzyć się w doświadczenie słuchania naszych stacji radiowych, dodaj do swojej przeglądarki rozszerzenie <strong>Fangea Rich Player</strong>!</p>
-        <ul>
-          <li>Zainstaluj <a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> na swojej przeglądarce.</li>
-          <li>Skopiuj nasz gotowy <a onclick="copyScript()">skrypt</a>.</li>
-          <li>Wklej go jako nową regułę w Tampermonkey.</li>
-        </ul>
-        <p>Odtwarzacze YouTube w naszych playlistach zyskają nowy, radiowy wygląd!</p>
-      </div>
+<div class="fangea-container">
+  <div class="fangea-widget">
+    <div class="fangea-content">
+      <p>Aby w pełni zanurzyć się w doświadczenie słuchania naszych stacji radiowych, dodaj do swojej przeglądarki rozszerzenie <strong>Fangea Rich Player</strong>!</p>
+      <ul>
+        <li>Zainstaluj <a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> na swojej przeglądarce.</li>
+        <li>Skopiuj nasz gotowy <a onclick="copyScript()">skrypt</a>.</li>
+        <li>Wklej go jako nową regułę w Tampermonkey.</li>
+      </ul>
+      <p>Odtwarzacze YouTube w naszych playlistach zyskają nowy, radiowy wygląd!</p>
     </div>
   </div>
+</div>
 
-  <script>
-    function copyScript() {
-      const code = `// ==UserScript==
+<script>
+  function copyScript() {
+    const code = `// ==UserScript==
 // @name         Fangea Rich Player
 // @version      1.0
 // @description  Lepszy wygląd odtwarzacza radiowego!
@@ -105,12 +79,10 @@
 
 console.log("Fangea Rich Player aktywowany");`;
 
-      navigator.clipboard.writeText(code).then(() => {
-        alert("Skrypt został skopiowany do schowka!");
-      }).catch(err => {
-        alert("Nie udało się skopiować skryptu: " + err);
-      });
-    }
-  </script>
-</body>
-</html>
+    navigator.clipboard.writeText(code).then(() => {
+      alert("Skrypt został skopiowany do schowka!");
+    }).catch(err => {
+      alert("Nie udało się skopiować skryptu: " + err);
+    });
+  }
+</script>
