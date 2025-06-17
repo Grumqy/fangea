@@ -10,58 +10,68 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 <style>
-  .fangea-container {
-    position: fixed;
-    bottom: 20px;
-    right: 0;
-    width: 320px;
-    height: auto;
-    z-index: 99999;
-  }
+body {
+  font-family: 'Montserrat', 'Montserrat Alternates', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
 
-  .fangea-widget {
-    position: relative;
-    right: -280px; /* 300px szerokości - 20px uchwytu = -280px */
-    width: 300px;
-    background: rgb(27, 38, 47);
-    color: white;
-    border-radius: 16px 0 0 16px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    padding: 20px;
-    transition: right 0.3s ease;
-    z-index: 2;
-  }
+.fangea-container {
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+  width: 320px;
+  height: auto;
+  z-index: 99999;
+}
 
-  /* Wysunięcie tylko gdy NAJEDZIESZ na sam widget */
-  .fangea-widget:hover {
-    right: 0;
-  }
+.fangea-widget {
+  position: relative;
+  right: -280px; /* 300px szerokości - 20px uchwytu = -280px */
+  width: 300px;
+  background: rgb(27, 38, 47);
+  color: white;
+  border-radius: 16px 0 0 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  padding-right: 30px; /* Dodatkowa przestrzeń po prawej */
+  transition: right 0.3s ease;
+  z-index: 2;
+  font-family: 'Montserrat', 'Montserrat Alternates', Arial, sans-serif; /* na wszelki wypadek */
+}
 
-  .fangea-content {
-    font-size: 14px;
-    text-align: left;
-    line-height: 1.5;
-  }
+/* Wysunięcie tylko gdy NAJEDZIESZ na sam widget */
+.fangea-widget:hover {
+  right: 0;
+}
 
-  .fangea-content ul {
-    padding-left: 18px;
-    margin: 10px 0;
-  }
+.fangea-content {
+  font-size: 14px;
+  text-align: left;
+  line-height: 1.5;
+}
 
-  .fangea-content li {
-    margin-bottom: 6px;
-  }
+.fangea-content ul {
+  padding-left: 18px;
+  margin: 10px 0;
+}
 
-  .fangea-content a {
-    color: #658aad;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.fangea-content li {
+  margin-bottom: 6px;
+}
 
-  .fangea-content a:hover {
-    text-decoration: underline;
-  }
+.fangea-content a {
+  color: #658aad;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fangea-content a:hover {
+  text-decoration: underline;
+}
+
 </style>
 
 <div class="fangea-container">
