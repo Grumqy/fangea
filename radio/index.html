@@ -389,7 +389,6 @@
 </head>
 
 <body>
-    <iframe src="widget.html" style="position: fixed; bottom: 0; right: 0; width: 350px; height: 350px; border: none; z-index: 99999; background: transparent;" scrolling="no"></iframe>
     <header id="pageheader">
     </header>
     <main class="radio">
@@ -693,6 +692,17 @@ function filterRadioStations(){
 
     </script>
     <script src="/fangea/pageheader.js"></script>
+    <script>
+  fetch('fangea-widget.html')
+    .then(res => res.text())
+    .then(html => {
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = html;
+      document.body.appendChild(wrapper);
+    })
+    .catch(err => console.error('Błąd ładowania widgetu Fangea:', err));
+</script>
+
 </body>
 
 </html>
