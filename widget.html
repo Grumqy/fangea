@@ -11,22 +11,44 @@
       font-family: Arial, sans-serif;
     }
 
-    .fangea-widget {
+    /* Kontener obejmujący widget i strefę aktywacji */
+    .fangea-container {
       position: fixed;
       bottom: 20px;
-      right: -280px;
+      right: 0;
+      width: 320px;
+      height: auto;
+      z-index: 99999;
+    }
+
+    /* Niewidzialna strefa po prawej */
+    .fangea-hover-area {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 100%;
+      background: transparent;
+      z-index: 1;
+    }
+
+    /* Sam widget */
+    .fangea-widget {
+      position: absolute;
+      right: -260px;
       width: 300px;
       background: rgb(27, 38, 47);
       color: white;
       border-radius: 16px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-      z-index: 99999;
       padding: 20px;
       transition: right 0.3s ease;
+      z-index: 2;
     }
 
-    .fangea-widget:hover {
-      right: 20px;
+    /* Kiedy kontener jest na hoverze, wysuwamy widget */
+    .fangea-container:hover .fangea-widget {
+      right: 0;
     }
 
     .fangea-content {
@@ -57,15 +79,18 @@
   </style>
 </head>
 <body>
-  <div class="fangea-widget">
-    <div class="fangea-content">
-      <p>Aby w pełni zanurzyć się w doświadczenie słuchania naszych stacji radiowych, dodaj do swojej przeglądarki rozszerzenie <strong>Fangea Rich Player</strong>!</p>
-      <ul>
-        <li>Zainstaluj <a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> na swojej przeglądarce.</li>
-        <li>Skopiuj nasz gotowy <a onclick="copyScript()">skrypt</a>.</li>
-        <li>Wklej go jako nową regułę w Tampermonkey.</li>
-      </ul>
-      <p>Odtwarzacze YouTube w naszych playlistach zyskają nowy, radiowy wygląd!</p>
+  <div class="fangea-container">
+    <div class="fangea-hover-area"></div>
+    <div class="fangea-widget">
+      <div class="fangea-content">
+        <p>Aby w pełni zanurzyć się w doświadczenie słuchania naszych stacji radiowych, dodaj do swojej przeglądarki rozszerzenie <strong>Fangea Rich Player</strong>!</p>
+        <ul>
+          <li>Zainstaluj <a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> na swojej przeglądarce.</li>
+          <li>Skopiuj nasz gotowy <a onclick="copyScript()">skrypt</a>.</li>
+          <li>Wklej go jako nową regułę w Tampermonkey.</li>
+        </ul>
+        <p>Odtwarzacze YouTube w naszych playlistach zyskają nowy, radiowy wygląd!</p>
+      </div>
     </div>
   </div>
 
