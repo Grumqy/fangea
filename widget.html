@@ -527,10 +527,10 @@ document.getElementById('copy-script-link').addEventListener('click', function(e
   }, 500);
 })();`;
 
-  navigator.clipboard.writeText(code).then(() => {
-    alert("Skrypt został skopiowany do schowka!");
-  }).catch(err => {
-    alert("Nie udało się skopiować skryptu: " + err);
+  navigator.clipboard.writeText(code).then(function () {
+    alert('Skrypt został skopiowany do schowka!');
+  }).catch(function (err) {
+    alert('Nie udało się skopiować skryptu: ' + err);
   });
 });
 </script>
