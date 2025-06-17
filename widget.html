@@ -542,6 +542,19 @@ document.getElementById('copy-script-link').addEventListener('click', async func
     
     const success = document.execCommand('copy');
     document.body.removeChild(textarea);
+    
+    if (success) {
+    } else {
     }
+  } catch (error) {
+    showCodeModal(code);
+  }
 });
+
+function showFeedback(message, isSuccess) {
+  const feedback = document.createElement('div');
+  
+  document.body.appendChild(feedback);
+  setTimeout(() => feedback.remove(), 3000);
+}
 </script>
