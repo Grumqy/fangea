@@ -91,6 +91,7 @@ function simulateSearchResults(query) {
     { title: "Zaren", url: "https://grumqy.github.io/fangea/wiki/zaren" },
     { title: "Kanały telewizyjne w Pamercji", url: "https://grumqy.github.io/fangea/wiki/kanały_telewizyjne_w_pamercji" },
     { title: "TOP", url: "https://grumqy.github.io/fangea/wiki/top" },
+    { title: "Epsilon Interface Manager 5", url: "https://grumqy.github.io/fangea/wiki/epsilon_interface_manager_5" },
   ];
 
   const filteredArticles = articles.filter((article) =>
