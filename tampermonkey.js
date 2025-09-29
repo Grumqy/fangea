@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube → Fangea Rich Player
 // @namespace    http://tampermonkey.net/
-// @version      1.3.0
+// @version      1.3.1
 // @description  UI na wzór radia internetowego
 // @match        https://www.youtube.com/playlist?list*
 // @match        https://www.youtube.com/watch?*list*
@@ -89,6 +89,10 @@
      'PLgcUvx3vCvqjNnWnUmowSKpyZ8p_rvn8R': {
       title: 'Radio Pregolau International',
       thumb: 'https://i.ibb.co/8gzPv0mJ/radio-pregolau-Obszar-roboczy-1.png'
+    },
+     'PLQK-CIQhtz9MuofLjAn6bJrF1g15MreUH': {
+      title: "d'oro FM",
+      thumb: 'https://i.ibb.co/cKHBFVsG/doro-Obszar-roboczy-1.png'
     }
   };
 
