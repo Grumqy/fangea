@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube → Fangea Rich Player
 // @namespace    http://tampermonkey.net/
-// @version      1.2.0
+// @version      1.3.0
 // @description  UI na wzór radia internetowego
 // @match        https://www.youtube.com/playlist?list*
 // @match        https://www.youtube.com/watch?*list*
@@ -105,6 +105,41 @@
   // Zapisywanie stanu między utworami
   let isMuted = GM_getValue('fangeaMuted', false);
   let volume = GM_getValue('fangeaVolume', 0.5);
+
+  // Funkcja zmiany favicon i tytułu strony
+  function updatePageTitleAndFavicon() {
+    // Zmień tytuł strony
+    if (playlistTitle) {
+      document.title = playlistTitle;
+    }
+
+    // Zmień favicon na stałą ikonkę Fangea
+    const fangeaIcon = 'https://i.ibb.co/zhg4hT3Y/fangeapage.png';
+
+    // Usuń istniejące favicony
+    const existingFavicons = document.querySelectorAll('link[rel*="icon"]');
+    existingFavicons.forEach(favicon => favicon.remove());
+
+    // Dodaj nowy favicon
+    const favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.type = 'image/png';
+    favicon.href = fangeaIcon;
+    document.head.appendChild(favicon);
+
+    // Dodaj również jako shortcut icon dla lepszej kompatybilności
+    const shortcutIcon = document.createElement('link');
+    shortcutIcon.rel = 'shortcut icon';
+    shortcutIcon.type = 'image/png';
+    shortcutIcon.href = fangeaIcon;
+    document.head.appendChild(shortcutIcon);
+
+    // Dodaj jako apple-touch-icon dla urządzeń mobilnych
+    const appleTouchIcon = document.createElement('link');
+    appleTouchIcon.rel = 'apple-touch-icon';
+    appleTouchIcon.href = fangeaIcon;
+    document.head.appendChild(appleTouchIcon);
+  }
 
 
   // CSS - bez zmian
@@ -676,6 +711,8 @@
       return;
     }
 
+    // Zaktualizuj tytuł i favicon strony
+    updatePageTitleAndFavicon();
 
     const bg = document.createElement('div');
     bg.id = 'fangea-bg';
@@ -712,7 +749,7 @@
 
     const currentTitle = document.createElement('div');
     currentTitle.id = 'fangea-current-title';
-    currentTitle.textContent = 'Loading...';
+    currentTitle.textContent = 'Ładowanie...';
 
     currentTrack.appendChild(nowPlayingLabel);
     currentTrack.appendChild(currentTitle);
@@ -995,6 +1032,15 @@
         // Sprawdź czy nowy URL zawiera playlist
         const newListId = new URLSearchParams(location.search).get('list');
         if (newListId) {
+          // Zaktualizuj dane playlisty dla nowego URL
+          if (customPlaylists[newListId]) {
+            playlistTitle = customPlaylists[newListId].title;
+            playlistThumb = customPlaylists[newListId].thumb;
+          } else {
+            playlistTitle = 'Fangea Radio';
+            playlistThumb = '';
+          }
+
           setTimeout(() => {
             if (isScriptActive) {
               initScript();
